@@ -1,0 +1,140 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="NewSLHS.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        $(document).ready(function () {
+            $(".hamburger").click(function () {
+                $(".wrapper1").toggleClass("collapse2");
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+         <!--The Navigation Bar-->
+  <div class="wrapper1">
+    <div class="top-navbar">
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="top-menu">
+            <div class="logo"><img src="/Images/logo.png" width="50px"></div>
+            <ul>
+              <div class="dropdown">
+                <button class="dropbtn" style="margin: 0px"><asp:Label ID="usernameLb" runat="server"></asp:Label></button>
+              <div class="dropdown-content">
+                <a href="#">Profile</a>
+                <a href="Default.aspx">Logout</a>
+              </div>
+              </div>  
+            </ul>
+        </div>
+    </div>
+
+    <div class="sidebar1">
+        <ul>
+            <li><a href="/Homepage">
+                <span class="icon"><i class="fa fa-home iconMargin" aria-hidden="true" ></i></span>
+                <span class="title2">Homepage</span>
+            </a></li>
+            <li><a href="/Resources">
+                <span class="icon"><i class="iconify iconMargin" data-icon="fa-suitcase" aria-hidden="true"></i></span>
+                <span class="title2">Resources</span>
+            </a></li>
+            <li><a href="/Sessions">
+                <span class="icon"><i class="iconify iconMargin" data-icon="fa-list-alt" aria-hidden="true"></i></span>
+                <span class="title2">Sessions</span>
+            </a></li>
+            <li><a href="/Clients">
+                <span class="icon"><i class="iconify iconMargin" data-icon="fa-users" aria-hidden="true"></i></span>
+                <span class="title2">Clients</span>
+            </a></li>
+            <li><a href="/Students">
+                <span class="icon"><i class="iconify iconMargin" data-icon="fa-solid:book-reader" aria-hidden="true"></i></span> 
+                <span class="title2">Students</span>
+            </a></li>
+            <li><a href="/Reports">
+              <span class="icon"><i class="iconify iconMargin" data-icon="fa-bar-chart" aria-hidden="true"></i></span>
+              <span class="title2">Reports</span>
+          </a></li>
+              </ul>
+          
+               <!--Homepage nav-bar Calendar"-->
+               <div>           
+                <asp:ContentPlaceHolder ID="nav_calendar" runat="server">
+                </asp:ContentPlaceHolder>
+               </div>
+        </div>
+
+        <div class="main-container1">
+          
+           
+           <!--Other Pages Content-->
+           <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            
+            
+ 
+           </asp:ContentPlaceHolder>
+          
+
+            <!--footer-->
+            <div class="footer">
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer>
+            </div>
+          </div>
+
+    </form>
+</body>
+</html>
