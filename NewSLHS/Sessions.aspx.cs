@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SLHSClinic
+namespace NewSLHS
 {
     public partial class Sessions : System.Web.UI.Page
     {

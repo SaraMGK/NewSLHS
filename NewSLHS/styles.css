@@ -34,9 +34,7 @@
 }
 
 .footer {
-  /*  position: fixed;*/
-    text-align: left;
-   
+    text-align: left;   
 }
 
 .month {
@@ -52,9 +50,9 @@
 }
 
 .arrow-cal {
-    font-family: Arial Black;
+    font-family: Montserrat;
     color: aqua;
-    background-color:green;
+    background-color: green;
 }
 
 
@@ -86,7 +84,7 @@
 .table tr {
     padding: 10px;
     width: 90% !important;
-    font-family: "montserrat";
+    font-family: "Montserrat";
 }
 /* table border thickness, corners,  */
 .table {
@@ -166,11 +164,11 @@
     background-color: #3BA69E;
     border-radius: 19px;
     border: 1px solid #3BA69E;
-    width: 13%;
-    height: 25%;
+    width: 11%;
+    height: 5%;
     position: relative;
-    left: 83.8%;
-    top: 10%;
+    left: 85.69%;
+    top: 4.8%;
     color: white;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
@@ -229,13 +227,15 @@
 /*text font of the whole page*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
+@import url(//db.onlinewebfonts.com/c/d3eaca285f1c724d8103fb258adef616?family=ITC+Charter);
+
 * {
-/*    margin: 0 0 122px 0;
-*/    list-style: none;
+    /*    margin: 0 0 122px 0;
+*/ list-style: none;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 
 .wrapper1 {
@@ -374,6 +374,7 @@
         transition: all 0.3 ease;
         display: flex;
         flex-direction: column;
+        height: 100vh;
     }
 
         .wrapper1 .main-container1 .item {
@@ -616,6 +617,8 @@ tr {
     width: 97%;
     padding: 1%;
     overflow: hidden;
+/*    box-shadow: 2px 2px 9px 0px gray;
+*/    
 }
 
 .request-gridView td {
@@ -648,9 +651,9 @@ tr {
         transform: translateY(4px);
     }
 
-    .request-view-button:visited {
-        background-color: yellow;
-    }
+    /*.request-view-button:visited {*/
+/*        background-color: yellow;
+*/    /*}*/
 
 .icon-button {
     position: relative;
@@ -788,6 +791,90 @@ tr {
     border-color: transparent;
     border-radius: 20px;
     color: white;
-   margin-left: 5%;
-/**/}
+    margin-left: 5%;
+}
+
+/*Search Request Page*/
+
+.center-div {
+    margin: auto;
+    width: 90%;
+    text-align: center;
+    height: 100%;
+}
+.search-bar {
+    /*    background-color: #3BA69E;
+*/ border-radius: 10px 0 0 10px;
+    border: 1px solid transparent;
+    color: #888787;
+    min-width: 45%;
+    height: 40px;
+    padding: 5px;
+    margin: 0;
+}
+
+.search-button {
+    background-color: white;
+    border-radius: 15px;
+    border: 4px solid #E4F6F5;
+    width: 4.5%;
+    height: 48px;
+    color: #3BA69E;
+    margin: 0;
+    position: relative;
+    right: 1%;
+}
+
+/*Sessions List Page */
+.session-gridView {
+    border: 2pt solid transparent;
+    border-collapse: collapse;
+/**/    border-radius: 10px;
+    border-width: 2px;
+    width: 97%;
+    padding: 1%;
+/*    overflow: hidden;
+*/    /*    box-shadow: 2px 2px 9px 0px gray;
+*/
+}
+
+/*.session-gridView td {
+    padding: 2%;
+}
+
+.session-gridView th {
+    padding: 1%;
+}*/
+
+/*Resources List Page*/
+.search-div {
+    margin: auto;
+    width: 90%;
+    text-align: right;
+    height: 100%;
+}
+
+.small-search-bar {
+    border-radius: 8px 0 0 8px;
+    border: 1px solid transparent;
+    color: black;
+    min-width: 10%;
+    height: 25px;
+    padding: 5px;
+    margin: 0;
+    background-color: #e8e8e8;
+}
+
+.small-search-button {
+    background-color: #e8e8e8;
+    border-radius: 15px;
+    border: 4px solid white;
+    width: 4%;
+    height: 40px;
+    color: black;
+    margin: 0;
+    position: relative;
+    right: 1%;
+}
+
 

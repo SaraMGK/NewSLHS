@@ -11,17 +11,17 @@ namespace NewSLHS
 {
 
 
-    public partial class ModalTest
+    public partial class StudentDetails
     {
 
         /// <summary>
-        /// EntityDataSource1 control.
+        /// StudentGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
+        protected global::System.Web.UI.WebControls.GridView StudentGridView;
 
         /// <summary>
         /// StudentEntityDataSource control.
@@ -33,30 +33,12 @@ namespace NewSLHS
         protected global::System.Web.UI.WebControls.EntityDataSource StudentEntityDataSource;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// mm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-
-        /// <summary>
-        /// StudentDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList StudentDropDownList;
-
-        /// <summary>
-        /// ClientDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ClientDropDownList;
+        protected global::System.Web.UI.WebControls.Label mm;
     }
 }

@@ -167,49 +167,43 @@
                 <div class="type">
                   <label class="label1">Type</label>
                   <select class="option1">
-                    <option>Screening</option>
-                    <option>Assessment</option>
-                    <option>Treatment</option>
+                    <option value="  ">   </option>
+                    <option value="Screening">Screening</option>
+                    <option value="Assessment">Assessment</option>
+                    <option value="Treatment">Treatment</option>
                   </select>
                 </div>
 
                 <!--Room-->
                 <div class="type">
                   <label class="label1">Room</label>
-                  <select class="option1">
-                    <option>114</option>
-                    <option>115</option>
-                    <option>116</option>
-                  </select>
+                  <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="RoomDataSource" DataTextField="RoomNumber" DataValueField="RoomID" CssClass="option1"></asp:DropDownList>
+                  <asp:EntityDataSource ID="RoomDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Rooms" Select="it.[RoomID], it.[RoomNumber]"></asp:EntityDataSource>
                 </div>
 
                 <!--Appointment Status-->
                 <div class="type">
                   <label class="label1">Status</label>
                   <select class="option1">
-                   <option>114</option>
-                   <option>115</option>
-                   <option>116</option>
+                    <option value="">     </option>
+                    <option value="Unspecified">Unspecified</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Canceled by Therapist">Canceled by Therapist</option>
+                    <option value="Canceled by Client">Canceled by Client</option>
+                    <option value="No-Show">No-Show</option>
                   </select>
                 </div>
 
                 <!--Student-->
                 <div class="type">
                   <label class="label1">Student</label>
-                  <select class="option1">
-                   <option></option>
-                   <option></option>
-                   <option></option>
-                  </select>
+                  <asp:DropDownList ID="StudentDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="UserID" CssClass="option1"></asp:DropDownList>
                 </div>
                 
                 <!--Client-->
                  <div class="type">
                   <label class="label1">Client</label>
-                   <select class="option1">
-                    <option></option>
-                    <option></option>
-                   </select>
+                  <asp:DropDownList ID="ClientDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="ClientID" CssClass="option1"></asp:DropDownList>
                  </div>
 
                 <!--Start Time-->
@@ -226,10 +220,11 @@
 
                 <!--Repeat-->
                 <div class="type">
-                  <label class="label1">Student</label>
+                  <label class="label1">Repeat</label>
                     <select class="option1">
-                     <option>Weekly</option>
-                     <option>Never</option>
+                     <option value="">  </option>
+                     <option value="Weekly">Weekly</option>
+                     <option value="Never">Never</option>
                     </select>
                 </div>
 
@@ -255,7 +250,7 @@
 
             <!--Requests-->
             <div class="top1">  
-              <table class="table table-hover request" style="width: 400px; border-color:#8EE1DB">
+              <table class="table table-hover request" style="width: 450px; border-color:#8EE1DB">
                 <thead>
                     <th style="background-color:#8EE1DB; border-color: transparent;">Requests</th>
                 </thead>
@@ -267,7 +262,7 @@
               </table>  
               
               <!--Sessions-->
-              <table class="table table-hover session" style="width: 400px; border-color: #21948B">
+              <table class="table table-hover session" style="width: 450px; border-color: #21948B">
                 <thead>
                     <th style="background-color:#21948B;">Sessions</th>
                 </thead>

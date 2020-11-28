@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!--Header-->
+   <%-- --Header----%>
     <h1>Request Details</h1>
 
     <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="383px" AutoGenerateRows="False" DataSourceID="EntityDataSource1">
@@ -22,16 +22,17 @@
             <asp:QueryStringParameter DbType="Int32" DefaultValue="1" Name="x" QueryStringField="ResourceRequestID" />
         </WhereParameters>
     </asp:EntityDataSource>
-
-    <!-------------------------------------The Blue Div--------------------------------------->
+    
+    
+    <%---------------------------------------The Blue Div-----------------------------------------%>
     <div id="RequestDetailsDiv" class="div-border" runat="server">
     
-        <!------------ Edit Button Div------------->
+        <%-------------- Edit Button Div---------------%>
         <div class="edit-button-div">
             <button class="edit-button">Edit</button>
         </div>
 
-        <!----------------Image, Label & Info Div----------------->
+        <%------------------Image, Label & Info Div-------------------%>
         <div class="Image-info-div">
           
             <%------Image Div------%>
@@ -40,7 +41,7 @@
                 <img src="/Images/LetterM.png" alt="Resource Image" class="r-image"/>
              </div>
 
-             <!--Resource Name & Request ID Div----->
+                <%----Resource Name & Request ID Div-------%>
                 <div class="resource-name">
                     <label class="request-label">Resource Name</label>
                     <label class="request-label">Request ID</label>
@@ -50,24 +51,24 @@
             <%-------Info Div--------%>
             <div class="request-info">
                  
-                <!----Request Status------->
+                 <%----Request Status-------%>
                  <div>
                     <label class="info-label">Request Status</label>
                     <label class="request-input" style="border-color:transparent">Pending</label>
                  </div>
 
-                <!-----Issue Date------>
+                 <%-----Issue Date--------%>
                  <div>
                     <label class="info-label">Issue Date</label>
                     <input type="datetime-local" class="request-input">
                  </div>
-                <!----Return Date-------->
+                <%----Return Date--------%>
                  <div>
                     <label class="info-label">Return Date</label>
                     <input type="datetime-local" class="request-input">
                  </div>
 
-                 <!------Quantity-------->
+                 <%------Quantity--------%>
                  <div>
                     <label class="info-label">Quantity</label>
                     <input type="number" id="quantity" name="quantity" min="1" class="request-input" style="width:15%">
@@ -75,13 +76,13 @@
              </div>
             </div>
 
-            <!-----------Save/Cancel Buttons Div-------------->
+            <%-----------Save/Cancel Buttons Div--------------%>
             <div class="save-Cancel-button-div">
-
-                <!--------Save Div------->
+                
+                <%------Save Button-------%>
                 <button class="save-Cancel-button">Save</button>
              
-                <!--------Cancel Div------->
+                <%------Cancel Button-------%>
                 <button class="save-Cancel-button" style="background-color:#8EA7A5">Cancel</button>
                 
             </div>

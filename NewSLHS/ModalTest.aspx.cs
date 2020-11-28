@@ -13,20 +13,49 @@ namespace NewSLHS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            fillStudentDropDownList();
+            fillClientDropDownList();
+        }
+
+
+        protected void fillStudentDropDownList()
+        {
             SLHSClinicEntities db = new SLHSClinicEntities();
 
-            var datasource = from x in db.Students
-                             select new
-                             {
-                                 x.FirstName,
-                                 x.MiddleName,
-                                 DisplayField = String.Format(x.FirstName, x.MiddleName)
-                             };
+            List<CustomListItem> fullNameList;
 
-            StudentDropDownList.DataSource = datasource;
-            StudentDropDownList.DataValueField = "UserID";
-            StudentDropDownList.DataTextField = "DisplayField";
+            fullNameList = db.Students.Select(x => new CustomListItem
+            {
+                ID = x.UserID,
+                Text = x.FirstName + " " + x.MiddleName + " " + x.LastName
+            }).ToList();
+
+
+            StudentDropDownList.DataSource = fullNameList;
+            StudentDropDownList.DataTextField = "Text";
+            StudentDropDownList.DataValueField = "ID";
             StudentDropDownList.DataBind();
+        }
+
+
+        protected void fillClientDropDownList()
+        {
+            SLHSClinicEntities db = new SLHSClinicEntities();
+
+            List<CustomListItem> clientNameList;
+
+            clientNameList = db.Clients.Select(x => new CustomListItem
+            {
+                ID = x.ClientID,
+                Text = x.FirstName + " " + x.MiddleName + " " + x.LastName
+            }).ToList();
+
+
+            ClientDropDownList.DataSource = clientNameList;
+            ClientDropDownList.DataTextField = "Text";
+            ClientDropDownList.DataValueField = "ID";
+            ClientDropDownList.DataBind();
         }
     }
 }

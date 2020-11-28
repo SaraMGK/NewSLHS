@@ -27,5 +27,6 @@ namespace NewSLHS.DAL
         public System.TimeSpan StartTime { get; set; }
         public System.TimeSpan EndTime { get; set; }
         public decimal EvaluationScore { get; set; }
+        public int SessionID { get; set; }
     }
 }

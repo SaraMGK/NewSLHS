@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SLHSClinicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SLHSClinicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressID" />
@@ -815,6 +815,7 @@ warning 6002: The table/view 'SLHSClinic.dbo.Session_View' does not have a prima
             <PropertyRef Name="StartTime" />
             <PropertyRef Name="EndTime" />
             <PropertyRef Name="EvaluationScore" />
+            <PropertyRef Name="SessionID" />
           </Key>
           <Property Name="Client_FName" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Client_LName" Type="nvarchar" MaxLength="25" Nullable="false" />
@@ -829,6 +830,7 @@ warning 6002: The table/view 'SLHSClinic.dbo.Session_View' does not have a prima
           <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="EvaluationScore" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="SessionID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1660,7 +1662,8 @@ FROM [dbo].[Request_View] AS [Request_View]</DefiningQuery>
 [Session_View].[RoomNumber] AS [RoomNumber], 
 [Session_View].[StartTime] AS [StartTime], 
 [Session_View].[EndTime] AS [EndTime], 
-[Session_View].[EvaluationScore] AS [EvaluationScore]
+[Session_View].[EvaluationScore] AS [EvaluationScore], 
+[Session_View].[SessionID] AS [SessionID]
 FROM [dbo].[Session_View] AS [Session_View]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Student_View" EntityType="Self.Student_View" store:Type="Views" store:Schema="dbo">
@@ -1907,8 +1910,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Treatment_Progress" EntitySet="Treatment_Progress" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SLHSClinicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2788,6 +2790,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <PropertyRef Name="StartTime" />
             <PropertyRef Name="EndTime" />
             <PropertyRef Name="EvaluationScore" />
+            <PropertyRef Name="SessionID" />
           </Key>
           <Property Name="Client_FName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Client_LName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
@@ -2802,6 +2805,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="EvaluationScore" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="SessionID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Student_View">
           <Key>
@@ -4489,6 +4493,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySetMapping Name="Session_View">
             <EntityTypeMapping TypeName="SLHSClinicModel.Session_View">
               <MappingFragment StoreEntitySet="Session_View">
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
                 <ScalarProperty Name="Client_FName" ColumnName="Client_FName" />
                 <ScalarProperty Name="Client_LName" ColumnName="Client_LName" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />

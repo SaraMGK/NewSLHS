@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Resources.aspx.cs" Inherits="SLHSClinic.Resources" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Resources.aspx.cs" Inherits="NewSLHS.Resources" %>
 
 <%--<!DOCTYPE html>
 
@@ -92,19 +92,19 @@
                     <th style="background-color: #21948B;">   Resources</th>
                 </thead>
                 <tbody  class="colored-rows">
+
                  <tr onclick="location.href = '/Requests'"> 
-<%--                      <a href="/Requests"> --%>
-                        <td style="background-color: #F1FEFD; border-color: transparent;">View Request</td>
-<%--                    </a> --%>
+                   <td style="background-color: #F1FEFD; border-color: transparent;">View Request</td>
                  </tr>
 
-                  
-                  <tr>
+                  <tr onclick="location.href = '/ResourcesList'">
                     <td class="colored-rows" style="background-color: #C5F4F1; border-color: transparent;">View Resources</td>
                   </tr>
-                  <tr>
+
+                  <tr onclick="location.href = '/SearchResources'">
                     <td class="lastRow" style="background-color: #8EE1DB; border-color: transparent;">Search Resources</td>
                   </tr>
+
                  </tbody>
 
               </table>  

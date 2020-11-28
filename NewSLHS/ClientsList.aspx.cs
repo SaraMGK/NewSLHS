@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace NewSLHS
 {
-    public partial class Resources : System.Web.UI.Page
+    public partial class ClientsList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

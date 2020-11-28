@@ -5,7 +5,6 @@
     <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Rooms" Select="it.[RoomID], it.[RoomNumber]"></asp:EntityDataSource>
     <asp:EntityDataSource ID="StudentEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Students" Select="it.[UserID], it.[FirstName], it.[MiddleName], it.[LastName]" ></asp:EntityDataSource>
 
-    <asp:DropDownList ID="StudentDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="UserID" CssClass="option1"></asp:DropDownList>
 
      <button class="appointment-button" type="button" data-toggle="modal" data-target="#myModal">Client Name</button>
 
@@ -37,7 +36,6 @@
                 <div class="type">
                   <label class="label1">Room</label>
                    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="EntityDataSource1" DataTextField="RoomNumber" DataValueField="RoomID" CssClass="option1"></asp:DropDownList>
-
                 </div>
 
                 <!--Appointment Status-->
@@ -55,16 +53,13 @@
                 <!--Student-->
                 <div class="type">
                   <label class="label1">Student</label>
-                
+                  <asp:DropDownList ID="StudentDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="UserID" CssClass="option1"></asp:DropDownList>
                 </div>
                 
                 <!--Appointment Client-->
                  <div class="type">
-                  <label class="label1">Client</label>
-                   <select class="option1">
-                    <option></option>
-                    <option></option>
-                   </select>
+                    <label class="label1">Client</label>
+                    <asp:DropDownList ID="ClientDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="ClientID" CssClass="option1"></asp:DropDownList>
                  </div>
 
                 <!--Appointment Start Time-->

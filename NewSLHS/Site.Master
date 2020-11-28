@@ -26,6 +26,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//db.onlinewebfonts.com/c/d3eaca285f1c724d8103fb258adef616?family=ITC+Charter" rel="stylesheet" type="text/css"/>
     <script>
         $(document).ready(function () {
             $(".hamburger").click(function () {

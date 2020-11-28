@@ -16,7 +16,7 @@
             <asp:BoundField DataField="Status" HeaderText="Status" ReadOnly="True" SortExpression="Status" />
             <asp:BoundField DataField="RequestDateTime" HeaderText="Issue Date" ReadOnly="True" SortExpression="RequestDateTime" />
             <asp:CommandField ShowSelectButton="True" ButtonType="Button" ControlStyle-CssClass="request-view-button" SelectText="View" >
-<ControlStyle CssClass="request-view-button"></ControlStyle>
+            <ControlStyle CssClass="request-view-button"></ControlStyle>
             </asp:CommandField>
         </Columns>
         <EditRowStyle BackColor="#7C6F57" CssClass="request-gridView" />
