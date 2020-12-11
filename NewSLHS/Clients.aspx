@@ -12,7 +12,7 @@
                 </thead>
 
                 <tbody class="colored-rows">
-                  <tr>
+                  <tr onclick="location.href = '/ClientsList'">
                     <td class="lastRow" style="background-color: #F1FEFD; border-color: transparent;">View Clients List</td>
                   </tr>
                  </tbody>
