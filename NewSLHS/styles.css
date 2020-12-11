@@ -22,7 +22,8 @@
 .nav-cal {
     width: 90%;
     margin-left: 4%;
-    margin-top: 5%;
+    position: relative;
+    top: 75px;
 }
 
 .wrapper1.collapse2 .hide-cal {

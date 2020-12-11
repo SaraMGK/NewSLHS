@@ -131,7 +131,7 @@
             <div class="footer">
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - DAH SLHS Clinic</p>
             </footer>
             </div>
           </div>

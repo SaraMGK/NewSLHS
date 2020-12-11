@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Homepage" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Homepage.aspx.cs" Inherits="SLHSClinic.Homepage" %>
+﻿ <%@ Page Title="Homepage" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Homepage.aspx.cs" Inherits="SLHSClinic.Homepage" %>
 
 <%--<!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -156,7 +156,7 @@
                  <!-- Modal content-->
                 <div class="modal-content">
                 <div class="modal-header header" style="height: 2%; background-color: #d6ebea; padding: 0px;">
-                <h4 class="modal-title" style="padding: 1%;">Appointment</h4>
+                <h4 class="modal-title" style="padding: 2%;">Appointment</h4>
                 <button type="button" class="close" data-dismiss="modal" style="margin-right: 1px;">&times;</button>
                 </div>
                 <br>
@@ -167,7 +167,7 @@
                 <div class="type">
                   <label class="label1">Type</label>
                   <select class="option1">
-                    <option value="  ">   </option>
+                    <option value="Select Type">--- Select Type ---</option>
                     <option value="Screening">Screening</option>
                     <option value="Assessment">Assessment</option>
                     <option value="Treatment">Treatment</option>
@@ -177,7 +177,9 @@
                 <!--Room-->
                 <div class="type">
                   <label class="label1">Room</label>
-                  <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="RoomDataSource" DataTextField="RoomNumber" DataValueField="RoomID" CssClass="option1"></asp:DropDownList>
+                  <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="RoomDataSource" DataTextField="RoomNumber" DataValueField="RoomID" CssClass="option1" AppendDataBoundItems="True">
+                      <asp:ListItem Enabled="true" Text="--- Select Room ---" Selected="True" Value="-1"></asp:ListItem>
+                  </asp:DropDownList>
                   <asp:EntityDataSource ID="RoomDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Rooms" Select="it.[RoomID], it.[RoomNumber]"></asp:EntityDataSource>
                 </div>
 
@@ -185,7 +187,7 @@
                 <div class="type">
                   <label class="label1">Status</label>
                   <select class="option1">
-                    <option value="">     </option>
+                    <option value="">--- Select Status ---</option>
                     <option value="Unspecified">Unspecified</option>
                     <option value="Completed">Completed</option>
                     <option value="Canceled by Therapist">Canceled by Therapist</option>
@@ -197,13 +199,17 @@
                 <!--Student-->
                 <div class="type">
                   <label class="label1">Student</label>
-                  <asp:DropDownList ID="StudentDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="UserID" CssClass="option1"></asp:DropDownList>
+                  <asp:DropDownList ID="StudentDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="UserID" CssClass="option1" AppendDataBoundItems="True">
+                      <asp:ListItem Enabled="true" Text="--- Select Student ---" Selected="True" Value="-1"></asp:ListItem>
+                  </asp:DropDownList>
                 </div>
                 
                 <!--Client-->
                  <div class="type">
                   <label class="label1">Client</label>
-                  <asp:DropDownList ID="ClientDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="ClientID" CssClass="option1"></asp:DropDownList>
+                  <asp:DropDownList ID="ClientDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="ClientID" CssClass="option1" AppendDataBoundItems="True">
+                      <asp:ListItem Enabled="true" Text="--- Select Client ---" Selected="True" Value="-1"></asp:ListItem>
+                  </asp:DropDownList>
                  </div>
 
                 <!--Start Time-->
@@ -222,7 +228,7 @@
                 <div class="type">
                   <label class="label1">Repeat</label>
                     <select class="option1">
-                     <option value="">  </option>
+                     <option value="">--- Select Repeat ---</option>
                      <option value="Weekly">Weekly</option>
                      <option value="Never">Never</option>
                     </select>
