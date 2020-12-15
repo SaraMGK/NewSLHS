@@ -24,6 +24,15 @@ namespace NewSLHS
         protected global::System.Web.UI.WebControls.Label usernameLb;
 
         /// <summary>
+        /// client_tabs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder client_tabs;
+
+        /// <summary>
         /// nav_calendar control.
         /// </summary>
         /// <remarks>

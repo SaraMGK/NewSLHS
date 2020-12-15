@@ -125,7 +125,8 @@
                 <tr>
                   <td>10:00
                   <!--appointment on calendar-->
-                  <button class="appointment-button" type="button" data-toggle="modal" data-target="#myModal">Client Name</button>
+                  <button class="appointment-button" type="button" data-toggle="modal" data-target="#myModal">
+                      <asp:Label ID="ClientNameLabel" runat="server" Text="Client Name"></asp:Label></button>
                 </td>
                 </tr>
                 <tr>
@@ -166,18 +167,27 @@
                 <!--Appointment Type-->
                 <div class="type">
                   <label class="label1">Type</label>
-                  <select class="option1">
+
+                    <asp:DropDownList ID="type" runat="server" AutoPostBack="True" CssClass="option1" >
+                       <asp:ListItem Enabled="true" Text="--- Select Type ---" Selected="True" Value="-1"></asp:ListItem>
+                      
+
+                  </asp:DropDownList>
+
+
+
+              <%--    <select class="option1" id="type" name="type">
                     <option value="Select Type">--- Select Type ---</option>
                     <option value="Screening">Screening</option>
                     <option value="Assessment">Assessment</option>
                     <option value="Treatment">Treatment</option>
-                  </select>
+                  </select>--%>
                 </div>
 
                 <!--Room-->
                 <div class="type">
                   <label class="label1">Room</label>
-                  <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="RoomDataSource" DataTextField="RoomNumber" DataValueField="RoomID" CssClass="option1" AppendDataBoundItems="True">
+                  <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="RoomDataSource" DataTextField="RoomNumber" DataValueField="RoomNumber" CssClass="option1" AppendDataBoundItems="True">
                       <asp:ListItem Enabled="true" Text="--- Select Room ---" Selected="True" Value="-1"></asp:ListItem>
                   </asp:DropDownList>
                   <asp:EntityDataSource ID="RoomDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Rooms" Select="it.[RoomID], it.[RoomNumber]"></asp:EntityDataSource>
@@ -209,7 +219,7 @@
                   <label class="label1">Client</label>
                   <asp:DropDownList ID="ClientDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="ClientID" CssClass="option1" AppendDataBoundItems="True">
                       <asp:ListItem Enabled="true" Text="--- Select Client ---" Selected="True" Value="-1"></asp:ListItem>
-                  </asp:DropDownList>
+                  </asp:DropDownList><button type="button" class="btn4" data-dismiss="modal">Add Client</button>
                  </div>
 
                 <!--Start Time-->
@@ -287,9 +297,29 @@
         <!---------------------------------UNDER CALENDER--------------------------> 
        <div>
 
-           </div>
+           <%--Hidden Appointment Details View--%>
+           <asp:DetailsView ID="AppointmentDetailsView" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="Type,RoomNumber,Status,Student_FName,Stuent_LName,Client_FName,Client_LName,StartTime,EndTime,Repeat" DataSourceID="AppointmentEntityDataSource">
+               <Fields>
+                   <asp:BoundField DataField="Type" HeaderText="Type" ReadOnly="False" SortExpression="Type" />
+                   <asp:BoundField DataField="RoomNumber" HeaderText="RoomNumber" ReadOnly="False" SortExpression="RoomNumber" />
+                   <asp:BoundField DataField="Status" HeaderText="Status" ReadOnly="True" SortExpression="Status" />
+                   <asp:BoundField DataField="Student_FName" HeaderText="Student_FName" ReadOnly="False" SortExpression="Student_FName" />
+                   <asp:BoundField DataField="Stuent_LName" HeaderText="Stuent_LName" ReadOnly="False" SortExpression="Stuent_LName" />
+                   <asp:BoundField DataField="Client_FName" HeaderText="Client_FName" ReadOnly="False" SortExpression="Client_FName" />
+                   <asp:BoundField DataField="Client_LName" HeaderText="Client_LName" ReadOnly="False" SortExpression="Client_LName" />
+                   <asp:BoundField DataField="StartTime" HeaderText="StartTime" ReadOnly="False" SortExpression="StartTime" />
+                   <asp:BoundField DataField="EndTime" HeaderText="EndTime" ReadOnly="False" SortExpression="EndTime" />
+                   <asp:BoundField DataField="Repeat" HeaderText="Repeat" ReadOnly="False" SortExpression="Repeat" />
+                   <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" />
+                   <asp:CommandField ShowEditButton="True" />
+                   <asp:CommandField ShowInsertButton="True" NewText="Insert" />
+               </Fields>
+           </asp:DetailsView>
+           <asp:EntityDataSource ID="AppointmentEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Appointment_View" EnableInsert="True" EnableUpdate="True"></asp:EntityDataSource>
+       </div>
      
-      </asp:Content>
+        </div>
+ </asp:Content>
 
 
 

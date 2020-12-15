@@ -14,16 +14,16 @@ namespace NewSLHS.DAL
     
     public partial class Appointment_View
     {
-        public int Type { get; set; }
         public string RoomNumber { get; set; }
-        public int Status { get; set; }
         public string Student_FName { get; set; }
         public string Stuent_LName { get; set; }
         public string Client_FName { get; set; }
         public string Client_LName { get; set; }
         public System.TimeSpan StartTime { get; set; }
         public System.TimeSpan EndTime { get; set; }
-        public int Repeat { get; set; }
+        public string Repeat { get; set; }
         public string Note { get; set; }
+        public string Type { get; set; }
+        public string Status { get; set; }
     }
 }

@@ -23,7 +23,7 @@
     width: 90%;
     margin-left: 4%;
     position: relative;
-    top: 75px;
+    top: 65px;
 }
 
 .wrapper1.collapse2 .hide-cal {
@@ -152,6 +152,16 @@
     height: 30px;
 }
 
+.btn4 {
+    background-color: #3BA69E;
+    border-radius: 5px;
+    border: 1px solid #3BA69E;
+    color: white;
+    width: 85px;
+    height: 22px;
+    font-size: smaller;
+}
+
 .btn3 {
     background-color: #8EA7A5;
     border-radius: 5px;
@@ -179,7 +189,6 @@
     text-decoration: none;
     outline: none;
     color: #fff;
-
 }
 
  .request-button:hover {
@@ -336,16 +345,16 @@
             font-weight: bolder;
         }
 
-            .wrapper1 .sidebar1 ul li a:before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 3px;
-                height: 100%;
-                background: #fff;
-                display: none;
-            }
+.wrapper1 .sidebar1 ul li a:before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 3px;
+     height: 100%;
+     background: #fff;
+     display: none;
+}
 
         .wrapper1 .sidebar1 ul li span.icon {
             margin-right: 10px;
@@ -900,14 +909,15 @@ tr {
 }
 
 .client-name-label {
-    font: bolder;
-}
+/*    font-weight: bold;
+*/}
 
 .client-info {
     display: inline;
     padding: 3%;
     width: 70%;
     margin-left: 5%;
+    font-weight: normal;
 }
 
 
@@ -926,4 +936,88 @@ tr {
     zoom: 1; /* for IE7*/
     padding: 2px;
     width: 45%;
+}
+
+.tab {
+    font-weight: lighter;
+    text-indent: 10px;
+    height: 10px;
+}
+
+/*General Information Page*/
+
+.sub-head {
+    position: absolute;
+    top: 19.5%;
+    left: 18%;
+}
+
+.save-button {
+    background-color: #3BA69E;
+    border-radius: 19px;
+    border: 1px solid #3BA69E;
+    width: 18%;
+    height: 55%;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+
+.label2 {
+    color: #696969;
+    margin-right: 20px;
+    width: 150px;
+    display: inline-block;
+    *display: inline; /* for IE7*/
+    zoom: 1; /* for IE7*/
+    float: left;
+    padding-top: 3px;
+   text-align: right;
+}
+
+.option2 {
+    border-radius: 5px;
+    border: 1.5px solid #707070;
+    margin: 5% 0;
+    border-color: #707070;
+    padding: 2px;
+    width: 90%;
+}
+
+.address-title {
+    font-size: 10px;
+    color: #8C8B8B;
+    position: relative;
+    bottom: 10px;
+    left: 5px
+}
+
+.next-button {
+    background-color: #3BA69E;
+    border-radius: 19px;
+    border: 1px solid #3BA69E;
+    width: 7%;
+    height: 55%;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.next-button-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100px;
+}
+
+.sidebar2 ul li a {
+    display: block;
+    padding: 3px !important; 
+    position: relative;
+/*    white-space: nowrap;
+    font-weight: bolder;*/
+    text-indent: 55px !important;
 }

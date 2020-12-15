@@ -714,9 +714,7 @@
 warning 6002: The table/view 'SLHSClinic.dbo.Appointment_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Appointment_View">
           <Key>
-            <PropertyRef Name="Type" />
             <PropertyRef Name="RoomNumber" />
-            <PropertyRef Name="Status" />
             <PropertyRef Name="Student_FName" />
             <PropertyRef Name="Stuent_LName" />
             <PropertyRef Name="Client_FName" />
@@ -724,18 +722,20 @@ warning 6002: The table/view 'SLHSClinic.dbo.Appointment_View' does not have a p
             <PropertyRef Name="StartTime" />
             <PropertyRef Name="EndTime" />
             <PropertyRef Name="Repeat" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Status" />
           </Key>
-          <Property Name="Type" Type="int" Nullable="false" />
           <Property Name="RoomNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
-          <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Student_FName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Stuent_LName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Client_FName" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Client_LName" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
-          <Property Name="Repeat" Type="int" Nullable="false" />
+          <Property Name="Repeat" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Note" Type="nvarchar" MaxLength="250" />
+          <Property Name="Type" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SLHSClinic.dbo.Client_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -847,6 +847,7 @@ warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a prima
             <PropertyRef Name="TA_LName" />
             <PropertyRef Name="TA_Email" />
             <PropertyRef Name="Supervisor_Email" />
+            <PropertyRef Name="OfficeNumber" />
           </Key>
           <Property Name="StudentID" Type="int" Nullable="false" />
           <Property Name="Student_FName" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -859,6 +860,7 @@ warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a prima
           <Property Name="TA_LName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TA_Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Supervisor_Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OfficeNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
         </EntityType>
         <Association Name="FK_Adult_Client_Information">
           <End Role="Client_Information" Type="Self.Client_Information" Multiplicity="1" />
@@ -1601,9 +1603,7 @@ warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a prima
           <EntitySet Name="Voice" EntityType="Self.Voice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Appointment_View" EntityType="Self.Appointment_View" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[Appointment_View].[Type] AS [Type], 
 [Appointment_View].[RoomNumber] AS [RoomNumber], 
-[Appointment_View].[Status] AS [Status], 
 [Appointment_View].[Student_FName] AS [Student_FName], 
 [Appointment_View].[Stuent_LName] AS [Stuent_LName], 
 [Appointment_View].[Client_FName] AS [Client_FName], 
@@ -1611,7 +1611,9 @@ warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a prima
 [Appointment_View].[StartTime] AS [StartTime], 
 [Appointment_View].[EndTime] AS [EndTime], 
 [Appointment_View].[Repeat] AS [Repeat], 
-[Appointment_View].[Note] AS [Note]
+[Appointment_View].[Note] AS [Note], 
+[Appointment_View].[Type] AS [Type], 
+[Appointment_View].[Status] AS [Status]
 FROM [dbo].[Appointment_View] AS [Appointment_View]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Client_View" EntityType="Self.Client_View" store:Type="Views" store:Schema="dbo">
@@ -1678,7 +1680,8 @@ FROM [dbo].[Session_View] AS [Session_View]</DefiningQuery>
 [Student_View].[TA_FName] AS [TA_FName], 
 [Student_View].[TA_LName] AS [TA_LName], 
 [Student_View].[TA_Email] AS [TA_Email], 
-[Student_View].[Supervisor_Email] AS [Supervisor_Email]
+[Student_View].[Supervisor_Email] AS [Supervisor_Email], 
+[Student_View].[OfficeNumber] AS [OfficeNumber]
 FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Adult_Client_Information" Association="Self.FK_Adult_Client_Information">
@@ -2693,31 +2696,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="Resonance" Type="Int32" />
           <NavigationProperty Name="Screening_SOAP_Note" Relationship="Self.FK_Screening_SOAP_Note_Voice" FromRole="Voice" ToRole="Screening_SOAP_Note" />
         </EntityType>
-        <EntityType Name="Appointment_View">
-          <Key>
-            <PropertyRef Name="Type" />
-            <PropertyRef Name="RoomNumber" />
-            <PropertyRef Name="Status" />
-            <PropertyRef Name="Student_FName" />
-            <PropertyRef Name="Stuent_LName" />
-            <PropertyRef Name="Client_FName" />
-            <PropertyRef Name="Client_LName" />
-            <PropertyRef Name="StartTime" />
-            <PropertyRef Name="EndTime" />
-            <PropertyRef Name="Repeat" />
-          </Key>
-          <Property Name="Type" Type="Int32" Nullable="false" />
-          <Property Name="RoomNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Status" Type="Int32" Nullable="false" />
-          <Property Name="Student_FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Stuent_LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Client_FName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Client_LName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="Repeat" Type="Int32" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Client_View">
           <Key>
             <PropertyRef Name="Client_FName" />
@@ -2820,6 +2798,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <PropertyRef Name="TA_LName" />
             <PropertyRef Name="TA_Email" />
             <PropertyRef Name="Supervisor_Email" />
+            <PropertyRef Name="OfficeNumber" />
           </Key>
           <Property Name="StudentID" Type="Int32" Nullable="false" />
           <Property Name="Student_FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -2832,6 +2811,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="TA_LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TA_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Supervisor_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OfficeNumber" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Client_Address">
           <End Role="Address" Type="Self.Address" Multiplicity="1" />
@@ -3488,7 +3468,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySet Name="Treatment_Plan" EntityType="Self.Treatment_Plan" />
           <EntitySet Name="Treatment_Progress" EntityType="Self.Treatment_Progress" />
           <EntitySet Name="Voices" EntityType="Self.Voice" />
-          <EntitySet Name="Appointment_View" EntityType="Self.Appointment_View" />
           <EntitySet Name="Client_View" EntityType="Self.Client_View" />
           <EntitySet Name="Request_View" EntityType="Self.Request_View" />
           <EntitySet Name="Session_View" EntityType="Self.Session_View" />
@@ -3705,7 +3684,33 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Appointment" EntitySet="Appointments" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
+          <EntitySet Name="Appointment_View" EntityType="SLHSClinicModel.Appointment_View" />
         </EntityContainer>
+        <EntityType Name="Appointment_View">
+          <Key>
+            <PropertyRef Name="RoomNumber" />
+            <PropertyRef Name="Student_FName" />
+            <PropertyRef Name="Stuent_LName" />
+            <PropertyRef Name="Client_FName" />
+            <PropertyRef Name="Client_LName" />
+            <PropertyRef Name="StartTime" />
+            <PropertyRef Name="EndTime" />
+            <PropertyRef Name="Repeat" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="RoomNumber" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Student_FName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Stuent_LName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client_FName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Client_LName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Repeat" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4435,23 +4440,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Appointment_View">
-            <EntityTypeMapping TypeName="SLHSClinicModel.Appointment_View">
-              <MappingFragment StoreEntitySet="Appointment_View">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Student_FName" ColumnName="Student_FName" />
-                <ScalarProperty Name="Stuent_LName" ColumnName="Stuent_LName" />
-                <ScalarProperty Name="Client_FName" ColumnName="Client_FName" />
-                <ScalarProperty Name="Client_LName" ColumnName="Client_LName" />
-                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-                <ScalarProperty Name="Repeat" ColumnName="Repeat" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Client_View">
             <EntityTypeMapping TypeName="SLHSClinicModel.Client_View">
               <MappingFragment StoreEntitySet="Client_View">
@@ -4513,6 +4501,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySetMapping Name="Student_View">
             <EntityTypeMapping TypeName="SLHSClinicModel.Student_View">
               <MappingFragment StoreEntitySet="Student_View">
+                <ScalarProperty Name="OfficeNumber" ColumnName="OfficeNumber" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="Student_FName" ColumnName="Student_FName" />
                 <ScalarProperty Name="Student_LName" ColumnName="Student_LName" />
@@ -4559,6 +4548,23 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
               <ScalarProperty Name="UserID" ColumnName="StudentID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Appointment_View">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Appointment_View">
+              <MappingFragment StoreEntitySet="Appointment_View">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Repeat" ColumnName="Repeat" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Client_LName" ColumnName="Client_LName" />
+                <ScalarProperty Name="Client_FName" ColumnName="Client_FName" />
+                <ScalarProperty Name="Stuent_LName" ColumnName="Stuent_LName" />
+                <ScalarProperty Name="Student_FName" ColumnName="Student_FName" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -99,6 +99,9 @@
                 <span class="icon"><i class="iconify iconMargin" data-icon="fa-users" aria-hidden="true"></i></span>
                 <span class="title2">Clients</span>
             </a></li>
+            <%--Client Pages Tabs--%>
+                    <asp:ContentPlaceHolder ID="client_tabs" runat="server">
+                    </asp:ContentPlaceHolder>
             <li><a href="/Students">
                 <span class="icon"><i class="iconify iconMargin" data-icon="fa-solid:book-reader" aria-hidden="true"></i></span> 
                 <span class="title2">Students</span>

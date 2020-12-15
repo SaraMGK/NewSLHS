@@ -18,9 +18,8 @@ namespace NewSLHS
 
             //Client Name Label
             string clientFirstName = ClientDetailsView.Rows[0].Cells[1].Text.ToString();
-            string clientMiddleName = ClientDetailsView.Rows[1].Cells[1].Text.ToString();
             string clientLastName = ClientDetailsView.Rows[2].Cells[1].Text.ToString();
-            ClientNameLabel.Text = clientFirstName + " " + clientMiddleName + " " + clientLastName;
+            ClientNameLabel.Text = clientFirstName + " " + clientLastName;
 
             //Email
             EmailLabel.Text = ClientDetailsView.Rows[3].Cells[1].Text.ToString();

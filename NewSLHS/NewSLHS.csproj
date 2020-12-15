@@ -211,6 +211,7 @@
     <Content Include="login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="WebForm1.aspx" />
     <EntityDeploy Include="DAL\ClinicModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ClinicModel.Designer.cs</LastGenOutput>
@@ -651,6 +652,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

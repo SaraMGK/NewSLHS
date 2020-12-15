@@ -75,10 +75,10 @@ namespace NewSLHS.DAL
         public DbSet<Treatment_Plan> Treatment_Plan { get; set; }
         public DbSet<Treatment_Progress> Treatment_Progress { get; set; }
         public DbSet<Voice> Voices { get; set; }
-        public DbSet<Appointment_View> Appointment_View { get; set; }
         public DbSet<Client_View> Client_View { get; set; }
         public DbSet<Request_View> Request_View { get; set; }
         public DbSet<Session_View> Session_View { get; set; }
         public DbSet<Student_View> Student_View { get; set; }
+        public DbSet<Appointment_View> Appointment_View { get; set; }
     }
 }

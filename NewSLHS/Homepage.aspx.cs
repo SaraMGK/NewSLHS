@@ -16,6 +16,17 @@ namespace SLHSClinic
         {
             fillStudentDropDownList();
             fillClientDropDownList();
+
+            //AppointmentDetailsView.Visible = false;
+
+            //Appointment Client Name
+            string clientFirstName = AppointmentDetailsView.Rows[5].Cells[1].Text.ToString();
+            string clientLastName = AppointmentDetailsView.Rows[6].Cells[1].Text.ToString();
+            ClientNameLabel.Text = clientFirstName + " " + clientLastName;
+
+           
+            DropDownList1.SelectedValue = AppointmentDetailsView.Rows[1].Cells[1].Text.ToString();
+
         }
 
         protected void fillStudentDropDownList()
@@ -56,5 +67,7 @@ namespace SLHSClinic
             ClientDropDownList.DataValueField = "ID";
             ClientDropDownList.DataBind();
         }
+
+
     }
 }

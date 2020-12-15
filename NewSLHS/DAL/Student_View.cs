@@ -25,5 +25,6 @@ namespace NewSLHS.DAL
         public string TA_LName { get; set; }
         public string TA_Email { get; set; }
         public string Supervisor_Email { get; set; }
+        public string OfficeNumber { get; set; }
     }
 }

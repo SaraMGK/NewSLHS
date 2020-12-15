@@ -1,15 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ClientsList.aspx.cs" Inherits="NewSLHS.ClientsList" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+    
     <h1>Clients List</h1>
 
    <%-- Add Client Button--%>
    <button class="request-button">Add Client</button>
 
-    <%--Clients Lidt--%>
+    <%--Clients List--%>
     <div>
-        <div class="client-div">
-            <asp:Label ID="ClientNameLabel" runat="server" Text="Client Name" CssClass="client-name-label"></asp:Label>
+        <div class="client-div" onclick="location.href = '/ClientGeneralInformation'">
+            <asp:Label ID="ClientNameLabel" runat="server" Text="Client Name" style="font-weight: bold" CssClass="client-name-label"></asp:Label>
             <div class="Image-info-div">
                 <%------------------Icon Div-----------------%>
                 <div class="resource-image-name">
@@ -58,5 +58,50 @@
             <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Client_View" Select="it.[Client_FName], it.[Client_LName], it.[Client_Email], it.[Mobile], it.[FileNumber], it.[DateOfBirth], it.[Student_FName], it.[Student_LName], it.[Client_MName]"></asp:EntityDataSource>
     </div>
 
-
 </asp:Content>
+
+    <asp:Content ID="tab" ContentPlaceHolderID="client_tabs" runat="server">
+                 <div class="sidebar2">
+                     <ul class="">
+                     <li><a href="/ClientGeneralInformation">
+                        <span class="tab">General Information</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Identification</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Birth History</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Adult</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Child</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Parental History</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Health History</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Physician Information</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Motor Development</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Speech & Language</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Hearing History</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">School History</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Social History</span></a>
+                     </li>
+                </ul>
+                 </div>
+     </asp:Content>
