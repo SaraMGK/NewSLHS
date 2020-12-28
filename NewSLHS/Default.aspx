@@ -46,10 +46,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SLHS Clinic</title>
     <link rel="stylesheet" href="styles.css">
     <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="login/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="/Images/clinicLogo4.png">
     <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -98,7 +98,7 @@
                                 Width="100%" runat="server" ForeColor="#FF6961">
                                 <i class="fa fa-exclamation-circle requiered-icon" style="font-size:24px"></i>
                             </asp:RequiredFieldValidator>
-                     <!----------------------------Username Input-------------------------------------->
+                     <%----------------------------Username Input--------------------------------------%>
                      <div class="wrap-input100">
                  
                             <asp:TextBox ID="username" name="username" runat="server" class="input100 form-control" style="background-color: transparent; border:none;color: white;" placeholder="Username"></asp:TextBox>  
@@ -110,13 +110,13 @@
 
                      <%--------------------------------------Username Validation--------------------------------------%>
                       
-
+                     <%--letters only min:4 char max:25--%>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="username"
-                                ForeColor="Red" ValidationExpression="[a-zA-Z]{4,25}"
+                                ForeColor="#FF6961" ValidationExpression="[a-zA-Z]{4,25}" 
                                 Display ="Dynamic" ErrorMessage="Invalid Username"/>
 
 
-                     <!-------------------------------------Password Input------------------------------------------->                  
+                      <%-------------------------------------Password Input-------------------------------------------%>                  
                         <div class="wrap-input100">
                                 
                             <asp:TextBox ID="password" name="username" runat="server" class="input100 form-control" style="background-color: transparent; border:none;color: white;" placeholder="Password" TextMode="Password" EnableTheming="True"></asp:TextBox>  

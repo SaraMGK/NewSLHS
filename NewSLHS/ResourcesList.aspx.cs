@@ -18,7 +18,7 @@ namespace SLHSClinic
 
         protected void viewResource()
         {
-            SLHSClinicEntities db = new SLHSClinicEntities();
+            //SLHSClinicEntities db = new SLHSClinicEntities();
             //List<CustomListItem> 
         }
     }

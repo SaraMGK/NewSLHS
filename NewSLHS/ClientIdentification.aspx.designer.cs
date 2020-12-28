@@ -11,44 +11,44 @@ namespace NewSLHS
 {
 
 
-    public partial class WebForm1
+    public partial class ClientIdentification
     {
 
         /// <summary>
-        /// DetailsView control.
+        /// DetailsView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DetailsView;
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
 
         /// <summary>
-        /// EntityDataSource control.
+        /// EntityDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
 
         /// <summary>
-        /// AddressDetailsView control.
+        /// DiagnosisDetailsView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView AddressDetailsView;
+        protected global::System.Web.UI.WebControls.DetailsView DiagnosisDetailsView;
 
         /// <summary>
-        /// AddressEntityDataSource control.
+        /// DiagnosisEntityDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource AddressEntityDataSource;
+        protected global::System.Web.UI.WebControls.EntityDataSource DiagnosisEntityDataSource;
 
         /// <summary>
         /// ButtonsDiv control.

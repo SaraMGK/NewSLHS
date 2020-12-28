@@ -6,13 +6,15 @@
     <asp:EntityDataSource ID="StudentEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Students" Select="it.[UserID], it.[FirstName], it.[MiddleName], it.[LastName]" ></asp:EntityDataSource>
 
 
-     <button class="appointment-button" type="button" data-toggle="modal" data-target="#myModal">Client Name</button>
+     <button class="appointment-button" style="width:120px; height:40px;" type="button" data-toggle="modal" data-target="#myModal">Client Name</button>
 
     <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
               <div class="modal-dialog">
+
+
     
-                 <!-- Modal content-->
+                <%-- <!-- Modal content-->
                 <div class="modal-content">
                 <div class="modal-header header" style="height: 2%; background-color: #d6ebea; padding: 0px;">
                 <h4 class="modal-title" style="padding: 1%;">Appointment</h4>
@@ -94,7 +96,7 @@
                   <button type="button" class="btn3" data-dismiss="modal">Cancel</button>
                 </div>
           </form>
-                    </div>
+                    </div>--%>
 
 
 

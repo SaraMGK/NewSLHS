@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using NewSLHS.DAL;
 
+
 namespace NewSLHS
 {
     public partial class ModalTest : System.Web.UI.Page
@@ -14,48 +15,48 @@ namespace NewSLHS
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            fillStudentDropDownList();
-            fillClientDropDownList();
+            //fillStudentDropDownList();
+            //fillClientDropDownList();
         }
 
 
-        protected void fillStudentDropDownList()
-        {
-            SLHSClinicEntities db = new SLHSClinicEntities();
+        //protected void fillStudentDropDownList()
+        //{
+        //    SLHSClinicEntities db = new SLHSClinicEntities();
 
-            List<CustomListItem> fullNameList;
+        //    List<CustomListItem> fullNameList;
 
-            fullNameList = db.Students.Select(x => new CustomListItem
-            {
-                ID = x.UserID,
-                Text = x.FirstName + " " + x.MiddleName + " " + x.LastName
-            }).ToList();
-
-
-            StudentDropDownList.DataSource = fullNameList;
-            StudentDropDownList.DataTextField = "Text";
-            StudentDropDownList.DataValueField = "ID";
-            StudentDropDownList.DataBind();
-        }
+        //    fullNameList = db.Students.Select(x => new CustomListItem
+        //    {
+        //        ID = x.UserID,
+        //        Text = x.FirstName + " " + x.MiddleName + " " + x.LastName
+        //    }).ToList();
 
 
-        protected void fillClientDropDownList()
-        {
-            SLHSClinicEntities db = new SLHSClinicEntities();
-
-            List<CustomListItem> clientNameList;
-
-            clientNameList = db.Clients.Select(x => new CustomListItem
-            {
-                ID = x.ClientID,
-                Text = x.FirstName + " " + x.MiddleName + " " + x.LastName
-            }).ToList();
+        //    //StudentDropDownList.DataSource = fullNameList;
+        //    //StudentDropDownList.DataTextField = "Text";
+        //    //StudentDropDownList.DataValueField = "ID";
+        //    //StudentDropDownList.DataBind();
+        //}
 
 
-            ClientDropDownList.DataSource = clientNameList;
-            ClientDropDownList.DataTextField = "Text";
-            ClientDropDownList.DataValueField = "ID";
-            ClientDropDownList.DataBind();
-        }
+        //protected void fillClientDropDownList()
+        //{
+        //    SLHSClinicEntities db = new SLHSClinicEntities();
+
+        //    List<CustomListItem> clientNameList;
+
+        //    //clientNameList = db.Clients.Select(x => new CustomListItem
+        //    //{
+        //    //    ID = x.ClientID,
+        //    //    Text = x.FirstName + " " + x.MiddleName + " " + x.LastName
+        //    //}).ToList();
+
+
+        //    //ClientDropDownList.DataSource = clientNameList;
+        //    //ClientDropDownList.DataTextField = "Text";
+        //    //ClientDropDownList.DataValueField = "ID";
+        //    //ClientDropDownList.DataBind();
+        //}
     }
 }

@@ -23,7 +23,7 @@
     width: 90%;
     margin-left: 4%;
     position: relative;
-    top: 65px;
+    top: 35px;
 }
 
 .wrapper1.collapse2 .hide-cal {
@@ -34,8 +34,10 @@
     text-align: center;
 }
 
-.footer {
-    text-align: left;   
+.footer1 {
+    text-align: left;
+    position: sticky;
+    top: 100%;
 }
 
 .month {
@@ -175,20 +177,15 @@
     background-color: #3BA69E;
     border-radius: 19px;
     border: 1px solid #3BA69E;
-    width: 11%;
-    height: 5%;
-    position: relative;
-    left: 85.69%;
-    top: 4.8%;
+    width: 130px;
+    height: 35px;
     color: white;
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
+/*    padding-top: 0.5%;
+    padding-bottom: 0.5%;*/
     display: inline-block;
     cursor: pointer;
     text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
+    margin-right: 30px;
 }
 
  .request-button:hover {
@@ -207,6 +204,7 @@
     margin: 1%;
     width: 40%;
     border-color: #707070;
+    padding: 0.2%
 }
 
 .label1 {
@@ -229,7 +227,8 @@
 .container1 {
     display: flex;
     flex-direction: row;
-    /* margin-left: 170px; */
+/*    height: 100%;
+*/    /* margin-left: 170px; */
 }
 
 
@@ -333,6 +332,8 @@
         height: calc(100% - 65px);
         border-bottom-left-radius: 20px;
         transition: all 0.3s ease;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
         .wrapper1 .sidebar1 ul li a {
@@ -384,7 +385,7 @@
         transition: all 0.3 ease;
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        height: 93vh;
     }
 
         .wrapper1 .main-container1 .item {
@@ -425,6 +426,9 @@
             }
 
             .wrapper1.collapse2 .sidebar1 ul li a span.title2 {
+                display: none !important;
+            } 
+            .wrapper1.collapse2 .sidebar1 .sidebar2 {
                 display: none !important;
             }
 
@@ -677,15 +681,15 @@ tr {
 /*Request Details Page*/
 .div-border {
     width: 700px;
-    height: 350px;
+    height: 550px;
     background-color: #e4f5f5;
     border-radius: 10px;
     overflow: hidden;
     border-collapse: collapse;
-    margin: 3%;
-    display: flex;    
+    margin: 1.5% 0px 0px 15%;
+    display: flex;
     flex-direction: column;
-    align-content:space-between;
+    align-content: space-between;
     padding: 3% 4%;
 }
 
@@ -696,8 +700,8 @@ tr {
 
 .edit-button {
     float: right !important;
-    height: 95%;
-    width: 10%;
+    height: 30px;
+    width: 60px;
     background-color: #3BA69E;
     border-color: transparent;
     border-radius: 20px;
@@ -795,8 +799,8 @@ tr {
 
 .save-Cancel-button {
     float: right !important;
-    height: 95%;
-    width: 11%;
+    height: 30px;
+    width: 70px;
     background-color: #3BA69E;
     border-color: transparent;
     border-radius: 20px;
@@ -804,8 +808,15 @@ tr {
     margin-left: 5%;
 }
 
-/*Search Request Page*/
+.all-req-btn-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /*    height: 270px;
+*/ width: 85%;
+}
 
+/*Search Request Page*/
 .center-div {
     margin: auto;
     width: 90%;
@@ -900,6 +911,7 @@ tr {
     flex-direction: column;
     align-content: space-between;
     padding: 1.5% 3% 3% 1.5%;
+    cursor: pointer;
 }
 
 .client-icon {
@@ -940,28 +952,20 @@ tr {
 
 .tab {
     font-weight: lighter;
-    text-indent: 10px;
-    height: 10px;
+/*    text-indent: 0px;
+*/    height: 10px;
 }
 
 /*General Information Page*/
 
-.sub-head {
-    position: absolute;
-    top: 19.5%;
-    left: 18%;
+.client-head {
+    margin: 0 !important;
 }
 
-.save-button {
-    background-color: #3BA69E;
-    border-radius: 19px;
-    border: 1px solid #3BA69E;
-    width: 18%;
-    height: 55%;
-    color: white;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
+.client-head-div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .label2 {
@@ -973,7 +977,7 @@ tr {
     zoom: 1; /* for IE7*/
     float: left;
     padding-top: 3px;
-   text-align: right;
+    text-align: right;
 }
 
 .option2 {
@@ -993,24 +997,36 @@ tr {
     left: 5px
 }
 
+.next-button-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 270px;
+}
+
+.save-button {
+    background-color: #3BA69E;
+    border-radius: 19px;
+    border: 1px solid #3BA69E;
+    width: 18%;
+    height: 35%;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
+
 .next-button {
     background-color: #3BA69E;
     border-radius: 19px;
     border: 1px solid #3BA69E;
     width: 7%;
-    height: 55%;
+    height: 35%;
     color: white;
     display: inline-block;
     cursor: pointer;
     text-align: center;
-
-}
-
-.next-button-div {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100px;
 }
 
 .sidebar2 ul li a {
@@ -1019,5 +1035,102 @@ tr {
     position: relative;
 /*    white-space: nowrap;
     font-weight: bolder;*/
-    text-indent: 55px !important;
+    text-indent: 55px;
+    font-size: 10px;
 }
+
+.edit-btn {
+    background-color: #3BA69E;
+    border-radius: 19px;
+    border: 1px solid #3BA69E;
+    width: 70px;
+    height: 35px;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+.test-class {
+    color: green;
+/*    margin-right: 20px;
+    width: 150px;
+    display: inline-block;
+    *display: inline;  for IE7
+    zoom: 1;  for IE7
+    float: left;*/
+    padding-top: 3px;
+    text-align: right;
+}
+
+.address-header {
+    text-indent: 20px;
+    font-size: 30px;
+}
+
+/*New Client General Info page*/
+.dfdf {
+    border-color: transparent !important;
+    padding: 2px !important;
+    width: 1037px !important;
+}
+
+.dfdf tr:nth-child(n+2) td:nth-child(1) {
+        width: 300px !important;
+        /*    background-color: yellow !important;
+*/ text-align: right;
+        font-weight: bold;
+    }
+
+.dfdf td:nth-child(1) {
+        text-align: right;
+    }
+
+.dfdf td {
+/*    border-bottom:3px solid green !important ;
+*/ padding: 10px;
+   color: #696969;
+    }
+
+.detailsView-div {
+    padding-top: 0;
+}
+
+.detailsView-update td {
+    font-weight: lighter !important;
+}
+
+    .detailsView-update td:nth-child(2) input {
+        border: 1.5px solid #707070 !important;
+        padding: 3px 0px 3px 5px;
+        border-radius: 5px;
+        width: 200px;
+    }
+
+hr {
+    border-top: 10px solid #A9A9A9;
+    width: 100%;
+}
+
+/*scroll bar style*/
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #6d8383;
+    border-radius: 10px;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #707070;
+    }

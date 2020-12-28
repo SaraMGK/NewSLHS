@@ -27,7 +27,7 @@ namespace NewSLHS.DAL
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Mobile { get; set; }
-        public int AddressID { get; set; }
+        public Nullable<int> AddressID { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual ICollection<Appointment> Appointments { get; set; }

@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Requests.aspx.cs" Inherits="NewSLHS.Requests" %>
+﻿<%@ Page Title="Requests List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Requests.aspx.cs" Inherits="NewSLHS.Requests" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Requests List</h1>
-    
-    <button class="request-button" type="button" <%--data-toggle="modal" data-target=""--%>>Create Request</button>
+    <div class="next-button-div">
+        <button class="request-button" type="button" <%--data-toggle="modal" data-target=""--%>>Create Request</button>
+    </div>
     <br />
     <br />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="EntityDataSource1" CellPadding="4" CssClass="request-gridView" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_PageIndexChanged">
@@ -11,7 +12,7 @@
         <Columns>
             <asp:ImageField HeaderText="Image" DataImageUrlField="Image" ControlStyle-Width="30px">
             </asp:ImageField>
-            <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" SortExpression="Name" />
+            <asp:BoundField DataField="Resource_Name" HeaderText="Name" ReadOnly="True" SortExpression="Resource_Name" />
             <asp:BoundField DataField="ResourceRequestID" HeaderText="Request ID" ReadOnly="True" SortExpression="ResourceRequestID" />
             <asp:BoundField DataField="Status" HeaderText="Status" ReadOnly="True" SortExpression="Status" />
             <asp:BoundField DataField="RequestDateTime" HeaderText="Issue Date" ReadOnly="True" SortExpression="RequestDateTime" />
@@ -31,5 +32,5 @@
         <SortedDescendingCellStyle BackColor="#D4DFE1" />
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
-    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Request_View" Select="it.[Image], it.[Name], it.[ResourceRequestID], it.[Status], it.[RequestDateTime]"></asp:EntityDataSource>
+    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Request_View" Select="it.[Image], it.[Resource_Name], it.[ResourceRequestID], it.[Status], it.[RequestDateTime]"></asp:EntityDataSource>
     </asp:Content>

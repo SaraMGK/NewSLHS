@@ -32,7 +32,7 @@
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>2</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -112,7 +112,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="ClientGeneralInformation.aspx" />
+    <Content Include="Birth.aspx" />
+    <Content Include="ClientIdentification.aspx" />
+    <Content Include="OldClientGeneralInformation.aspx" />
+    <Content Include="clientlisttest.aspx" />
     <Content Include="Clients.aspx" />
     <Content Include="ClientsList.aspx" />
     <Content Include="Contact.aspx" />
@@ -121,15 +124,15 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="DAL\ClinicModel.Context.tt">
+    <Content Include="DAL\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClinicModel.edmx</DependentUpon>
-      <LastGenOutput>ClinicModel.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DAL\ClinicModel.tt">
+    <Content Include="DAL\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClinicModel.edmx</DependentUpon>
-      <LastGenOutput>ClinicModel.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -149,7 +152,6 @@
     <Content Include="Images\cliniclogo4_VKm_icon.ico" />
     <Content Include="Images\FeelingsFlash.png" />
     <Content Include="Images\LetterM.png" />
-    <Content Include="LoginTest.aspx" />
     <Content Include="login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -211,13 +213,15 @@
     <Content Include="login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="login\vendor\bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="WebForm1.aspx" />
-    <EntityDeploy Include="DAL\ClinicModel.edmx">
+    <Content Include="test.aspx" />
+    <Content Include="ClientGeneralInformation.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <EntityDeploy Include="DAL\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ClinicModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DAL\ClinicModel.edmx.diagram">
-      <DependentUpon>ClinicModel.edmx</DependentUpon>
+    <Content Include="DAL\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Homepage.aspx" />
@@ -321,12 +325,33 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="ClientGeneralInformation.aspx.cs">
-      <DependentUpon>ClientGeneralInformation.aspx</DependentUpon>
+    <Compile Include="Birth.aspx.cs">
+      <DependentUpon>Birth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ClientGeneralInformation.aspx.designer.cs">
-      <DependentUpon>ClientGeneralInformation.aspx</DependentUpon>
+    <Compile Include="Birth.aspx.designer.cs">
+      <DependentUpon>Birth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientIdentification.aspx.cs">
+      <DependentUpon>ClientIdentification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientIdentification.aspx.designer.cs">
+      <DependentUpon>ClientIdentification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OldClientGeneralInformation.aspx.cs">
+      <DependentUpon>OldClientGeneralInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OldClientGeneralInformation.aspx.designer.cs">
+      <DependentUpon>OldClientGeneralInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="clientlisttest.aspx.cs">
+      <DependentUpon>clientlisttest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="clientlisttest.aspx.designer.cs">
+      <DependentUpon>clientlisttest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clients.aspx.cs">
       <DependentUpon>Clients.aspx</DependentUpon>
@@ -350,184 +375,184 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\Address.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Adult.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Appointment.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Appointment_View.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Assessment_Objective.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Assessment_Proposal.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Authentication.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Behavior.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Birth.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Child.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Client.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Client_Information.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Client_View.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Clinical_Goals.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\ClinicModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClinicModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\ClinicModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClinicModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\ClinicModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClinicModel.edmx</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Communication.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Diagnosi.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Fluency.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Fluharty.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Food_Allergy.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Health.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Hearing.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Immunization.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Jaw.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Language_Notes.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Lip.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="DAL\Motor_Development.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Parent.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Personality.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Pharynx_Tonsil.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Plan.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Repeated_Grade.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Request_View.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Resource.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Resource_Request.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Room.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\School.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Screening_SOAP_Note.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Section.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Session.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Session_Feedback.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Session_View.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\SOAP_Note.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\SOAP_Objective.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Social.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Special_Classroom.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Speech_Language.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Student.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Student_View.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Supervisor.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\sysdiagram.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Teacher_Assistant.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Tongue.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Treatment_Plan.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Treatment_Progress.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Voice.cs">
-      <DependentUpon>ClinicModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -545,13 +570,6 @@
     </Compile>
     <Compile Include="Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LoginTest.aspx.cs">
-      <DependentUpon>LoginTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginTest.aspx.designer.cs">
-      <DependentUpon>LoginTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModalTest.aspx.cs">
       <DependentUpon>ModalTest.aspx</DependentUpon>
@@ -646,6 +664,13 @@
     <Compile Include="Students.aspx.designer.cs">
       <DependentUpon>Students.aspx</DependentUpon>
     </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -653,12 +678,19 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="ClientGeneralInformation.aspx.cs">
+      <DependentUpon>ClientGeneralInformation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="ClientGeneralInformation.aspx.designer.cs">
+      <DependentUpon>ClientGeneralInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -677,6 +709,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

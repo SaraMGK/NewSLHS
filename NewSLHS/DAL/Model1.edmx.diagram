@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="66a2a6d987a445fbab64e548d6d992aa" Name="Diagram1" ZoomLevel="55">
+      <Diagram DiagramId="ca3544ee14114fc983db7e4f9792d93e" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="SLHSClinicModel.Address" Width="1.5" PointX="1.5" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Adult" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Appointment" Width="1.5" PointX="12.25" PointY="18" IsExpanded="true" />
@@ -55,8 +55,8 @@
         <EntityTypeShape EntityType="SLHSClinicModel.Treatment_Plan" Width="1.5" PointX="17.5" PointY="37.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Treatment_Progress" Width="1.5" PointX="17.5" PointY="40.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Voice" Width="1.5" PointX="20.25" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Appointment_View" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Client_View" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Request_View" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Session_View" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Student_View" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="SLHSClinicModel.FK_Client_Address" ManuallyRouted="false" />
@@ -112,7 +112,7 @@
         <AssociationConnector Association="SLHSClinicModel.Social_Behavior" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.Social_Personality" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.Student_Appointment" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Appointment_View" Width="1.5" PointX="9.625" PointY="0.75" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Request_View" Width="1.5" PointX="10.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

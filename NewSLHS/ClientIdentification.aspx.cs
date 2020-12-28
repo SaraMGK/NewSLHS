@@ -7,15 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace NewSLHS
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class ClientIdentification : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void TextBox9_TextChanged(object sender, EventArgs e)
+        protected void Hide_Buttons(object sender, EventArgs e)
         {
+            ButtonsDiv.Visible = !ButtonsDiv.Visible;
 
         }
     }

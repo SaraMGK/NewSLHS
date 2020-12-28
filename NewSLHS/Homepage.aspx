@@ -112,7 +112,7 @@
         <div class="container1">            
             <table class="table table-hover table" style="width: 500px; margin-right:2%;">
               <thead>
-                  <th style="background-color: #60C8C1;">  Appointment <button class="icon-button" type="button"><i class="fa fa-plus" data-toggle="modal" data-target="#myModal"></i></button>
+                  <th style="background-color: #60C8C1;">  Appointment <button class="icon-button" type="button"><i class="fa fa-plus" data-toggle="modal" data-target="#newModal"></i></button>
 </th>
               </thead>
               <tbody>
@@ -150,7 +150,8 @@
                 <tr>
                   <td class="lastRow">17:00</td>
                 </tr>
-        <!------------------------------------ Modal ---------------------------------------->
+
+<%------------------------------------ Appointment Modal ----------------------------------------%>
             <div class="modal fade" id="myModal" role="dialog">
               <div class="modal-dialog">
     
@@ -167,28 +168,19 @@
                 <!--Appointment Type-->
                 <div class="type">
                   <label class="label1">Type</label>
-
-                    <asp:DropDownList ID="type" runat="server" AutoPostBack="True" CssClass="option1" >
-                       <asp:ListItem Enabled="true" Text="--- Select Type ---" Selected="True" Value="-1"></asp:ListItem>
-                      
-
+                    <asp:DropDownList ID="TypeDropDownList" runat="server" AutoPostBack="True" CssClass="option1" style="width: 125px;">
+                        <asp:ListItem Enabled="true" Text="--- Select Type ---" Selected="True" Value="-1"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="Screening"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="Assessment"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="Treatment"></asp:ListItem>
                   </asp:DropDownList>
-
-
-
-              <%--    <select class="option1" id="type" name="type">
-                    <option value="Select Type">--- Select Type ---</option>
-                    <option value="Screening">Screening</option>
-                    <option value="Assessment">Assessment</option>
-                    <option value="Treatment">Treatment</option>
-                  </select>--%>
                 </div>
 
                 <!--Room-->
                 <div class="type">
                   <label class="label1">Room</label>
-                  <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="RoomDataSource" DataTextField="RoomNumber" DataValueField="RoomNumber" CssClass="option1" AppendDataBoundItems="True">
-                      <asp:ListItem Enabled="true" Text="--- Select Room ---" Selected="True" Value="-1"></asp:ListItem>
+                  <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="RoomDataSource" DataTextField="RoomNumber" DataValueField="RoomNumber" CssClass="option1" AppendDataBoundItems="True" style="width: 125px;">
+                      <asp:ListItem Enabled="true" Text="----- Select Room -----" Selected="True" Value="-1"></asp:ListItem>
                   </asp:DropDownList>
                   <asp:EntityDataSource ID="RoomDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Rooms" Select="it.[RoomID], it.[RoomNumber]"></asp:EntityDataSource>
                 </div>
@@ -196,58 +188,63 @@
                 <!--Appointment Status-->
                 <div class="type">
                   <label class="label1">Status</label>
-                  <select class="option1">
-                    <option value="">--- Select Status ---</option>
-                    <option value="Unspecified">Unspecified</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Canceled by Therapist">Canceled by Therapist</option>
-                    <option value="Canceled by Client">Canceled by Client</option>
-                    <option value="No-Show">No-Show</option>
-                  </select>
+                  <asp:DropDownList ID="StatusDropDownList" runat="server" AutoPostBack="true" DataTextField="Status" DataValueField="Status" Cssclass="option1" style="width: 175px;">
+                    <asp:ListItem Enabled="true" Text="----- Select Status -----" Selected="true"></asp:ListItem>
+                    <asp:ListItem Enabled="true" Text="Unspecified" ></asp:ListItem>
+                    <asp:ListItem Enabled="true" Text="Completed"></asp:ListItem>
+                    <asp:ListItem Enabled="true" Text="Canceled by Therapist"></asp:ListItem>
+                    <asp:ListItem Enabled="true" Text="Canceled by Client" ></asp:ListItem>
+                    <asp:ListItem Enabled="true" Text="No-Show"></asp:ListItem>
+                  </asp:DropDownList>
                 </div>
 
                 <!--Student-->
                 <div class="type">
                   <label class="label1">Student</label>
-                  <asp:DropDownList ID="StudentDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="UserID" CssClass="option1" AppendDataBoundItems="True">
-                      <asp:ListItem Enabled="true" Text="--- Select Student ---" Selected="True" Value="-1"></asp:ListItem>
+                  <asp:DropDownList ID="StudentDropDownList" runat="server"  DataTextField="datasource" DataValueField="UserID" CssClass="option1" AppendDataBoundItems="True" style="width: 220px;">
+                      <asp:ListItem Enabled="true" Text="------- Select Student -------" Selected="True" Value="-1"></asp:ListItem>
                   </asp:DropDownList>
                 </div>
                 
                 <!--Client-->
                  <div class="type">
                   <label class="label1">Client</label>
-                  <asp:DropDownList ID="ClientDropDownList" runat="server" AutoPostBack="True" DataTextField="datasource" DataValueField="ClientID" CssClass="option1" AppendDataBoundItems="True">
-                      <asp:ListItem Enabled="true" Text="--- Select Client ---" Selected="True" Value="-1"></asp:ListItem>
+                  <asp:DropDownList ID="ClientDropDownList" runat="server" DataTextField="datasource" DataValueField="ClientID" CssClass="option1" AppendDataBoundItems="True" style="width: 220px;">
+                      <asp:ListItem Enabled="true" Text="------- Select Client -------" Selected="True" Value="-1"></asp:ListItem>
                   </asp:DropDownList><button type="button" class="btn4" data-dismiss="modal">Add Client</button>
                  </div>
 
                 <!--Start Time-->
                 <div class="type">
                   <label class="label1">Starts</label>
-                  <input type="datetime-local" class="option1">
+                  <%--<asp:DropDownList ID="STimeDropDownList" runat="server" AutoPostBack="true" CssClass="option1">
+                      <asp:ListItem Enabled="true" Text="----- Pick Date & Time -----" Selected="True"></asp:ListItem>
+                      <asp:ListItem Enabled="true"></asp:ListItem>
+                  </asp:DropDownList>--%>
+                  <input type="datetime-local" class="option1" style="padding: 0px;">
                 </div>
 
                 <!--End Time-->
                 <div class="type">
                   <label class="label1">Ends</label>
-                  <input type="datetime-local" class="option1">
+                  <input ID="EndTime" type="datetime-local" class="option1" runat="server" style="padding: 0px;">
                 </div>
 
                 <!--Repeat-->
                 <div class="type">
                   <label class="label1">Repeat</label>
-                    <select class="option1">
-                     <option value="">--- Select Repeat ---</option>
-                     <option value="Weekly">Weekly</option>
-                     <option value="Never">Never</option>
-                    </select>
+                    <asp:DropDownList ID="RepeatDropDownList" runat="server" CssClass="option1" style="width: 125px;">
+                        <asp:ListItem Enabled="true" Text="---- Please Select -----" Selected="True"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="Weekly"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="Never"></asp:ListItem>
+                    </asp:DropDownList>
                 </div>
 
                 <!--Note-->
                  <div class="type">
                   <label class="label1">Note</label>
-                  <input type="text" style="width: 250px; height: 40px; margin-bottom: 3%;" class="option1">
+<%--                  <input type="text" style="width: 250px; height: 40px; margin-bottom: 3%;" class="option1">--%>
+                  <asp:TextBox ID="NoteTextBox"  style="width: 250px; height: 40px; margin-bottom: 3%;" runat="server" CssClass="option1"></asp:TextBox>
                  </div>                  
 
                 <div class="modal-footer" style="border: 0px;">
@@ -292,30 +289,136 @@
           </div>
             </div>
 
+          <%------------------------------------ New Appointment Modal ----------------------------------------%>
+            <div class="modal fade" id="newModal" role="dialog">
+              <div class="modal-dialog">
+    
+                 <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header header" style="height: 2%; background-color: #d6ebea; padding: 0px;">
+                <h4 class="modal-title" style="padding: 2%;">Appointment</h4>
+                <button type="button" class="close" data-dismiss="modal" style="margin-right: 1px;">&times;</button>
+                </div>
+                <br>
+                <br>
+                
+                <form>
+                <!--Appointment Type-->
+                <div class="type">
+                  <label class="label1">Type</label>
+                    <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" CssClass="option1" style="width: 125px;">
+                        <asp:ListItem Enabled="true" Text="--- Select Type ---" Selected="True" Value="-1"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="Screening"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="Assessment"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="Treatment"></asp:ListItem>
+                  </asp:DropDownList>
+                </div>
 
+                <!--Room-->
+                <div class="type">
+                  <label class="label1">Room</label>
+                  <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True" DataSourceID="RoomDataSource" DataTextField="RoomNumber" DataValueField="RoomNumber" CssClass="option1" AppendDataBoundItems="True" style="width: 125px;">
+                      <asp:ListItem Enabled="true" Text="----- Select Room -----" Selected="True" Value="-1"></asp:ListItem>
+                  </asp:DropDownList>
+                  <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Rooms" Select="it.[RoomID], it.[RoomNumber]"></asp:EntityDataSource>
+                </div>
+
+                <!--Appointment Status-->
+                <div class="type">
+                  <label class="label1">Status</label>
+                  <asp:DropDownList ID="DropDownList4" runat="server" AutoPostBack="true" DataTextField="Status" DataValueField="Status" Cssclass="option1" style="width: 175px;">
+                    <asp:ListItem Enabled="true" Text="----- Select Status -----" Selected="true"></asp:ListItem>
+                    <asp:ListItem Enabled="true" Text="Unspecified" ></asp:ListItem>
+                    <asp:ListItem Enabled="true" Text="Completed"></asp:ListItem>
+                    <asp:ListItem Enabled="true" Text="Canceled by Therapist"></asp:ListItem>
+                    <asp:ListItem Enabled="true" Text="Canceled by Client" ></asp:ListItem>
+                    <asp:ListItem Enabled="true" Text="No-Show"></asp:ListItem>
+                  </asp:DropDownList>
+                </div>
+
+                <!--Student-->
+                <div class="type">
+                  <label class="label1">Student</label>
+                  <asp:DropDownList ID="DropDownList5" runat="server"  DataTextField="datasource" DataValueField="UserID" CssClass="option1" AppendDataBoundItems="True" style="width: 220px;">
+                      <asp:ListItem Enabled="true" Text="------- Select Student -------" Selected="True" Value="-1"></asp:ListItem>
+                  </asp:DropDownList>
+                </div>
+                
+                <!--Client-->
+                 <div class="type">
+                  <label class="label1">Client</label>
+                  <asp:DropDownList ID="DropDownList6" runat="server" DataTextField="datasource" DataValueField="ClientID" CssClass="option1" AppendDataBoundItems="True" style="width: 220px;">
+                      <asp:ListItem Enabled="true" Text="------- Select Client -------" Selected="True" Value="-1"></asp:ListItem>
+                  </asp:DropDownList><button type="button" class="btn4" data-dismiss="modal">Add Client</button>
+                 </div>
+
+                <!--Start Time-->
+                <div class="type">
+                  <label class="label1">Starts</label>
+                  <%--<asp:DropDownList ID="STimeDropDownList" runat="server" AutoPostBack="true" CssClass="option1">
+                      <asp:ListItem Enabled="true" Text="----- Pick Date & Time -----" Selected="True"></asp:ListItem>
+                      <asp:ListItem Enabled="true"></asp:ListItem>
+                  </asp:DropDownList>--%>
+                  <input type="datetime-local" class="option1" style="padding: 0px;">
+                </div>
+
+                <!--End Time-->
+                <div class="type">
+                  <label class="label1">Ends</label>
+                  <input ID="Datetimelocal1" type="datetime-local" class="option1" runat="server" style="padding: 0px;">
+                </div>
+
+                <!--Repeat-->
+                <div class="type">
+                  <label class="label1">Repeat</label>
+                    <asp:DropDownList ID="DropDownList7" runat="server" CssClass="option1" style="width: 125px;">
+                        <asp:ListItem Enabled="true" Text="---- Please Select -----" Selected="True"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="Weekly"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="Never"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+
+                <!--Note-->
+                 <div class="type">
+                  <label class="label1">Note</label>
+<%--                  <input type="text" style="width: 250px; height: 40px; margin-bottom: 3%;" class="option1">--%>
+                  <asp:TextBox ID="TextBox1"  style="width: 250px; height: 40px; margin-bottom: 3%;" runat="server" CssClass="option1"></asp:TextBox>
+                 </div>                  
+
+                <div class="modal-footer" style="border: 0px;">
+                  <button type="button" class="btn2" data-dismiss="modal">Save</button>
+                  <button type="button" class="btn3" data-dismiss="modal">Cancel</button>
+                </div>
+          </form>
+                    </div>
+          
+    </div>
+  </div>
     
         <!---------------------------------UNDER CALENDER--------------------------> 
        <div>
 
            <%--Hidden Appointment Details View--%>
-           <asp:DetailsView ID="AppointmentDetailsView" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="Type,RoomNumber,Status,Student_FName,Stuent_LName,Client_FName,Client_LName,StartTime,EndTime,Repeat" DataSourceID="AppointmentEntityDataSource">
+           <asp:DetailsView ID="AppointmentDetailsView" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="RoomNumber,Student_FName,Stuent_LName,Client_FName,Client_LName,StartTime,EndTime,Repeat,Type,Status,MiddleName,Expr1,UserID,ClientID" DataSourceID="AppointmentEntityDataSource">
                <Fields>
-                   <asp:BoundField DataField="Type" HeaderText="Type" ReadOnly="False" SortExpression="Type" />
-                   <asp:BoundField DataField="RoomNumber" HeaderText="RoomNumber" ReadOnly="False" SortExpression="RoomNumber" />
-                   <asp:BoundField DataField="Status" HeaderText="Status" ReadOnly="True" SortExpression="Status" />
-                   <asp:BoundField DataField="Student_FName" HeaderText="Student_FName" ReadOnly="False" SortExpression="Student_FName" />
-                   <asp:BoundField DataField="Stuent_LName" HeaderText="Stuent_LName" ReadOnly="False" SortExpression="Stuent_LName" />
-                   <asp:BoundField DataField="Client_FName" HeaderText="Client_FName" ReadOnly="False" SortExpression="Client_FName" />
-                   <asp:BoundField DataField="Client_LName" HeaderText="Client_LName" ReadOnly="False" SortExpression="Client_LName" />
-                   <asp:BoundField DataField="StartTime" HeaderText="StartTime" ReadOnly="False" SortExpression="StartTime" />
-                   <asp:BoundField DataField="EndTime" HeaderText="EndTime" ReadOnly="False" SortExpression="EndTime" />
-                   <asp:BoundField DataField="Repeat" HeaderText="Repeat" ReadOnly="False" SortExpression="Repeat" />
+                   <asp:BoundField DataField="Type" HeaderText="Type" ReadOnly="True" SortExpression="Type" />
+                   <asp:BoundField DataField="RoomNumber" HeaderText="RoomNumber" ReadOnly="True" SortExpression="RoomNumber" />
+                   <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" ReadOnly="True" />
+                   <asp:BoundField DataField="Student_FName" HeaderText="Student_FName" ReadOnly="True" SortExpression="Student_FName" />
+                   <asp:BoundField DataField="MiddleName" HeaderText="MiddleName" ReadOnly="True" SortExpression="MiddleName" />
+                   <asp:BoundField DataField="Stuent_LName" HeaderText="Stuent_LName" ReadOnly="True" SortExpression="Stuent_LName" />
+                   <asp:BoundField DataField="Client_FName" HeaderText="Client_FName" ReadOnly="True" SortExpression="Client_FName" />
+                   <asp:BoundField DataField="Expr1" HeaderText="Expr1" ReadOnly="True" SortExpression="Expr1" />
+                   <asp:BoundField DataField="Client_LName" HeaderText="Client_LName" ReadOnly="True" SortExpression="Client_LName" />
+                   <asp:BoundField DataField="StartTime" HeaderText="StartTime" ReadOnly="True" SortExpression="StartTime" />
+                   <asp:BoundField DataField="EndTime" HeaderText="EndTime" ReadOnly="True" SortExpression="EndTime" />
+                   <asp:BoundField DataField="Repeat" HeaderText="Repeat" ReadOnly="True" SortExpression="Repeat" />
                    <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" />
-                   <asp:CommandField ShowEditButton="True" />
-                   <asp:CommandField ShowInsertButton="True" NewText="Insert" />
+                   <asp:BoundField DataField="UserID" HeaderText="UserID" ReadOnly="True" SortExpression="UserID" />
+                   <asp:BoundField DataField="ClientID" HeaderText="ClientID" ReadOnly="True" SortExpression="ClientID" />
                </Fields>
            </asp:DetailsView>
-           <asp:EntityDataSource ID="AppointmentEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Appointment_View" EnableInsert="True" EnableUpdate="True"></asp:EntityDataSource>
+           <asp:EntityDataSource ID="AppointmentEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Appointment_View"></asp:EntityDataSource>
        </div>
      
         </div>

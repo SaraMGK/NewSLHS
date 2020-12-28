@@ -129,15 +129,15 @@
  
            </asp:ContentPlaceHolder>
           
-
             <!--footer-->
-            <div class="footer">
+            <div class="footer1">
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - DAH SLHS Clinic</p>
             </footer>
             </div>
-          </div>
+           </div>
+
 
     </form>
 </body>

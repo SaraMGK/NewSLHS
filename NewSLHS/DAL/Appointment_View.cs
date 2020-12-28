@@ -25,5 +25,9 @@ namespace NewSLHS.DAL
         public string Note { get; set; }
         public string Type { get; set; }
         public string Status { get; set; }
+        public string MiddleName { get; set; }
+        public string Expr1 { get; set; }
+        public int UserID { get; set; }
+        public int ClientID { get; set; }
     }
 }

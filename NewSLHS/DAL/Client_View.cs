@@ -29,5 +29,6 @@ namespace NewSLHS.DAL
         public string Parent_LName { get; set; }
         public string Parent_Mobile { get; set; }
         public string Parent_Email { get; set; }
+        public string MiddleName { get; set; }
     }
 }
