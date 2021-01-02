@@ -23,9 +23,11 @@ namespace NewSLHS.DAL
     
         public int SocialID { get; set; }
         public int Frustration { get; set; }
+        public string HandlingFrustration { get; set; }
     
         public virtual ICollection<Client_Information> Client_Information { get; set; }
         public virtual ICollection<Behavior> Behaviors { get; set; }
         public virtual ICollection<Personality> Personalities { get; set; }
+        public virtual Yes_No Yes_No { get; set; }
     }
 }

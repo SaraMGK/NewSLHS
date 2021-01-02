@@ -55,7 +55,6 @@ namespace NewSLHS.DAL
         public string SiblingAcademicDifficulties { get; set; }
         public string OtherPregnancies { get; set; }
     
-        public virtual Adult Adult { get; set; }
         public virtual Birth Birth { get; set; }
         public virtual Child Child { get; set; }
         public virtual Client Client { get; set; }
@@ -67,5 +66,6 @@ namespace NewSLHS.DAL
         public virtual ICollection<Food_Allergy> Food_Allergy { get; set; }
         public virtual ICollection<Immunization> Immunizations { get; set; }
         public virtual ICollection<Motor_Development> Motor_Development { get; set; }
+        public virtual Marital_Status Marital_Status { get; set; }
     }
 }

@@ -11,61 +11,79 @@ namespace NewSLHS
 {
 
 
-    public partial class WebForm1
+    public partial class ClientsList
     {
 
         /// <summary>
-        /// DetailsView control.
+        /// ClientNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DetailsView;
+        protected global::System.Web.UI.WebControls.Label ClientNameLabel;
 
         /// <summary>
-        /// EntityDataSource control.
+        /// EmailLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource;
+        protected global::System.Web.UI.WebControls.Label EmailLabel;
 
         /// <summary>
-        /// AddressIDLabel control.
+        /// MobileLable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AddressIDLabel;
+        protected global::System.Web.UI.WebControls.Label MobileLable;
 
         /// <summary>
-        /// AddressDetailsView control.
+        /// FileNoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView AddressDetailsView;
+        protected global::System.Web.UI.WebControls.Label FileNoLabel;
 
         /// <summary>
-        /// AddressEntityDataSource control.
+        /// BirthDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource AddressEntityDataSource;
+        protected global::System.Web.UI.WebControls.Label BirthDateLabel;
 
         /// <summary>
-        /// ButtonsDiv control.
+        /// StudentNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ButtonsDiv;
+        protected global::System.Web.UI.WebControls.Label StudentNameLabel;
+
+        /// <summary>
+        /// ClientDetailsView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView ClientDetailsView;
+
+        /// <summary>
+        /// EntityDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
     }
 }

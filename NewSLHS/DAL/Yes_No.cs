@@ -12,11 +12,16 @@ namespace NewSLHS.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Adult
+    public partial class Yes_No
     {
-        public int ClientInformationID { get; set; }
-        public string MaritalStatus { get; set; }
+        public Yes_No()
+        {
+            this.Socials = new HashSet<Social>();
+        }
     
-        public virtual Client_Information Client_Information { get; set; }
+        public int OptionID { get; set; }
+        public string Option { get; set; }
+    
+        public virtual ICollection<Social> Socials { get; set; }
     }
 }

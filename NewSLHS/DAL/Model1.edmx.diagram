@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="ca3544ee14114fc983db7e4f9792d93e" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="SLHSClinicModel.Address" Width="1.5" PointX="1.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Adult" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Appointment" Width="1.5" PointX="12.25" PointY="18" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Assessment_Objective" Width="1.5" PointX="19.75" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Assessment_Proposal" Width="1.5" PointX="17.5" PointY="16.5" IsExpanded="true" />
@@ -49,19 +48,16 @@
         <EntityTypeShape EntityType="SLHSClinicModel.Speech_Language" Width="1.5" PointX="0.75" PointY="32" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Student" Width="1.5" PointX="12.25" PointY="22.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Supervisor" Width="1.5" PointX="10" PointY="24" IsExpanded="true" />
-        <EntityTypeShape EntityType="SLHSClinicModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Teacher_Assistant" Width="1.5" PointX="10" PointY="28.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Tongue" Width="1.5" PointX="20.25" PointY="39.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Treatment_Plan" Width="1.5" PointX="17.5" PointY="37.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Treatment_Progress" Width="1.5" PointX="17.5" PointY="40.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Voice" Width="1.5" PointX="20.25" PointY="42.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Appointment_View" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Client_View" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Session_View" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Student_View" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="SLHSClinicModel.FK_Client_Address" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Parent_Address" ManuallyRouted="false" />
-        <AssociationConnector Association="SLHSClinicModel.FK_Adult_Client_Information" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Appointment_Client" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Appointment_Teacher_Assistant" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Room_Appointment" ManuallyRouted="false" />
@@ -112,7 +108,12 @@
         <AssociationConnector Association="SLHSClinicModel.Social_Behavior" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.Social_Personality" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.Student_Appointment" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Request_View" Width="1.5" PointX="10.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Request_View" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Marital_Status" Width="1.5" PointX="12.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Yes_No" Width="1.5" PointX="7.375" PointY="11.875" />
+        <AssociationConnector Association="SLHSClinicModel.FK_Social_Yes_No" />
+        <AssociationConnector Association="SLHSClinicModel.Adult" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Client_View" Width="1.5" PointX="9.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

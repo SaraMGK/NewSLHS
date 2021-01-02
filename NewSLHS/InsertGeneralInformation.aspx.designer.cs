@@ -11,8 +11,26 @@ namespace NewSLHS
 {
 
 
-    public partial class WebForm1
+    public partial class InsertGeneralInformation
     {
+
+        /// <summary>
+        /// Message control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Message;
+
+        /// <summary>
+        /// SuccessMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SuccessMessage;
 
         /// <summary>
         /// DetailsView control.
@@ -31,15 +49,6 @@ namespace NewSLHS
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource;
-
-        /// <summary>
-        /// AddressIDLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AddressIDLabel;
 
         /// <summary>
         /// AddressDetailsView control.

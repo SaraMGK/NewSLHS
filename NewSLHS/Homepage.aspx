@@ -206,15 +206,15 @@
                   </asp:DropDownList>
                 </div>
                 
-                <!--Client-->
+                <%--Client--%>
                  <div class="type">
                   <label class="label1">Client</label>
                   <asp:DropDownList ID="ClientDropDownList" runat="server" DataTextField="datasource" DataValueField="ClientID" CssClass="option1" AppendDataBoundItems="True" style="width: 220px;">
                       <asp:ListItem Enabled="true" Text="------- Select Client -------" Selected="True" Value="-1"></asp:ListItem>
-                  </asp:DropDownList><button type="button" class="btn4" data-dismiss="modal">Add Client</button>
+                  </asp:DropDownList><button type="button" class="btn4" onclick="location.href = '/InsertGeneralInformation'">Add Client</button>
                  </div>
 
-                <!--Start Time-->
+                <%--Start Time--%>
                 <div class="type">
                   <label class="label1">Starts</label>
                   <%--<asp:DropDownList ID="STimeDropDownList" runat="server" AutoPostBack="true" CssClass="option1">

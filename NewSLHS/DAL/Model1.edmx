@@ -22,7 +22,7 @@
             <PropertyRef Name="ClientInformationID" />
           </Key>
           <Property Name="ClientInformationID" Type="int" Nullable="false" />
-          <Property Name="MaritalStatus" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaritalStatusID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Appointment">
           <Key>
@@ -323,6 +323,13 @@
           <Property Name="IntaOralPressure" Type="int" />
           <Property Name="Strength" Type="int" />
         </EntityType>
+        <EntityType Name="Marital_Status">
+          <Key>
+            <PropertyRef Name="MaritalStatusID" />
+          </Key>
+          <Property Name="MaritalStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MartialStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Motor_Development">
           <Key>
             <PropertyRef Name="MotorDevelopmentID" />
@@ -554,6 +561,7 @@
           </Key>
           <Property Name="SocialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Frustration" Type="int" Nullable="false" />
+          <Property Name="HandlingFrustration" Type="nvarchar" MaxLength="450" />
         </EntityType>
         <EntityType Name="Social_Behavior">
           <Key>
@@ -635,16 +643,6 @@
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="AuthenticationID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Teacher_Assistant">
           <Key>
             <PropertyRef Name="UserID" />
@@ -710,6 +708,13 @@
           <Property Name="Intensity" Type="int" />
           <Property Name="Resonance" Type="int" />
         </EntityType>
+        <EntityType Name="Yes_No">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Name="OptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Option" Type="nvarchar" MaxLength="10" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SLHSClinic.dbo.Appointment_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Appointment_View">
@@ -749,38 +754,22 @@ warning 6002: The table/view 'SLHSClinic.dbo.Appointment_View' does not have a p
 warning 6002: The table/view 'SLHSClinic.dbo.Client_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Client_View">
           <Key>
-            <PropertyRef Name="Client_FName" />
-            <PropertyRef Name="Client_MName" />
-            <PropertyRef Name="Client_LName" />
-            <PropertyRef Name="Client_Email" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="MiddleName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Email" />
             <PropertyRef Name="Mobile" />
             <PropertyRef Name="FileNumber" />
-            <PropertyRef Name="CompletionDate" />
-            <PropertyRef Name="StudentID" />
-            <PropertyRef Name="Student_FName" />
-            <PropertyRef Name="Student_LName" />
-            <PropertyRef Name="Parent_FName" />
-            <PropertyRef Name="Parent_LName" />
-            <PropertyRef Name="Parent_Mobile" />
-            <PropertyRef Name="Parent_Email" />
-            <PropertyRef Name="MiddleName" />
+            <PropertyRef Name="ClientID" />
           </Key>
-          <Property Name="Client_FName" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Client_MName" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Client_LName" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Client_Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Mobile" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="FileNumber" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DateOfBirth" Type="date" />
-          <Property Name="CompletionDate" Type="date" Nullable="false" />
-          <Property Name="StudentID" Type="int" Nullable="false" />
-          <Property Name="Student_FName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Student_LName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Parent_FName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Parent_LName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Parent_Mobile" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="Parent_Email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SLHSClinic.dbo.Request_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -885,6 +874,18 @@ warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a prima
             </Principal>
             <Dependent Role="Adult">
               <PropertyRef Name="ClientInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adult_Marital_Status">
+          <End Role="Marital_Status" Type="Self.Marital_Status" Multiplicity="1" />
+          <End Role="Adult" Type="Self.Adult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marital_Status">
+              <PropertyRef Name="MaritalStatusID" />
+            </Principal>
+            <Dependent Role="Adult">
+              <PropertyRef Name="MaritalStatusID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1440,6 +1441,18 @@ warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Social_Yes_No">
+          <End Role="Yes_No" Type="Self.Yes_No" Multiplicity="1" />
+          <End Role="Social" Type="Self.Social" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yes_No">
+              <PropertyRef Name="OptionID" />
+            </Principal>
+            <Dependent Role="Social">
+              <PropertyRef Name="Frustration" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Special_Classroom_School">
           <End Role="School" Type="Self.School" Multiplicity="1" />
           <End Role="Special_Classroom" Type="Self.Special_Classroom" Multiplicity="*" />
@@ -1585,6 +1598,7 @@ warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a prima
           <EntitySet Name="Jaws" EntityType="Self.Jaws" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Language_Notes" EntityType="Self.Language_Notes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lips" EntityType="Self.Lips" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marital_Status" EntityType="Self.Marital_Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Motor_Development" EntityType="Self.Motor_Development" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Parent" EntityType="Self.Parent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personality" EntityType="Self.Personality" Schema="dbo" store:Type="Tables" />
@@ -1609,12 +1623,12 @@ warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a prima
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student_Appointment" EntityType="Self.Student_Appointment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supervisor" EntityType="Self.Supervisor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teacher_Assistant" EntityType="Self.Teacher_Assistant" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tongue" EntityType="Self.Tongue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Treatment_Plan" EntityType="Self.Treatment_Plan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Treatment_Progress" EntityType="Self.Treatment_Progress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Voice" EntityType="Self.Voice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yes_No" EntityType="Self.Yes_No" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Appointment_View" EntityType="Self.Appointment_View" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [Appointment_View].[RoomNumber] AS [RoomNumber], 
@@ -1636,22 +1650,14 @@ FROM [dbo].[Appointment_View] AS [Appointment_View]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Client_View" EntityType="Self.Client_View" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[Client_View].[Client_FName] AS [Client_FName], 
-[Client_View].[Client_MName] AS [Client_MName], 
-[Client_View].[Client_LName] AS [Client_LName], 
-[Client_View].[Client_Email] AS [Client_Email], 
+[Client_View].[FirstName] AS [FirstName], 
+[Client_View].[MiddleName] AS [MiddleName], 
+[Client_View].[LastName] AS [LastName], 
+[Client_View].[Email] AS [Email], 
 [Client_View].[Mobile] AS [Mobile], 
 [Client_View].[FileNumber] AS [FileNumber], 
 [Client_View].[DateOfBirth] AS [DateOfBirth], 
-[Client_View].[CompletionDate] AS [CompletionDate], 
-[Client_View].[StudentID] AS [StudentID], 
-[Client_View].[Student_FName] AS [Student_FName], 
-[Client_View].[Student_LName] AS [Student_LName], 
-[Client_View].[Parent_FName] AS [Parent_FName], 
-[Client_View].[Parent_LName] AS [Parent_LName], 
-[Client_View].[Parent_Mobile] AS [Parent_Mobile], 
-[Client_View].[Parent_Email] AS [Parent_Email], 
-[Client_View].[MiddleName] AS [MiddleName]
+[Client_View].[ClientID] AS [ClientID]
 FROM [dbo].[Client_View] AS [Client_View]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Request_View" EntityType="Self.Request_View" store:Type="Views" store:Schema="dbo">
@@ -1707,6 +1713,10 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Adult_Client_Information" Association="Self.FK_Adult_Client_Information">
             <End Role="Client_Information" EntitySet="Client_Information" />
+            <End Role="Adult" EntitySet="Adult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adult_Marital_Status" Association="Self.FK_Adult_Marital_Status">
+            <End Role="Marital_Status" EntitySet="Marital_Status" />
             <End Role="Adult" EntitySet="Adult" />
           </AssociationSet>
           <AssociationSet Name="FK_Appointment_Client" Association="Self.FK_Appointment_Client">
@@ -1893,6 +1903,10 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Social" EntitySet="Social" />
             <End Role="Social_Personality" EntitySet="Social_Personality" />
           </AssociationSet>
+          <AssociationSet Name="FK_Social_Yes_No" Association="Self.FK_Social_Yes_No">
+            <End Role="Yes_No" EntitySet="Yes_No" />
+            <End Role="Social" EntitySet="Social" />
+          </AssociationSet>
           <AssociationSet Name="FK_Special_Classroom_School" Association="Self.FK_Special_Classroom_School">
             <End Role="School" EntitySet="School" />
             <End Role="Special_Classroom" EntitySet="Special_Classroom" />
@@ -1951,14 +1965,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="AdditionalNumbers" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_Client_Address" FromRole="Address" ToRole="Client" />
           <NavigationProperty Name="Parents" Relationship="Self.FK_Parent_Address" FromRole="Address" ToRole="Parent" />
-        </EntityType>
-        <EntityType Name="Adult">
-          <Key>
-            <PropertyRef Name="ClientInformationID" />
-          </Key>
-          <Property Name="ClientInformationID" Type="Int32" Nullable="false" />
-          <Property Name="MaritalStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Client_Information" Relationship="Self.FK_Adult_Client_Information" FromRole="Adult" ToRole="Client_Information" />
         </EntityType>
         <EntityType Name="Appointment">
           <Key>
@@ -2130,7 +2136,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="SiblingSLPProblems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SiblingAcademicDifficulties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OtherPregnancies" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Adult" Relationship="Self.FK_Adult_Client_Information" FromRole="Client_Information" ToRole="Adult" />
           <NavigationProperty Name="Birth" Relationship="Self.FK_Client_Information_Birth" FromRole="Client_Information" ToRole="Birth" />
           <NavigationProperty Name="Child" Relationship="Self.FK_Child_Client_Information" FromRole="Client_Information" ToRole="Child" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_Information_Client" FromRole="Client_Information" ToRole="Client" />
@@ -2142,6 +2147,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <NavigationProperty Name="Food_Allergy" Relationship="Self.FK_Food_Allergy_Client_Information" FromRole="Client_Information" ToRole="Food_Allergy" />
           <NavigationProperty Name="Immunizations" Relationship="Self.FK_Immunization_Client_Information" FromRole="Client_Information" ToRole="Immunization" />
           <NavigationProperty Name="Motor_Development" Relationship="Self.FK_Motor_Development_Client_Information" FromRole="Client_Information" ToRole="Motor_Development" />
+          <NavigationProperty Name="Marital_Status" Relationship="SLHSClinicModel.Adult" FromRole="Client_Information" ToRole="Marital_Status" />
         </EntityType>
         <EntityType Name="Clinical_Goals">
           <Key>
@@ -2565,6 +2571,8 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <NavigationProperty Name="Client_Information" Relationship="Self.FK_Client_Information_Social" FromRole="Social" ToRole="Client_Information" />
           <NavigationProperty Name="Behaviors" Relationship="Self.Social_Behavior" FromRole="Social" ToRole="Behavior" />
           <NavigationProperty Name="Personalities" Relationship="Self.Social_Personality" FromRole="Social" ToRole="Personality" />
+          <Property Name="HandlingFrustration" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Yes_No" Relationship="SLHSClinicModel.FK_Social_Yes_No" FromRole="Social" ToRole="Yes_No" />
         </EntityType>
         <EntityType Name="Special_Classroom">
           <Key>
@@ -2633,16 +2641,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <NavigationProperty Name="Sections" Relationship="Self.FK_Section_Supervisor" FromRole="Supervisor" ToRole="Section" />
           <NavigationProperty Name="Sessions" Relationship="Self.FK_Session_Supervisor" FromRole="Supervisor" ToRole="Session" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Student_Supervisor" FromRole="Supervisor" ToRole="Student" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Teacher_Assistant">
           <Key>
@@ -2750,41 +2748,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="ClientID" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="Client_View">
-          <Key>
-            <PropertyRef Name="Client_FName" />
-            <PropertyRef Name="Client_MName" />
-            <PropertyRef Name="Client_LName" />
-            <PropertyRef Name="Client_Email" />
-            <PropertyRef Name="Mobile" />
-            <PropertyRef Name="FileNumber" />
-            <PropertyRef Name="CompletionDate" />
-            <PropertyRef Name="StudentID" />
-            <PropertyRef Name="Student_FName" />
-            <PropertyRef Name="Student_LName" />
-            <PropertyRef Name="Parent_FName" />
-            <PropertyRef Name="Parent_LName" />
-            <PropertyRef Name="Parent_Mobile" />
-            <PropertyRef Name="Parent_Email" />
-            <PropertyRef Name="MiddleName" />
-          </Key>
-          <Property Name="Client_FName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Client_MName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Client_LName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Client_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FileNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
-          <Property Name="CompletionDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="StudentID" Type="Int32" Nullable="false" />
-          <Property Name="Student_FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Student_LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Parent_FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Parent_LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Parent_Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Parent_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Session_View">
           <Key>
             <PropertyRef Name="Client_FName" />
@@ -2864,18 +2827,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             </Principal>
             <Dependent Role="Parent">
               <PropertyRef Name="AddressID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Adult_Client_Information">
-          <End Role="Client_Information" Type="Self.Client_Information" Multiplicity="1" />
-          <End Role="Adult" Type="Self.Adult" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Client_Information">
-              <PropertyRef Name="ClientInformationID" />
-            </Principal>
-            <Dependent Role="Adult">
-              <PropertyRef Name="ClientInformationID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3449,7 +3400,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
         </Association>
         <EntityContainer Name="SLHSClinicEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
-          <EntitySet Name="Adults" EntityType="Self.Adult" />
           <EntitySet Name="Appointments" EntityType="Self.Appointment" />
           <EntitySet Name="Assessment_Objective" EntityType="Self.Assessment_Objective" />
           <EntitySet Name="Assessment_Proposal" EntityType="Self.Assessment_Proposal" />
@@ -3492,14 +3442,12 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySet Name="Speech_Language" EntityType="Self.Speech_Language" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="Supervisors" EntityType="Self.Supervisor" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Teacher_Assistant" EntityType="Self.Teacher_Assistant" />
           <EntitySet Name="Tongues" EntityType="Self.Tongue" />
           <EntitySet Name="Treatment_Plan" EntityType="Self.Treatment_Plan" />
           <EntitySet Name="Treatment_Progress" EntityType="Self.Treatment_Progress" />
           <EntitySet Name="Voices" EntityType="Self.Voice" />
           <EntitySet Name="Appointment_View" EntityType="Self.Appointment_View" />
-          <EntitySet Name="Client_View" EntityType="Self.Client_View" />
           <EntitySet Name="Session_View" EntityType="Self.Session_View" />
           <EntitySet Name="Student_View" EntityType="Self.Student_View" />
           <AssociationSet Name="FK_Client_Address" Association="Self.FK_Client_Address">
@@ -3509,10 +3457,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <AssociationSet Name="FK_Parent_Address" Association="Self.FK_Parent_Address">
             <End Role="Address" EntitySet="Addresses" />
             <End Role="Parent" EntitySet="Parents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Adult_Client_Information" Association="Self.FK_Adult_Client_Information">
-            <End Role="Client_Information" EntitySet="Client_Information" />
-            <End Role="Adult" EntitySet="Adults" />
           </AssociationSet>
           <AssociationSet Name="FK_Appointment_Client" Association="Self.FK_Appointment_Client">
             <End Role="Client" EntitySet="Clients" />
@@ -3715,6 +3659,17 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
           <EntitySet Name="Request_View" EntityType="SLHSClinicModel.Request_View" />
+          <EntitySet Name="Marital_Status" EntityType="SLHSClinicModel.Marital_Status" />
+          <EntitySet Name="Yes_No" EntityType="SLHSClinicModel.Yes_No" />
+          <AssociationSet Name="FK_Social_Yes_No" Association="SLHSClinicModel.FK_Social_Yes_No">
+            <End Role="Yes_No" EntitySet="Yes_No" />
+            <End Role="Social" EntitySet="Socials" />
+          </AssociationSet>
+          <AssociationSet Name="Adult" Association="SLHSClinicModel.Adult">
+            <End Role="Client_Information" EntitySet="Client_Information" />
+            <End Role="Marital_Status" EntitySet="Marital_Status" />
+          </AssociationSet>
+          <EntitySet Name="Client_View" EntityType="SLHSClinicModel.Client_View" />
         </EntityContainer>
         <EntityType Name="Request_View">
           <Key>
@@ -3746,6 +3701,57 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="ReturnDateTime" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="Marital_Status">
+          <Key>
+            <PropertyRef Name="MaritalStatusID" />
+          </Key>
+          <Property Name="MaritalStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MartialStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Client_Information" Relationship="SLHSClinicModel.Adult" FromRole="Marital_Status" ToRole="Client_Information" />
+        </EntityType>
+        <EntityType Name="Yes_No">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Name="OptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Option" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Socials" Relationship="SLHSClinicModel.FK_Social_Yes_No" FromRole="Yes_No" ToRole="Social" />
+        </EntityType>
+        <Association Name="FK_Social_Yes_No">
+          <End Type="SLHSClinicModel.Yes_No" Role="Yes_No" Multiplicity="1" />
+          <End Type="SLHSClinicModel.Social" Role="Social" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yes_No">
+              <PropertyRef Name="OptionID" />
+            </Principal>
+            <Dependent Role="Social">
+              <PropertyRef Name="Frustration" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Adult">
+          <End Type="SLHSClinicModel.Client_Information" Role="Client_Information" Multiplicity="*" />
+          <End Type="SLHSClinicModel.Marital_Status" Role="Marital_Status" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="Client_View">
+          <Key>
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="MiddleName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Mobile" />
+            <PropertyRef Name="FileNumber" />
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="FileNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3762,14 +3768,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
                 <ScalarProperty Name="AdditionalNumbers" ColumnName="AdditionalNumbers" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Adults">
-            <EntityTypeMapping TypeName="SLHSClinicModel.Adult">
-              <MappingFragment StoreEntitySet="Adult">
-                <ScalarProperty Name="ClientInformationID" ColumnName="ClientInformationID" />
-                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4329,6 +4327,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySetMapping Name="Socials">
             <EntityTypeMapping TypeName="SLHSClinicModel.Social">
               <MappingFragment StoreEntitySet="Social">
+                <ScalarProperty Name="HandlingFrustration" ColumnName="HandlingFrustration" />
                 <ScalarProperty Name="SocialID" ColumnName="SocialID" />
                 <ScalarProperty Name="Frustration" ColumnName="Frustration" />
               </MappingFragment>
@@ -4391,17 +4390,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
                 <ScalarProperty Name="mobile" ColumnName="mobile" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="AuthenticationID" ColumnName="AuthenticationID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="SLHSClinicModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4496,28 +4484,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Client_View">
-            <EntityTypeMapping TypeName="SLHSClinicModel.Client_View">
-              <MappingFragment StoreEntitySet="Client_View">
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="Client_FName" ColumnName="Client_FName" />
-                <ScalarProperty Name="Client_MName" ColumnName="Client_MName" />
-                <ScalarProperty Name="Client_LName" ColumnName="Client_LName" />
-                <ScalarProperty Name="Client_Email" ColumnName="Client_Email" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
-                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
-                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-                <ScalarProperty Name="Student_FName" ColumnName="Student_FName" />
-                <ScalarProperty Name="Student_LName" ColumnName="Student_LName" />
-                <ScalarProperty Name="Parent_FName" ColumnName="Parent_FName" />
-                <ScalarProperty Name="Parent_LName" ColumnName="Parent_LName" />
-                <ScalarProperty Name="Parent_Mobile" ColumnName="Parent_Mobile" />
-                <ScalarProperty Name="Parent_Email" ColumnName="Parent_Email" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Session_View">
             <EntityTypeMapping TypeName="SLHSClinicModel.Session_View">
               <MappingFragment StoreEntitySet="Session_View">
@@ -4604,6 +4570,45 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
                 <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marital_Status">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Marital_Status">
+              <MappingFragment StoreEntitySet="Marital_Status">
+                <ScalarProperty Name="MartialStatus" ColumnName="MartialStatus" />
+                <ScalarProperty Name="MaritalStatusID" ColumnName="MaritalStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yes_No">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Yes_No">
+              <MappingFragment StoreEntitySet="Yes_No">
+                <ScalarProperty Name="Option" ColumnName="Option" />
+                <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Adult" TypeName="SLHSClinicModel.Adult" StoreEntitySet="Adult">
+            <EndProperty Name="Marital_Status">
+              <ScalarProperty Name="MaritalStatusID" ColumnName="MaritalStatusID" />
+            </EndProperty>
+            <EndProperty Name="Client_Information">
+              <ScalarProperty Name="ClientInformationID" ColumnName="ClientInformationID" />
+            </EndProperty>
+            <Condition ColumnName="MaritalStatusID" IsNull="false" />
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Client_View">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Client_View">
+              <MappingFragment StoreEntitySet="Client_View">
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

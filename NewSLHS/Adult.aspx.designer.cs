@@ -11,79 +11,88 @@ namespace NewSLHS
 {
 
 
-    public partial class WebForm2
+    public partial class Adult
     {
 
         /// <summary>
-        /// ClientNameLabel control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ClientNameLabel;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
-        /// EmailLabel control.
+        /// RadioButtonList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EmailLabel;
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
 
         /// <summary>
-        /// MobileLable control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MobileLable;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
-        /// FileNoLabel control.
+        /// AdultDetailsView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FileNoLabel;
+        protected global::System.Web.UI.WebControls.DetailsView AdultDetailsView;
 
         /// <summary>
-        /// BirthDateLabel control.
+        /// AdultEntityDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BirthDateLabel;
+        protected global::System.Web.UI.WebControls.EntityDataSource AdultEntityDataSource;
 
         /// <summary>
-        /// StudentNameLabel control.
+        /// YesNoEntityDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StudentNameLabel;
+        protected global::System.Web.UI.WebControls.EntityDataSource YesNoEntityDataSource;
 
         /// <summary>
-        /// ClientGridView control.
+        /// MaritalStatusEntityDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ClientGridView;
+        protected global::System.Web.UI.WebControls.EntityDataSource MaritalStatusEntityDataSource;
 
         /// <summary>
-        /// ClientEntityDataSource control.
+        /// FrustrationEntityDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource ClientEntityDataSource;
+        protected global::System.Web.UI.WebControls.EntityDataSource FrustrationEntityDataSource;
+
+        /// <summary>
+        /// ButtonsDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ButtonsDiv;
     }
 }

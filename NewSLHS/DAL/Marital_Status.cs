@@ -12,12 +12,16 @@ namespace NewSLHS.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class Marital_Status
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public Marital_Status()
+        {
+            this.Client_Information = new HashSet<Client_Information>();
+        }
+    
+        public int MaritalStatusID { get; set; }
+        public string MartialStatus { get; set; }
+    
+        public virtual ICollection<Client_Information> Client_Information { get; set; }
     }
 }

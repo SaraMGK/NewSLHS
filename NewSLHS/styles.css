@@ -901,7 +901,7 @@ tr {
 /*Client List Page*/
 .client-div {
     width: 50%;
-    height: 65%;
+    height: 100%;
     background-color: #e4f5f5;
     border-radius: 10px;
     overflow: hidden;
@@ -915,19 +915,21 @@ tr {
 }
 
 .client-icon {
-    color: #FEA0A5;
-    font-size: 130px !important;
-    padding-top: 3%;
+    /*    color: #FEA0A5;
+    font-size: 12px !important;
+    padding-top: 3%;*/
+    height: 99px;
 }
 
 .client-name-label {
-/*    font-weight: bold;
-*/}
+    font-weight: lighter ;
+    font-size: 12px;
+}
 
 .client-info {
     display: inline;
-    padding: 3%;
-    width: 70%;
+/*    padding: 3%;
+*/    width: 70%;
     margin-left: 5%;
     font-weight: normal;
 }
@@ -937,7 +939,8 @@ tr {
     display: inline-block;
     *display: inline; /* for IE7*/
     zoom: 1; /* for IE7*/
-    width: 140px;
+    width: 120px;
+    font-size: 12px;
 }
 
 .client-input {
@@ -956,10 +959,32 @@ tr {
 */    height: 10px;
 }
 
+.alert {
+    padding: 20px;
+    background-color: #92ddc8;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: #3FA186;
+}
+
 /*General Information Page*/
 
 .client-head {
     margin: 0 !important;
+    text-indent: 2px;
 }
 
 .client-head-div {
@@ -1077,10 +1102,10 @@ tr {
 }
 
 .dfdf tr:nth-child(n+2) td:nth-child(1) {
-        width: 300px !important;
+    width: 500px !important;
         /*    background-color: yellow !important;
 */ text-align: right;
-        font-weight: bold;
+   font-weight: bold;
     }
 
 .dfdf td:nth-child(1) {

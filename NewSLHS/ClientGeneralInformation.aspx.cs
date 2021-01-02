@@ -11,6 +11,10 @@ namespace NewSLHS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            AddressIDLabel.Visible = false;
+            AddressIDLabel.Text = DetailsView.Rows[7].Cells[1].Text;
+
+            
 
         }
 
@@ -20,6 +24,13 @@ namespace NewSLHS
         {
             ButtonsDiv.Visible = !ButtonsDiv.Visible;
 
+        }
+
+        protected void DetailsView_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
+        {
+            //SuccessMessage.Text = "Record successfully updated.";
+
+           
         }
     }
 }

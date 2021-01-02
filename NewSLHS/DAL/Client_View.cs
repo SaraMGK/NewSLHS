@@ -14,21 +14,13 @@ namespace NewSLHS.DAL
     
     public partial class Client_View
     {
-        public string Client_FName { get; set; }
-        public string Client_MName { get; set; }
-        public string Client_LName { get; set; }
-        public string Client_Email { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
         public string Mobile { get; set; }
         public string FileNumber { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
-        public System.DateTime CompletionDate { get; set; }
-        public int StudentID { get; set; }
-        public string Student_FName { get; set; }
-        public string Student_LName { get; set; }
-        public string Parent_FName { get; set; }
-        public string Parent_LName { get; set; }
-        public string Parent_Mobile { get; set; }
-        public string Parent_Email { get; set; }
-        public string MiddleName { get; set; }
+        public int ClientID { get; set; }
     }
 }

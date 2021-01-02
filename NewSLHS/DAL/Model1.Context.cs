@@ -26,7 +26,6 @@ namespace NewSLHS.DAL
         }
     
         public DbSet<Address> Addresses { get; set; }
-        public DbSet<Adult> Adults { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Assessment_Objective> Assessment_Objective { get; set; }
         public DbSet<Assessment_Proposal> Assessment_Proposal { get; set; }
@@ -69,16 +68,17 @@ namespace NewSLHS.DAL
         public DbSet<Speech_Language> Speech_Language { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Supervisor> Supervisors { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<Teacher_Assistant> Teacher_Assistant { get; set; }
         public DbSet<Tongue> Tongues { get; set; }
         public DbSet<Treatment_Plan> Treatment_Plan { get; set; }
         public DbSet<Treatment_Progress> Treatment_Progress { get; set; }
         public DbSet<Voice> Voices { get; set; }
         public DbSet<Appointment_View> Appointment_View { get; set; }
-        public DbSet<Client_View> Client_View { get; set; }
         public DbSet<Session_View> Session_View { get; set; }
         public DbSet<Student_View> Student_View { get; set; }
         public DbSet<Request_View> Request_View { get; set; }
+        public DbSet<Marital_Status> Marital_Status { get; set; }
+        public DbSet<Yes_No> Yes_No { get; set; }
+        public DbSet<Client_View> Client_View { get; set; }
     }
 }

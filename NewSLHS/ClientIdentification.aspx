@@ -8,7 +8,7 @@
                      <li><a href="/ClientIdentification">
                         <span class="tab">Identification</span></a>
                      </li>
-                     <li><a href="/">
+                     <li><a href="/Birth">
                         <span class="tab">Birth History</span></a>
                      </li>
                      <li><a href="/">
@@ -105,17 +105,37 @@
     </asp:DetailsView>
     <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Client_Information" EnableUpdate="True" EnableInsert="True"></asp:EntityDataSource>
     </div>
-    
-    <hr>
 
-   <%----- Address Header-----%>
-    <div>
+    <br />
+    <br />
+
+    <%--Checkbox DetailsView--%>
+   <%-- <div>
         <label class="">Has the client been diagnosed as having any of the following, please choose those that pertain</label>
-    </div>
+    </div>--%>
 
     <asp:DetailsView CssClass="dfdf" ID="DiagnosisDetailsView" runat="server" Height="113px" Width="1050px" AutoGenerateRows="False" DataKeyNames="DiagnosisID" DataSourceID="DiagnosisEntityDataSource" style="margin-right: 0px" OnModeChanged="Hide_Buttons">
         <Fields>
-            <asp:BoundField DataField="DiagnosisID" HeaderText="DiagnosisID" ReadOnly="True" SortExpression="DiagnosisID" />
+            <%--Edit & Insert Buttons--%>
+             <asp:CommandField ShowEditButton="True" ButtonType="Button" ControlStyle-CssClass="edit-btn" >
+                <ControlStyle CssClass="edit-btn"></ControlStyle>
+            </asp:CommandField>
+            <asp:CommandField ShowInsertButton="True" ButtonType="Button" ControlStyle-CssClass="edit-btn" Visible="False" >
+                <ControlStyle CssClass="edit-btn"></ControlStyle>
+            </asp:CommandField>
+            <%-----Data-----%>
+            <asp:BoundField DataField="DiagnosisID" HeaderText="DiagnosisID" ReadOnly="True" SortExpression="DiagnosisID" Visible="False" />
+            <asp:TemplateField ShowHeader="false">
+                <ItemTemplate>
+                    <table>
+                        <tr>
+                            <td colspan="2" style="width: 950px !important; color: black; text-align: left">
+                                <b>Has the client been diagnosed as having any of the following, please choose those that pertain</b>
+                            </td>
+                        </tr>
+                    </table>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="CleftPlatal" SortExpression="CleftPlatal">
                 <EditItemTemplate>
                     <asp:Checkbox ID="TextBox1" runat="server" Text='<%# Bind("CleftPlatal") %>'></asp:Checkbox>
@@ -193,10 +213,6 @@
                     <asp:Label ID="Label7" runat="server" Text='<%# Bind("Other") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:CommandField ShowEditButton="True" ButtonType="Button" ControlStyle-CssClass="edit-btn" >
-<ControlStyle CssClass="edit-btn"></ControlStyle>
-            </asp:CommandField>
-            <asp:CommandField ShowInsertButton="True" ButtonType="Button" />
         </Fields>
     </asp:DetailsView>
     <asp:EntityDataSource ID="DiagnosisEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Diagnosis" EnableInsert="True" EnableUpdate="True"></asp:EntityDataSource>

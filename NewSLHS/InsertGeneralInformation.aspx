@@ -1,27 +1,81 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ClientGeneralInformation.aspx.cs" Inherits="NewSLHS.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InsertGeneralInformation.aspx.cs" Inherits="NewSLHS.InsertGeneralInformation" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="client_tabs" runat="server">
+     <%------Client Info Tabs------%>
+                 <div class="sidebar2">
+                     <ul class="tt">
+                     <li><a href="/ClientGeneralInformation">
+                        <span class="tab">General Information</span></a>
+                     </li>
+                     <li><a href="/ClientIdentification">
+                        <span class="tab">Identification</span></a>
+                     </li>
+                     <li><a href="/Birth">
+                        <span class="tab">Birth History</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Adult</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Child</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Parental History</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Health History</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Physician Information</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Motor Development</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Speech & Language</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Hearing History</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">School History</span></a>
+                     </li>
+                     <li><a href="/">
+                        <span class="tab">Social History</span></a>
+                     </li>
+                </ul>
+                 </div>
+</asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-   <h1>Client Details</h1>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+
+     <h1>Client Details</h1>
    <div class="client-head-div">
        <h6 class="client-head">General Information</h6>
    </div>
-   
 
-    <hr>
+<%--<hr>--%>
 
-   
+     <%--move to insertIdentification page--%>
+    <div runat="server" id="Message" class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <asp:Label ID="SuccessMessage" runat="server" Text="Sucessfully Added" Visible="False"></asp:Label>
+    </div>
 
     <%----------------------------Name Info DetailsView--------------------------------%>
     <div class="detailsView-div">
-        <asp:DetailsView CssClass="dfdf" ID="DetailsView" runat="server" Height="113px" Width="1150px" AutoGenerateRows="False" DataSourceID="EntityDataSource" DataKeyNames="ClientID" BorderWidth="1px" CellPadding="4" style="margin-right: 0px" OnModeChanged="Hide_Buttons" OnItemUpdated="DetailsView_ItemUpdated">
+        <asp:DetailsView CssClass="dfdf" ID="DetailsView" runat="server" Height="113px" Width="1150px" AutoGenerateRows="False" DataSourceID="EntityDataSource" DataKeyNames="ClientID" BorderWidth="1px" CellPadding="4" style="margin-right: 0px" DefaultMode="Insert" OnItemInserted="DetailsView_ItemInserted" OnItemInserting="hide">
         <EditRowStyle BackColor="white" Font-Bold="True" ForeColor="#663399" CssClass="detailsView-update" />
         <Fields>
-            <%-------Edit Button------%>
-            <asp:CommandField ShowEditButton="True" ButtonType="Button" ControlStyle-CssClass="edit-btn" UpdateText="Save" >
+            <%-------Hidden Edit Button------%>
+            <asp:CommandField ShowEditButton="True" ButtonType="Button" ControlStyle-CssClass="edit-btn" UpdateText="Save" Visible="False">
+                <ControlStyle CssClass="edit-btn"></ControlStyle>
+            </asp:CommandField>
+            <%-------Insert Button------%>
+            <asp:CommandField ShowInsertButton="True" Visible="true" ControlStyle-CssClass="edit-btn" ButtonType="Button" InsertText="Save" UpdateText="Edit">
                 <ControlStyle CssClass="edit-btn"></ControlStyle>
             </asp:CommandField>
             <%--------------Client ID-------------%>
-            <asp:BoundField DataField="ClientID" HeaderText="Client ID" SortExpression="ClientID" ReadOnly="True" Visible="true" />
+            <asp:BoundField DataField="ClientID" HeaderText="Client ID" SortExpression="ClientID" ReadOnly="True" Visible="False" />
             <%------------first Name------------%>
             <asp:TemplateField HeaderText="First Name" SortExpression="FirstName">
                 <EditItemTemplate>
@@ -43,7 +97,7 @@
                     <asp:RegularExpressionValidator ID="MNRegularExpressionValidator" runat="server" ErrorMessage="Wrong Format" ControlToValidate="MNTextBox" ValidationExpression="^[a-zA-Z\s]+$" Text="!  Enter letters only" ForeColor="#F1726B"></asp:RegularExpressionValidator>
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    <asp:TextBox ID="MNTextBox" runat="server" Text='<%# Bind("MiddleName") %>'></asp:TextBox> <asp:RequiredFieldValidator ID="MNInsertRequiredFieldValidator" runat="server" ControlToValidate="MNTextBox" ErrorMessage="You must fill all fields" Text="* Enter Letters Only" ForeColor="#F1726B"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="MNTextBox" runat="server" Text='<%# Bind("MiddleName") %>'></asp:TextBox> <asp:RequiredFieldValidator ID="MNInsertRequiredFieldValidator" runat="server" ControlToValidate="MNTextBox" ErrorMessage="You must fill all fields" Text="* Middle name is required" ForeColor="#F1726B"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="MNInsertRegularExpressionValidator" runat="server" ErrorMessage="Wrong Format" ControlToValidate="MNTextBox" ValidationExpression="^[a-zA-Z\s]+$" Text="!  Enter letters only" ForeColor="#F1726B"></asp:RegularExpressionValidator>                </InsertItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("MiddleName") %>'></asp:Label>
@@ -92,11 +146,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
             <%------------Address ID --------------%>
-            <asp:BoundField DataField="AddressID" HeaderText="Address ID" ReadOnly="true" SortExpression="AddressID" />
-            <%------------ Hidden Insert Button--------------%>
-            <asp:CommandField ShowInsertButton="True" Visible="false" ControlStyle-CssClass="edit-btn" ButtonType="Button" >
-                <ControlStyle CssClass="edit-btn"></ControlStyle>
-            </asp:CommandField>
+            <asp:BoundField DataField="AddressID" HeaderText="Address ID" ReadOnly="true" SortExpression="AddressID" Visible="False" />
         </Fields>
         <FooterStyle BackColor="white" ForeColor="#330099" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
@@ -104,31 +154,22 @@
         <RowStyle BackColor="White" ForeColor="#330099" />
     </asp:DetailsView>
     </div>
-    <asp:EntityDataSource ID="EntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EntitySetName="Clients" Where="it.ClientID = @x" EnableFlattening="False" EnableUpdate="True" EnableInsert="True">
-        <WhereParameters>
-            <asp:QueryStringParameter DbType="Int32" Name="x" QueryStringField="ClientID" />
-        </WhereParameters>
-    </asp:EntityDataSource>
+    <%-----Entity Data Source-----%>
+    <asp:EntityDataSource ID="EntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EntitySetName="Clients" EnableFlattening="False" EnableUpdate="True" EnableInsert="True"></asp:EntityDataSource>
 
-    <asp:Label ID="AddressIDLabel" runat="server" Text="Label"></asp:Label>
-
-    <hr>
-   <%----- Address Header-----%>
-    <div>
-        <label class="address-header">Address</label>
-    </div>
-
+   
     <%--------------------------------Address DetailsView--------------------------------%>
-    <asp:DetailsView ID="AddressDetailsView" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="AddressID" DataSourceID="AddressEntityDataSource" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="dfdf" OnModeChanged="Hide_Buttons">
+    <asp:DetailsView ID="AddressDetailsView" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="AddressID" DataSourceID="AddressEntityDataSource" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="dfdf" DefaultMode="Insert">
         <EditRowStyle BackColor="White" Font-Bold="True" ForeColor="#663399" CssClass="detailsView-update" />
         <Fields>
-            <%--------Edit Button-------%>
-            <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="edit-btn" ButtonType="Button" UpdateText="Save">
+            <%--------Insert Button-------%>
+            <asp:CommandField ShowInsertButton="True" ControlStyle-CssClass="edit-btn" ButtonType="Button" InsertText="Save" />
+            <%--------Hidden Edit Button-------%>
+            <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="edit-btn" ButtonType="Button" UpdateText="Save" Visible="False">
                 <ControlStyle CssClass="edit-btn"></ControlStyle>
             </asp:CommandField>
-            <%-- Address ID--%>
-            <asp:BoundField DataField="AddressID" HeaderText="Address ID" ReadOnly="True" SortExpression="AddressID" Visible="true" />
-<%--            <asp:CommandField ShowInsertButton="True" />--%>
+            <%--Hidden Address ID--%>
+            <asp:BoundField DataField="AddressID" HeaderText="Address ID" ReadOnly="True" SortExpression="AddressID" Visible="false" />
 
             <%---------Building Number---------%>
             <asp:TemplateField HeaderText="Building Number" SortExpression="BuildingNumber">
@@ -225,12 +266,7 @@
         <PagerStyle BackColor="white" ForeColor="#330099" HorizontalAlign="Center" />
         <RowStyle BackColor="White" ForeColor="#330099" />
     </asp:DetailsView>
-    <asp:EntityDataSource ID="AddressEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Addresses" EnableInsert="True" EnableUpdate="True" Where="it.AddressID = @Address">
-        <WhereParameters>
-            <asp:ControlParameter ControlID="AddressIDLabel" DbType="Int32" Name="Address" PropertyName="Text" />
-        </WhereParameters>
-
-    </asp:EntityDataSource>
+    <asp:EntityDataSource ID="AddressEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Addresses" EnableInsert="True" EnableUpdate="True"></asp:EntityDataSource>
 
     <script> 
         var second = document.querySelector(".dfdf tr:nth-child(n+2)")
@@ -240,57 +276,8 @@
 
          <%--Button--%>
     <div id="ButtonsDiv" class="next-button-div" runat="server">
-        <button class="save-button">Save & Continue Later</button>
-        <button class="next-button">Next</button>
+<%--        <button class="save-button">Save & Continue Later</button>--%>
+        <button class="next-button" onclick="location.href = '/InsertIdentification'">Next</button>
     </div>
 
-
-
 </asp:Content>
-
- <%------Client Info Tabs------%>
- <asp:Content ID="tab" ContentPlaceHolderID="client_tabs" runat="server">
-                 <div class="sidebar2">
-                     <ul class="tt">
-                     <li><a href="/ClientGeneralInformation">
-                        <span class="tab">General Information</span></a>
-                     </li>
-                     <li><a href="/ClientIdentification">
-                        <span class="tab">Identification</span></a>
-                     </li>
-                     <li><a href="/Birth">
-                        <span class="tab">Birth History</span></a>
-                     </li>
-                     <li><a href="/">
-                        <span class="tab">Adult</span></a>
-                     </li>
-                     <li><a href="/">
-                        <span class="tab">Child</span></a>
-                     </li>
-                     <li><a href="/">
-                        <span class="tab">Parental History</span></a>
-                     </li>
-                     <li><a href="/">
-                        <span class="tab">Health History</span></a>
-                     </li>
-                     <li><a href="/">
-                        <span class="tab">Physician Information</span></a>
-                     </li>
-                     <li><a href="/">
-                        <span class="tab">Motor Development</span></a>
-                     </li>
-                     <li><a href="/">
-                        <span class="tab">Speech & Language</span></a>
-                     </li>
-                     <li><a href="/">
-                        <span class="tab">Hearing History</span></a>
-                     </li>
-                     <li><a href="/">
-                        <span class="tab">School History</span></a>
-                     </li>
-                     <li><a href="/">
-                        <span class="tab">Social History</span></a>
-                     </li>
-                </ul>
-                 </div>
-     </asp:Content>

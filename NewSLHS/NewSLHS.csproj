@@ -112,12 +112,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Adult.aspx" />
     <Content Include="Birth.aspx" />
     <Content Include="ClientIdentification.aspx" />
+    <Content Include="Images\User.png" />
+    <Content Include="InsertGeneralInformation.aspx" />
+    <Content Include="InsertIdentification.aspx" />
     <Content Include="OldClientGeneralInformation.aspx" />
     <Content Include="clientlisttest.aspx" />
     <Content Include="Clients.aspx" />
-    <Content Include="ClientsList.aspx" />
+    <Content Include="OldClientsList.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -215,7 +219,7 @@
     <Content Include="login\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="test.aspx" />
     <Content Include="ClientGeneralInformation.aspx" />
-    <Content Include="WebForm2.aspx" />
+    <Content Include="ClientsList.aspx" />
     <EntityDeploy Include="DAL\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -316,6 +320,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adult.aspx.cs">
+      <DependentUpon>Adult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Adult.aspx.designer.cs">
+      <DependentUpon>Adult.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -339,6 +350,29 @@
     <Compile Include="ClientIdentification.aspx.designer.cs">
       <DependentUpon>ClientIdentification.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Client_View.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Marital_Status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Yes_No.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsertGeneralInformation.aspx.cs">
+      <DependentUpon>InsertGeneralInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertGeneralInformation.aspx.designer.cs">
+      <DependentUpon>InsertGeneralInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertIdentification.aspx.cs">
+      <DependentUpon>InsertIdentification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertIdentification.aspx.designer.cs">
+      <DependentUpon>InsertIdentification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OldClientGeneralInformation.aspx.cs">
       <DependentUpon>OldClientGeneralInformation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -360,12 +394,12 @@
     <Compile Include="Clients.aspx.designer.cs">
       <DependentUpon>Clients.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ClientsList.aspx.cs">
-      <DependentUpon>ClientsList.aspx</DependentUpon>
+    <Compile Include="OldClientsList.aspx.cs">
+      <DependentUpon>OldClientsList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ClientsList.aspx.designer.cs">
-      <DependentUpon>ClientsList.aspx</DependentUpon>
+    <Compile Include="OldClientsList.aspx.designer.cs">
+      <DependentUpon>OldClientsList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -375,9 +409,6 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\Address.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Adult.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Appointment.cs">
@@ -408,9 +439,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Client_Information.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Client_View.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Clinical_Goals.cs">
@@ -534,9 +562,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Supervisor.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Teacher_Assistant.cs">
@@ -685,12 +710,12 @@
     <Compile Include="ClientGeneralInformation.aspx.designer.cs">
       <DependentUpon>ClientGeneralInformation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="ClientsList.aspx.cs">
+      <DependentUpon>ClientsList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="ClientsList.aspx.designer.cs">
+      <DependentUpon>ClientsList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

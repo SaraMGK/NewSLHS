@@ -90,7 +90,7 @@
             <asp:BoundField DataField="Quantity_Requested" HeaderText="Quantity_Requested" ReadOnly="True" SortExpression="Quantity_Requested" />
         </Fields>
     </asp:DetailsView>
-    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Request_View" Select="it.[Image], it.[Resource_Name], it.[ResourceRequestID], it.[Status], it.[RequestDateTime], it.[Quantity_Requested]" Where="it.ResourceRequestID=@x" >
+    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Request_View" Where="it.ResourceRequestID=@x" Select="it.[Image], it.[Resource_Name], it.[ResourceRequestID], it.[Status], it.[RequestDateTime], it.[Quantity_Requested]">
         <WhereParameters>
             <asp:ControlParameter ControlID="RequestDetailsView" DbType="Int32" DefaultValue="4" Name="Requestparameter" PropertyName="SelectedValue" />
             <asp:QueryStringParameter DbType="Int32" DefaultValue="1" Name="x" QueryStringField="ResourceRequestID" />
