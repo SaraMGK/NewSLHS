@@ -72,7 +72,11 @@
             <asp:CommandField ShowInsertButton="True" Visible="False" FooterStyle-CssClass="edit-btn" />
         </Fields>
     </asp:DetailsView>
-    <asp:EntityDataSource ID="BirthEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Births" EnableUpdate="True" EnableInsert="True"></asp:EntityDataSource>
+    <asp:EntityDataSource ID="BirthEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Births" EnableUpdate="True" EnableInsert="True" EntityTypeFilter="" Select="" Where="it.BirthID = @BirthIDparam">
+        <WhereParameters>
+            <asp:QueryStringParameter Name="BirthIDparam" DbType="Int32" QueryStringField="BirthID" />
+        </WhereParameters>
+    </asp:EntityDataSource>
 
      <script>
         var second = document.querySelector(".dfdf tr:nth-child(n+2)")

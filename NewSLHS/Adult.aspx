@@ -52,39 +52,44 @@
        <h6 class="client-head">Adult</h6>
    </div>
 
-
-    <table class="w-100">
-        <tr>
-            <td style="width: 300px">Marital Status</td>
-            <td style="width: 202px">
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="MaritalStatusEntityDataSource" DataTextField="MartialStatus" DataValueField="MaritalStatusID">
+    <br />
+    <br />
+    <table class="w-100" style="margin-left: 30px;">
+        <tr style="height: 40px;">
+            <td style="width: 300px">Marital Status<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="MaritalStatusEntityDataSource" DataTextField="MartialStatus" DataValueField="MaritalStatusID" CssClass="option3">
                 </asp:DropDownList>
             </td>
+            <td style="width: 202px">
+                &nbsp;</td>
         </tr>
-        <tr>
+        <tr style="height: 40px;">
             <td style="width: 300px">Does the client become easily frustrated?</td>
             <td style="width: 202px">
-                <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="YesNoEntityDataSource" DataTextField="Option" DataValueField="OptionID">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="height: 18px">
+                <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="YesNoEntityDataSource" DataTextField="Option" DataValueField="OptionID" CssClass="radio-button">
                 </asp:RadioButtonList>
             </td>
         </tr>
-        <tr>
-            <td colspan="2" style="height: 18px">If the client is easily frustrated, how does, he/she deal with their frustration?</td>
+        <tr style="height: 30px;">
+            <td colspan="2" style="height: 18px; padding-top: 15px; padding-bottom: 2px;">
+                If the client is easily frustrated, how does he/she deal with their frustration?</td>
         </tr>
         <tr>
             <td colspan="2">
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="text-boxes" TextMode="MultiLine" Width="491px"></asp:TextBox>
             </td>
         </tr>
     </table>
-   
 
     <br />
     <br />
     <br />
 
     <%--Adult DetailsView--%>
-    <asp:DetailsView ID="AdultDetailsView" runat="server" Height="113px" Width="1050px" DataSourceID="MaritalStatusEntityDataSource"></asp:DetailsView>
+    <asp:DetailsView ID="AdultDetailsView" runat="server" Height="113px" Width="1050px" DataSourceID="MaritalStatusEntityDataSource" Visible="False"></asp:DetailsView>
     <asp:EntityDataSource ID="AdultEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Adults"></asp:EntityDataSource>
     
     <asp:EntityDataSource ID="YesNoEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Yes_No"></asp:EntityDataSource>

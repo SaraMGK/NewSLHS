@@ -23,7 +23,7 @@ namespace NewSLHS
         protected void ClientGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            Response.Redirect("ClientGeneralInformation.aspx?ClientID=" + ClientGridView.SelectedRow.Cells[7].Text);
+            //Response.Redirect("ClientGeneralInformation.aspx?ClientID=" + ClientGridView.SelectedRow.Cells[7].Text);
 
         }
 

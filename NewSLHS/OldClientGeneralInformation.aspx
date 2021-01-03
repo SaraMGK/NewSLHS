@@ -76,7 +76,7 @@
     
     <asp:DetailsView ID="DetailsView" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataSourceID="EntityDataSource" DataKeyNames="ClientID">
         <Fields>
-            <asp:BoundField DataField="ClientID" HeaderText="ClientID" ReadOnly="True" SortExpression="ClientID" />
+            <asp:BoundField DataField="ClientID" HeaderText="ClientID" ReadOnly="True" SortExpression="ClientID" FooterText="Client ID" />
             <asp:TemplateField HeaderText="FirstName" SortExpression="FirstName">
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("FirstName") %>'></asp:TextBox>

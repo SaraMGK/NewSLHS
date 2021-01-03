@@ -10,10 +10,12 @@
                   <thead>
                     <th style="background-color: #21948B;">   Clients</th>
                 </thead>
-
-                <tbody class="colored-rows">
                   <tr onclick="location.href = '/ClientsList'">
-                    <td class="lastRow" style="background-color: #F1FEFD; border-color: transparent;">View Clients List</td>
+                    <td style="background-color: #F1FEFD; border-color: transparent;">View Clients List</td>
+                  </tr>
+                <tbody class="colored-rows">
+                  <tr onclick="location.href = '/IncompleteClients'">
+                    <td class="lastRow" style="background-color: #C5F4F1; border-color: transparent;">View Incomplete Clients</td>
                   </tr>
                  </tbody>
 

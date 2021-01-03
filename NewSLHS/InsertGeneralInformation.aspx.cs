@@ -14,15 +14,18 @@ namespace NewSLHS
             Message.Visible = false;
 
             AddressDetailsView.Visible = false;
+            
+
+
         }
 
         //Hide Next buttons when editing or inserting
-        //protected void Hide_Buttons(object sender, EventArgs e)
-        //{
-        //    ButtonsDiv.Visible = !ButtonsDiv.Visible;
+        protected void Hide_Buttons(object sender, EventArgs e)
+        {
+            ButtonsDiv.Visible = !ButtonsDiv.Visible;
 
 
-        //}
+        }
 
         protected void DetailsView_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
         {
@@ -39,6 +42,7 @@ namespace NewSLHS
             AddressDetailsView.Visible = true;
 
             DetailsView.Visible = false;
+            Response.Redirect("InsertIdentification.aspx?status=registered");
 
         }
 
@@ -46,6 +50,12 @@ namespace NewSLHS
         protected void hide(object sender, DetailsViewInsertEventArgs e)
         {
             ButtonsDiv.Visible = !ButtonsDiv.Visible;
+
+            //CancelButton.attributes.add("onClick", "javascript:history.back();");
+        }
+
+        protected void DetailsView_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
+        {
 
         }
     }

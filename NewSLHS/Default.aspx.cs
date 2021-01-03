@@ -34,12 +34,17 @@ namespace NewSLHS
                                               where c.Username == username.Text && c.Password == password.Text
                                               select c.Type).FirstOrDefault();
                 string query_studentName;
+                int query_userID;
 
                 if (type == 1)
                 {
                     query_studentName = (from x in db.Students
                                                 where x.AuthenticationID == query_AuthenticationID
                                                 select x.FirstName + " " + x.LastName).FirstOrDefault();
+                    //for limited access
+                    query_userID = (from x in db.Students
+                                    where x.AuthenticationID == query_AuthenticationID
+                                    select x.UserID).FirstOrDefault();
                 }
 
                 else if (type == 2)
@@ -47,6 +52,10 @@ namespace NewSLHS
                     query_studentName = (from x in db.Supervisors
                                          where x.AuthenticationID == query_AuthenticationID
                                          select x.FirstName + " " + x.LastName).FirstOrDefault();
+                    //for limited access
+                    query_userID = (from x in db.Supervisors
+                                    where x.AuthenticationID == query_AuthenticationID
+                                    select x.UserID).FirstOrDefault();
                 }
 
                 else 
@@ -54,9 +63,15 @@ namespace NewSLHS
                     query_studentName = (from x in db.Teacher_Assistant
                                          where x.AuthenticationID == query_AuthenticationID
                                          select x.FirstName + " " + x.LastName).FirstOrDefault();
+                    //for limited access
+                    query_userID = (from x in db.Teacher_Assistant
+                                    where x.AuthenticationID == query_AuthenticationID
+                                    select x.UserID).FirstOrDefault();
                 }
 
-                
+                //Session["UserID"] = query - user - id;
+
+                Session["SessionUserID"] = query_userID;
 
                 Response.Redirect("Homepage.aspx?username=" + query_studentName);
             }

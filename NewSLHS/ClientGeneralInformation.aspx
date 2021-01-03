@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ClientGeneralInformation.aspx.cs" Inherits="NewSLHS.WebForm1" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-   <h1>Client Details</h1>
+    <h1>Client Details</h1>
    <div class="client-head-div">
        <h6 class="client-head">General Information</h6>
    </div>
@@ -131,7 +131,7 @@
 <%--            <asp:CommandField ShowInsertButton="True" />--%>
 
             <%---------Building Number---------%>
-            <asp:TemplateField HeaderText="Building Number" SortExpression="BuildingNumber">
+            <asp:TemplateField HeaderText="Building Number" SortExpression="BuildingNumber" FooterText="Building Number">
                 <EditItemTemplate>
                     <asp:TextBox ID="BNTextBox" runat="server" Text='<%# Bind("BuildingNumber") %>'></asp:TextBox>  <asp:RequiredFieldValidator ID="BNRequiredFieldValidator" runat="server" ControlToValidate="BNTextBox" ErrorMessage="Building Number is requiered" Text="*"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="BNRegularExpressionValidator" runat="server" ErrorMessage="Enter numbers only" ControlToValidate="BNTextBox" ValidationExpression="^\d+" Text="!"></asp:RegularExpressionValidator>
@@ -143,6 +143,7 @@
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("BuildingNumber") %>'></asp:Label>
                 </ItemTemplate>
+                <FooterStyle ForeColor="Red" />
             </asp:TemplateField>
 
             <%---------Street Name-------%>
@@ -240,8 +241,9 @@
 
          <%--Button--%>
     <div id="ButtonsDiv" class="next-button-div" runat="server">
-        <button class="save-button">Save & Continue Later</button>
-        <button class="next-button">Next</button>
+<%--        <button class="save-button">Save & Continue Later</button>--%>
+<%--        <button id="NextButton" class="next-button">Next</button>--%>
+        <asp:Button ID="NextButton" runat="server" Text="Next" CssClass="next-button" OnClick="NextButton_Click" />
     </div>
 
 

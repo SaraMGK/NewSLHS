@@ -18,7 +18,7 @@
        <%-- onclick="location.href = '/ClientGeneralInformation'"--%>
         
         <div  class="client-div" onclick="location.href = '/ClientGeneralInformation.aspx?ClientID='+ <%= row.Cells[7].Text %>" >
-            <Label ID="ClientNameLabel" style="font-weight: bold" Class="client-name-label"><%= row.Cells[0].Text + " " + row.Cells[2].Text %></Label>
+            <Label ID="ClientNameLabel" style="font-weight: bold;" Class="client-name-labelb"><%= row.Cells[0].Text + " " + row.Cells[2].Text %></Label>
             <div class="Image-info-div">
                 <%------------------Icon Div-----------------%>
                 <div class="resource-image-name">
@@ -62,8 +62,8 @@
             <asp:BoundField DataField="LastName" HeaderText="LastName" ReadOnly="True" SortExpression="LastName" />
             <asp:BoundField DataField="Email" HeaderText="Email" ReadOnly="True" SortExpression="Email" />
             <asp:BoundField DataField="Mobile" HeaderText="Mobile" ReadOnly="True" SortExpression="Mobile" />
-            <asp:BoundField DataField="FileNumber" HeaderText="FileNumber" ReadOnly="True" SortExpression="FileNumber" />
-            <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
+            <asp:BoundField DataField="FileNumber" HeaderText="FileNumber" ReadOnly="True" SortExpression="FileNumber" NullDisplayText="NF" />
+            <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField DataField="ClientID" HeaderText="ClientID" SortExpression="ClientID" ReadOnly="True" />
         </Columns>
     </asp:GridView>

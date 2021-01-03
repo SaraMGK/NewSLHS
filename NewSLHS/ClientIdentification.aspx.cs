@@ -19,5 +19,11 @@ namespace NewSLHS
             ButtonsDiv.Visible = !ButtonsDiv.Visible;
 
         }
+
+        protected void NextButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Birth.aspx?BirthID=" + DetailsView1.Rows[21].Cells[1].Text);
+
+        }
     }
 }

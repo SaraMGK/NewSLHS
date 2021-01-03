@@ -32,5 +32,9 @@
         <SortedDescendingCellStyle BackColor="#D4DFE1" />
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
-    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Request_View" Select="it.[Image], it.[Resource_Name], it.[ResourceRequestID], it.[Status], it.[RequestDateTime]"></asp:EntityDataSource>
+    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Request_View" Select="it.[Image], it.[Resource_Name], it.[ResourceRequestID], it.[Status], it.[RequestDateTime]" Where="it.UserID = @UserIDparam">
+        <WhereParameters>
+            <asp:SessionParameter Name="UserIDparam" DbType="Int32" SessionField="SessionUserID" />
+        </WhereParameters>
+    </asp:EntityDataSource>
     </asp:Content>

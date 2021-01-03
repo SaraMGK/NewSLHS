@@ -63,7 +63,7 @@
 
     <%----------------------------Name Info DetailsView--------------------------------%>
     <div class="detailsView-div">
-        <asp:DetailsView CssClass="dfdf" ID="DetailsView" runat="server" Height="113px" Width="1150px" AutoGenerateRows="False" DataSourceID="EntityDataSource" DataKeyNames="ClientID" BorderWidth="1px" CellPadding="4" style="margin-right: 0px" DefaultMode="Insert" OnItemInserted="DetailsView_ItemInserted" OnItemInserting="hide">
+        <asp:DetailsView CssClass="dfdf" ID="DetailsView" runat="server" Height="113px" Width="1150px" AutoGenerateRows="False" DataSourceID="EntityDataSource" DataKeyNames="ClientID" BorderWidth="1px" CellPadding="4" style="margin-right: 0px" DefaultMode="Insert" OnItemInserted="DetailsView_ItemInserted" OnItemInserting="hide" OnPageIndexChanging="DetailsView_PageIndexChanging">
         <EditRowStyle BackColor="white" Font-Bold="True" ForeColor="#663399" CssClass="detailsView-update" />
         <Fields>
             <%-------Hidden Edit Button------%>
@@ -71,9 +71,16 @@
                 <ControlStyle CssClass="edit-btn"></ControlStyle>
             </asp:CommandField>
             <%-------Insert Button------%>
-            <asp:CommandField ShowInsertButton="True" Visible="true" ControlStyle-CssClass="edit-btn" ButtonType="Button" InsertText="Save" UpdateText="Edit">
-                <ControlStyle CssClass="edit-btn"></ControlStyle>
-            </asp:CommandField>
+            <asp:TemplateField ShowHeader="False">
+                <InsertItemTemplate>
+                    <asp:Button ID="Button1" runat="server" CausesValidation="True" CommandName="Insert" Text="Save" />
+                    &nbsp;<asp:Button ID="CancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" PostBackUrl="~/previouspage.aspx" />
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    <asp:Button ID="Button1" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                </ItemTemplate>
+                <ControlStyle CssClass="edit-btn" />
+            </asp:TemplateField>
             <%--------------Client ID-------------%>
             <asp:BoundField DataField="ClientID" HeaderText="Client ID" SortExpression="ClientID" ReadOnly="True" Visible="False" />
             <%------------first Name------------%>

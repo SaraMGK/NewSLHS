@@ -65,15 +65,15 @@
             </asp:CommandField>
             <asp:BoundField DataField="ClientInformationID" HeaderText="ClientInformationID" ReadOnly="True" SortExpression="ClientInformationID" Visible="False" />
             <asp:BoundField DataField="DifficultyDescription" HeaderText="Please describe in your own words, your speech, language or hearing difficulty" SortExpression="DifficultyDescription" />
-            <asp:BoundField DataField="CompletionDate" HeaderText="CompletionDate" SortExpression="CompletionDate" />
+            <asp:BoundField DataField="CompletionDate" HeaderText="CompletionDate" SortExpression="CompletionDate" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField DataField="FileNumber" HeaderText="File Number" SortExpression="FileNumber" />
             <asp:BoundField DataField="Ethincity" HeaderText="Ethincity" SortExpression="Ethincity" />
-            <asp:BoundField DataField="DateOfBirth" HeaderText="Date of Birth" SortExpression="DateOfBirth" />
+            <asp:BoundField DataField="DateOfBirth" HeaderText="Date of Birth" SortExpression="DateOfBirth" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
             <asp:BoundField DataField="Weight" HeaderText="Weight (k.g.)" SortExpression="Weight" />
             <asp:BoundField DataField="Height" HeaderText="Height (cm)" SortExpression="Height" />
-            <asp:BoundField DataField="ClientLanguage" HeaderText="Language" SortExpression="ClientLanguage" />
-            <asp:BoundField DataField="LanguageAtHome" HeaderText="" SortExpression="LanguageAtHome" />
+            <asp:BoundField DataField="ClientLanguage" HeaderText="Language(s) spoken by client" SortExpression="ClientLanguage" />
+            <asp:BoundField DataField="LanguageAtHome" HeaderText="Primary language spoken at home" SortExpression="LanguageAtHome" />
             <asp:BoundField DataField="OtherSiblings" HeaderText="List all siblings" SortExpression="OtherSiblings" />
             <asp:BoundField DataField="SiblingSLPProblems" HeaderText="List any speech and language problems of other children" SortExpression="SiblingSLPProblems" />
             <asp:BoundField DataField="SiblingAcademicDifficulties" HeaderText="List any academic difficulties of the other children" SortExpression="SiblingAcademicDifficulties" />
@@ -103,7 +103,11 @@
         <PagerStyle BackColor="White" ForeColor="#330099" HorizontalAlign="Center" />
         <RowStyle BackColor="White" ForeColor="#330099" />
     </asp:DetailsView>
-    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Client_Information" EnableUpdate="True" EnableInsert="True"></asp:EntityDataSource>
+    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Client_Information" EnableUpdate="True" EnableInsert="True" EntityTypeFilter="" Select="" Where="it.ClientID = @ClientIDparam">
+        <WhereParameters>
+            <asp:QueryStringParameter Name="ClientIDparam" DbType="Int32" QueryStringField="ClientID" />
+        </WhereParameters>
+        </asp:EntityDataSource>
     </div>
 
     <br />
@@ -226,7 +230,8 @@
     <%--Button--%>
     <div id="ButtonsDiv" class="next-button-div" runat="server">
         <button class="save-button">Save & Continue Later</button>
-        <button class="next-button">Next</button>
+<%--        <button class="next-button">Next</button>--%>
+        <asp:Button ID="NextButton" runat="server" Text="Next" CssClass="next-button" OnClick="NextButton_Click" />
     </div>
 
 
