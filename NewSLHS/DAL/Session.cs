@@ -27,7 +27,6 @@ namespace NewSLHS.DAL
         public int AppointmentID { get; set; }
         public int SupervisorID { get; set; }
     
-        public virtual Appointment Appointment { get; set; }
         public virtual Assessment_Proposal Assessment_Proposal { get; set; }
         public virtual Screening_SOAP_Note Screening_SOAP_Note { get; set; }
         public virtual ICollection<Session_Feedback> Session_Feedback { get; set; }
@@ -35,5 +34,6 @@ namespace NewSLHS.DAL
         public virtual SOAP_Note SOAP_Note { get; set; }
         public virtual Treatment_Plan Treatment_Plan { get; set; }
         public virtual Treatment_Progress Treatment_Progress { get; set; }
+        public virtual Appointment Appointment { get; set; }
     }
 }

@@ -29,11 +29,10 @@
             <PropertyRef Name="AppointmentID" />
           </Key>
           <Property Name="AppointmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AppointmentDate" Type="date" Nullable="false" />
           <Property Name="Status" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Type" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
-          <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="StartDateTime" Type="datetime" Nullable="false" />
+          <Property Name="EndDateTime" Type="datetime" Nullable="false" />
           <Property Name="Repeat" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Note" Type="nvarchar" MaxLength="250" />
           <Property Name="ClientID" Type="int" Nullable="false" />
@@ -1966,26 +1965,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <NavigationProperty Name="Clients" Relationship="Self.FK_Client_Address" FromRole="Address" ToRole="Client" />
           <NavigationProperty Name="Parents" Relationship="Self.FK_Parent_Address" FromRole="Address" ToRole="Parent" />
         </EntityType>
-        <EntityType Name="Appointment">
-          <Key>
-            <PropertyRef Name="AppointmentID" />
-          </Key>
-          <Property Name="AppointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AppointmentDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Status" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Type" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="Repeat" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ClientID" Type="Int32" Nullable="false" />
-          <Property Name="TAID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Appointment_Client" FromRole="Appointment" ToRole="Client" />
-          <NavigationProperty Name="Teacher_Assistant" Relationship="Self.FK_Appointment_Teacher_Assistant" FromRole="Appointment" ToRole="Teacher_Assistant" />
-          <NavigationProperty Name="Rooms" Relationship="Self.FK_Room_Appointment" FromRole="Appointment" ToRole="Room" />
-          <NavigationProperty Name="Sessions" Relationship="Self.FK_Session_Appointment" FromRole="Appointment" ToRole="Session" />
-          <NavigationProperty Name="Students" Relationship="Self.Student_Appointment" FromRole="Appointment" ToRole="Student" />
-        </EntityType>
         <EntityType Name="Assessment_Objective">
           <Key>
             <PropertyRef Name="AssessmentObjectiveID" />
@@ -2096,9 +2075,9 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AddressID" Type="Int32" />
           <NavigationProperty Name="Address" Relationship="Self.FK_Client_Address" FromRole="Client" ToRole="Address" />
-          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Client" FromRole="Client" ToRole="Appointment" />
           <NavigationProperty Name="Client_Information" Relationship="Self.FK_Client_Information_Client" FromRole="Client" ToRole="Client_Information" />
           <NavigationProperty Name="Parents" Relationship="Self.Client_Parent" FromRole="Client" ToRole="Parent" />
+          <NavigationProperty Name="Appointments" Relationship="SLHSClinicModel.FK_Appointment_Client" FromRole="Client" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="Client_Information">
           <Key>
@@ -2178,19 +2157,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="DownSyndrome" Type="Int32" />
           <Property Name="DefectsNoseThroatEars" Type="Int32" />
           <Property Name="Other" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Fluency">
-          <Key>
-            <PropertyRef Name="FluencyID" />
-          </Key>
-          <Property Name="FluencyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Fluency1" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Repetition" Type="Int32" />
-          <Property Name="Blocks" Type="Int32" />
-          <Property Name="Prolongations" Type="Int32" />
-          <Property Name="SecondaryBehavior" Type="Int32" />
-          <NavigationProperty Name="Screening_SOAP_Note" Relationship="Self.FK_Screening_SOAP_Note_Fluency" FromRole="Fluency" ToRole="Screening_SOAP_Note" />
         </EntityType>
         <EntityType Name="Fluharty">
           <Key>
@@ -2411,19 +2377,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <NavigationProperty Name="Student" Relationship="Self.FK_Resource_Request_Student" FromRole="Resource_Request" ToRole="Student" />
           <NavigationProperty Name="Teacher_Assistant" Relationship="Self.FK_Resource_Request_Teacher_Assistant" FromRole="Resource_Request" ToRole="Teacher_Assistant" />
         </EntityType>
-        <EntityType Name="Room">
-          <Key>
-            <PropertyRef Name="RoomID" />
-          </Key>
-          <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RoomNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="RoomType" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Status" Type="Int32" Nullable="false" />
-          <Property Name="AppointmentID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Appointment" Relationship="Self.FK_Room_Appointment" FromRole="Room" ToRole="Appointment" />
-        </EntityType>
         <EntityType Name="School">
           <Key>
             <PropertyRef Name="SchoolID" />
@@ -2466,7 +2419,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="OralScreen" Type="Int32" />
           <Property Name="VocalScreen" Type="Int32" />
           <Property Name="FluencyScreen" Type="Int32" />
-          <NavigationProperty Name="Fluency" Relationship="Self.FK_Screening_SOAP_Note_Fluency" FromRole="Screening_SOAP_Note" ToRole="Fluency" />
           <NavigationProperty Name="Jaw" Relationship="Self.FK_Screening_SOAP_Note_Jaws" FromRole="Screening_SOAP_Note" ToRole="Jaws" />
           <NavigationProperty Name="Language_Notes" Relationship="Self.FK_Language_Notes_Screening_SOAP_Note" FromRole="Screening_SOAP_Note" ToRole="Language_Notes" />
           <NavigationProperty Name="Lip" Relationship="Self.FK_Screening_SOAP_Note_Lips" FromRole="Screening_SOAP_Note" ToRole="Lips" />
@@ -2475,6 +2427,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <NavigationProperty Name="Session" Relationship="Self.FK_Screening_SOAP_Note_Session" FromRole="Screening_SOAP_Note" ToRole="Session" />
           <NavigationProperty Name="Tongue" Relationship="Self.FK_Screening_SOAP_Note_Tongue" FromRole="Screening_SOAP_Note" ToRole="Tongue" />
           <NavigationProperty Name="Voice" Relationship="Self.FK_Screening_SOAP_Note_Voice" FromRole="Screening_SOAP_Note" ToRole="Voice" />
+          <NavigationProperty Name="Fluency" Relationship="SLHSClinicModel.FK_Screening_SOAP_Note_Fluency" FromRole="Screening_SOAP_Note" ToRole="Fluency" />
         </EntityType>
         <EntityType Name="Section">
           <Key>
@@ -2502,7 +2455,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="EvaluationScore" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="AppointmentID" Type="Int32" Nullable="false" />
           <Property Name="SupervisorID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Appointment" Relationship="Self.FK_Session_Appointment" FromRole="Session" ToRole="Appointment" />
           <NavigationProperty Name="Assessment_Proposal" Relationship="Self.FK_Assessment_Proposal_Session" FromRole="Session" ToRole="Assessment_Proposal" />
           <NavigationProperty Name="Screening_SOAP_Note" Relationship="Self.FK_Screening_SOAP_Note_Session" FromRole="Session" ToRole="Screening_SOAP_Note" />
           <NavigationProperty Name="Session_Feedback" Relationship="Self.FK_Session_Feedback_Session" FromRole="Session" ToRole="Session_Feedback" />
@@ -2510,6 +2462,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <NavigationProperty Name="SOAP_Note" Relationship="Self.FK_SOAP_Note_Session" FromRole="Session" ToRole="SOAP_Note" />
           <NavigationProperty Name="Treatment_Plan" Relationship="Self.FK_Treatment_Plan_Session" FromRole="Session" ToRole="Treatment_Plan" />
           <NavigationProperty Name="Treatment_Progress" Relationship="Self.FK_Treatment_Progress_Session" FromRole="Session" ToRole="Treatment_Progress" />
+          <NavigationProperty Name="Appointment" Relationship="SLHSClinicModel.FK_Session_Appointment" FromRole="Session" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="Session_Feedback">
           <Key>
@@ -2621,7 +2574,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <NavigationProperty Name="Resource_Request" Relationship="Self.FK_Resource_Request_Student" FromRole="Student" ToRole="Resource_Request" />
           <NavigationProperty Name="Section" Relationship="Self.FK_Student_Section" FromRole="Student" ToRole="Section" />
           <NavigationProperty Name="Supervisor" Relationship="Self.FK_Student_Supervisor" FromRole="Student" ToRole="Supervisor" />
-          <NavigationProperty Name="Appointments" Relationship="Self.Student_Appointment" FromRole="Student" ToRole="Appointment" />
+          <NavigationProperty Name="Appointments" Relationship="SLHSClinicModel.Student_Appointment" FromRole="Student" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="Supervisor">
           <Key>
@@ -2656,10 +2609,10 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="AuthenticationID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Teacher_Assistant" FromRole="Teacher_Assistant" ToRole="Appointment" />
           <NavigationProperty Name="Authentication" Relationship="Self.FK_Teacher_Assistant_Authentication" FromRole="Teacher_Assistant" ToRole="Authentication" />
           <NavigationProperty Name="Resource_Request" Relationship="Self.FK_Resource_Request_Teacher_Assistant" FromRole="Teacher_Assistant" ToRole="Resource_Request" />
           <NavigationProperty Name="Sections" Relationship="Self.FK_Section_Teacher_Assistant" FromRole="Teacher_Assistant" ToRole="Section" />
+          <NavigationProperty Name="Appointments" Relationship="SLHSClinicModel.FK_Appointment_Teacher_Assistant" FromRole="Teacher_Assistant" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="Tongue">
           <Key>
@@ -2827,54 +2780,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             </Principal>
             <Dependent Role="Parent">
               <PropertyRef Name="AddressID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Appointment_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="1" />
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ClientID" />
-            </Principal>
-            <Dependent Role="Appointment">
-              <PropertyRef Name="ClientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Appointment_Teacher_Assistant">
-          <End Role="Teacher_Assistant" Type="Self.Teacher_Assistant" Multiplicity="1" />
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher_Assistant">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Appointment">
-              <PropertyRef Name="TAID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Room_Appointment">
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="1" />
-          <End Role="Room" Type="Self.Room" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Appointment">
-              <PropertyRef Name="AppointmentID" />
-            </Principal>
-            <Dependent Role="Room">
-              <PropertyRef Name="AppointmentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Session_Appointment">
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="1" />
-          <End Role="Session" Type="Self.Session" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Appointment">
-              <PropertyRef Name="AppointmentID" />
-            </Principal>
-            <Dependent Role="Session">
-              <PropertyRef Name="AppointmentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3079,18 +2984,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             </Principal>
             <Dependent Role="Communication">
               <PropertyRef Name="SpeechLanguageID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Screening_SOAP_Note_Fluency">
-          <End Role="Fluency" Type="Self.Fluency" Multiplicity="1" />
-          <End Role="Screening_SOAP_Note" Type="Self.Screening_SOAP_Note" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Fluency">
-              <PropertyRef Name="FluencyID" />
-            </Principal>
-            <Dependent Role="Screening_SOAP_Note">
-              <PropertyRef Name="FluencyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3394,13 +3287,8 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <End Role="Personality" Type="Self.Personality" Multiplicity="*" />
           <End Role="Social" Type="Self.Social" Multiplicity="*" />
         </Association>
-        <Association Name="Student_Appointment">
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
-          <End Role="Student" Type="Self.Student" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="SLHSClinicEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
-          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
           <EntitySet Name="Assessment_Objective" EntityType="Self.Assessment_Objective" />
           <EntitySet Name="Assessment_Proposal" EntityType="Self.Assessment_Proposal" />
           <EntitySet Name="Authentications" EntityType="Self.Authentication" />
@@ -3412,7 +3300,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySet Name="Clinical_Goals" EntityType="Self.Clinical_Goals" />
           <EntitySet Name="Communications" EntityType="Self.Communication" />
           <EntitySet Name="Diagnosis" EntityType="Self.Diagnosi" />
-          <EntitySet Name="Fluencies" EntityType="Self.Fluency" />
           <EntitySet Name="Fluharties" EntityType="Self.Fluharty" />
           <EntitySet Name="Food_Allergy" EntityType="Self.Food_Allergy" />
           <EntitySet Name="Healths" EntityType="Self.Health" />
@@ -3429,7 +3316,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySet Name="Repeated_Grade" EntityType="Self.Repeated_Grade" />
           <EntitySet Name="Resources" EntityType="Self.Resource" />
           <EntitySet Name="Resource_Request" EntityType="Self.Resource_Request" />
-          <EntitySet Name="Rooms" EntityType="Self.Room" />
           <EntitySet Name="Schools" EntityType="Self.School" />
           <EntitySet Name="Screening_SOAP_Note" EntityType="Self.Screening_SOAP_Note" />
           <EntitySet Name="Sections" EntityType="Self.Section" />
@@ -3457,22 +3343,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <AssociationSet Name="FK_Parent_Address" Association="Self.FK_Parent_Address">
             <End Role="Address" EntitySet="Addresses" />
             <End Role="Parent" EntitySet="Parents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Appointment_Client" Association="Self.FK_Appointment_Client">
-            <End Role="Client" EntitySet="Clients" />
-            <End Role="Appointment" EntitySet="Appointments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Appointment_Teacher_Assistant" Association="Self.FK_Appointment_Teacher_Assistant">
-            <End Role="Teacher_Assistant" EntitySet="Teacher_Assistant" />
-            <End Role="Appointment" EntitySet="Appointments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Room_Appointment" Association="Self.FK_Room_Appointment">
-            <End Role="Appointment" EntitySet="Appointments" />
-            <End Role="Room" EntitySet="Rooms" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Session_Appointment" Association="Self.FK_Session_Appointment">
-            <End Role="Appointment" EntitySet="Appointments" />
-            <End Role="Session" EntitySet="Sessions" />
           </AssociationSet>
           <AssociationSet Name="FK_Assessment_Objective_Assessment_Proposal" Association="Self.FK_Assessment_Objective_Assessment_Proposal">
             <End Role="Assessment_Proposal" EntitySet="Assessment_Proposal" />
@@ -3541,10 +3411,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <AssociationSet Name="FK_Communication_Speech_Language" Association="Self.FK_Communication_Speech_Language">
             <End Role="Speech_Language" EntitySet="Speech_Language" />
             <End Role="Communication" EntitySet="Communications" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Screening_SOAP_Note_Fluency" Association="Self.FK_Screening_SOAP_Note_Fluency">
-            <End Role="Fluency" EntitySet="Fluencies" />
-            <End Role="Screening_SOAP_Note" EntitySet="Screening_SOAP_Note" />
           </AssociationSet>
           <AssociationSet Name="FK_Fluharty_Language_Notes" Association="Self.FK_Fluharty_Language_Notes">
             <End Role="Language_Notes" EntitySet="Language_Notes" />
@@ -3654,10 +3520,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Personality" EntitySet="Personalities" />
             <End Role="Social" EntitySet="Socials" />
           </AssociationSet>
-          <AssociationSet Name="Student_Appointment" Association="Self.Student_Appointment">
-            <End Role="Appointment" EntitySet="Appointments" />
-            <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
           <EntitySet Name="Request_View" EntityType="SLHSClinicModel.Request_View" />
           <EntitySet Name="Marital_Status" EntityType="SLHSClinicModel.Marital_Status" />
           <EntitySet Name="Yes_No" EntityType="SLHSClinicModel.Yes_No" />
@@ -3670,6 +3532,33 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Marital_Status" EntitySet="Marital_Status" />
           </AssociationSet>
           <EntitySet Name="Client_View" EntityType="SLHSClinicModel.Client_View" />
+          <EntitySet Name="Fluencies" EntityType="SLHSClinicModel.Fluency" />
+          <AssociationSet Name="FK_Screening_SOAP_Note_Fluency" Association="SLHSClinicModel.FK_Screening_SOAP_Note_Fluency">
+            <End Role="Fluency" EntitySet="Fluencies" />
+            <End Role="Screening_SOAP_Note" EntitySet="Screening_SOAP_Note" />
+          </AssociationSet>
+          <EntitySet Name="Rooms" EntityType="SLHSClinicModel.Room" />
+          <EntitySet Name="Appointments" EntityType="SLHSClinicModel.Appointment" />
+          <AssociationSet Name="FK_Appointment_Client" Association="SLHSClinicModel.FK_Appointment_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Teacher_Assistant" Association="SLHSClinicModel.FK_Appointment_Teacher_Assistant">
+            <End Role="Teacher_Assistant" EntitySet="Teacher_Assistant" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Appointment" Association="SLHSClinicModel.FK_Room_Appointment">
+            <End Role="Appointment" EntitySet="Appointments" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_Appointment" Association="SLHSClinicModel.FK_Session_Appointment">
+            <End Role="Appointment" EntitySet="Appointments" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="Student_Appointment" Association="SLHSClinicModel.Student_Appointment">
+            <End Role="Appointment" EntitySet="Appointments" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Request_View">
           <Key>
@@ -3752,6 +3641,115 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="ClientID" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="Fluency">
+          <Key>
+            <PropertyRef Name="FluencyID" />
+          </Key>
+          <Property Name="FluencyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fluency1" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Repetition" Type="Int32" />
+          <Property Name="Blocks" Type="Int32" />
+          <Property Name="Prolongations" Type="Int32" />
+          <Property Name="SecondaryBehavior" Type="Int32" />
+          <NavigationProperty Name="Screening_SOAP_Note" Relationship="SLHSClinicModel.FK_Screening_SOAP_Note_Fluency" FromRole="Fluency" ToRole="Screening_SOAP_Note" />
+        </EntityType>
+        <Association Name="FK_Screening_SOAP_Note_Fluency">
+          <End Type="SLHSClinicModel.Fluency" Role="Fluency" Multiplicity="1" />
+          <End Type="SLHSClinicModel.Screening_SOAP_Note" Role="Screening_SOAP_Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fluency">
+              <PropertyRef Name="FluencyID" />
+            </Principal>
+            <Dependent Role="Screening_SOAP_Note">
+              <PropertyRef Name="FluencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoomNumber" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="RoomType" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="AppointmentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Appointment" Relationship="SLHSClinicModel.FK_Room_Appointment" FromRole="Room" ToRole="Appointment" />
+        </EntityType>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentID" />
+          </Key>
+          <Property Name="AppointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="StartDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Repeat" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="TAID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="SLHSClinicModel.FK_Appointment_Client" FromRole="Appointment" ToRole="Client" />
+          <NavigationProperty Name="Teacher_Assistant" Relationship="SLHSClinicModel.FK_Appointment_Teacher_Assistant" FromRole="Appointment" ToRole="Teacher_Assistant" />
+          <NavigationProperty Name="Rooms" Relationship="SLHSClinicModel.FK_Room_Appointment" FromRole="Appointment" ToRole="Room" />
+          <NavigationProperty Name="Sessions" Relationship="SLHSClinicModel.FK_Session_Appointment" FromRole="Appointment" ToRole="Session" />
+          <NavigationProperty Name="Students" Relationship="SLHSClinicModel.Student_Appointment" FromRole="Appointment" ToRole="Student" />
+        </EntityType>
+        <Association Name="FK_Appointment_Client">
+          <End Type="SLHSClinicModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="SLHSClinicModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Teacher_Assistant">
+          <End Type="SLHSClinicModel.Teacher_Assistant" Role="Teacher_Assistant" Multiplicity="1" />
+          <End Type="SLHSClinicModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher_Assistant">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="TAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Appointment">
+          <End Type="SLHSClinicModel.Appointment" Role="Appointment" Multiplicity="1" />
+          <End Type="SLHSClinicModel.Room" Role="Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="AppointmentID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="AppointmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Session_Appointment">
+          <End Type="SLHSClinicModel.Appointment" Role="Appointment" Multiplicity="1" />
+          <End Type="SLHSClinicModel.Session" Role="Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="AppointmentID" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="AppointmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Student_Appointment">
+          <End Type="SLHSClinicModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <End Type="SLHSClinicModel.Student" Role="Student" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3768,22 +3766,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
                 <ScalarProperty Name="AdditionalNumbers" ColumnName="AdditionalNumbers" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Appointments">
-            <EntityTypeMapping TypeName="SLHSClinicModel.Appointment">
-              <MappingFragment StoreEntitySet="Appointment">
-                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
-                <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-                <ScalarProperty Name="Repeat" ColumnName="Repeat" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
-                <ScalarProperty Name="TAID" ColumnName="TAID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3962,19 +3944,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
                 <ScalarProperty Name="DownSyndrome" ColumnName="DownSyndrome" />
                 <ScalarProperty Name="DefectsNoseThroatEars" ColumnName="DefectsNoseThroatEars" />
                 <ScalarProperty Name="Other" ColumnName="Other" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Fluencies">
-            <EntityTypeMapping TypeName="SLHSClinicModel.Fluency">
-              <MappingFragment StoreEntitySet="Fluency">
-                <ScalarProperty Name="FluencyID" ColumnName="FluencyID" />
-                <ScalarProperty Name="Fluency1" ColumnName="Fluency" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="Repetition" ColumnName="Repetition" />
-                <ScalarProperty Name="Blocks" ColumnName="Blocks" />
-                <ScalarProperty Name="Prolongations" ColumnName="Prolongations" />
-                <ScalarProperty Name="SecondaryBehavior" ColumnName="SecondaryBehavior" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4190,19 +4159,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
                 <ScalarProperty Name="TAID" ColumnName="TAID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Rooms">
-            <EntityTypeMapping TypeName="SLHSClinicModel.Room">
-              <MappingFragment StoreEntitySet="Room">
-                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
-                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
-                <ScalarProperty Name="RoomType" ColumnName="RoomType" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4546,14 +4502,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
               <ScalarProperty Name="SocialID" ColumnName="SocialID" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="Student_Appointment" TypeName="SLHSClinicModel.Student_Appointment" StoreEntitySet="Student_Appointment">
-            <EndProperty Name="Appointment">
-              <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
-            </EndProperty>
-            <EndProperty Name="Student">
-              <ScalarProperty Name="UserID" ColumnName="StudentID" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="Request_View">
             <EntityTypeMapping TypeName="SLHSClinicModel.Request_View">
               <MappingFragment StoreEntitySet="Request_View">
@@ -4612,6 +4560,55 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Fluencies">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Fluency">
+              <MappingFragment StoreEntitySet="Fluency">
+                <ScalarProperty Name="SecondaryBehavior" ColumnName="SecondaryBehavior" />
+                <ScalarProperty Name="Prolongations" ColumnName="Prolongations" />
+                <ScalarProperty Name="Blocks" ColumnName="Blocks" />
+                <ScalarProperty Name="Repetition" ColumnName="Repetition" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Fluency1" ColumnName="Fluency" />
+                <ScalarProperty Name="FluencyID" ColumnName="FluencyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="TAID" ColumnName="TAID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Repeat" ColumnName="Repeat" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Student_Appointment" TypeName="SLHSClinicModel.Student_Appointment" StoreEntitySet="Student_Appointment">
+            <EndProperty Name="Student">
+              <ScalarProperty Name="UserID" ColumnName="StudentID" />
+            </EndProperty>
+            <EndProperty Name="Appointment">
+              <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

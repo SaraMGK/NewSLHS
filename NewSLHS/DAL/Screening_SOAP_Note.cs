@@ -44,7 +44,6 @@ namespace NewSLHS.DAL
         public Nullable<int> VocalScreen { get; set; }
         public Nullable<int> FluencyScreen { get; set; }
     
-        public virtual Fluency Fluency { get; set; }
         public virtual Jaw Jaw { get; set; }
         public virtual ICollection<Language_Notes> Language_Notes { get; set; }
         public virtual Lip Lip { get; set; }
@@ -53,5 +52,6 @@ namespace NewSLHS.DAL
         public virtual Session Session { get; set; }
         public virtual Tongue Tongue { get; set; }
         public virtual Voice Voice { get; set; }
+        public virtual Fluency Fluency { get; set; }
     }
 }

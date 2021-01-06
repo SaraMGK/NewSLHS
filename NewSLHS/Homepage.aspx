@@ -399,24 +399,7 @@
        <div>
 
            <%--Hidden Appointment Details View--%>
-           <asp:DetailsView ID="AppointmentDetailsView" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="RoomNumber,Student_FName,Stuent_LName,Client_FName,Client_LName,StartTime,EndTime,Repeat,Type,Status,MiddleName,Expr1,UserID,ClientID" DataSourceID="AppointmentEntityDataSource">
-               <Fields>
-                   <asp:BoundField DataField="Type" HeaderText="Type" ReadOnly="True" SortExpression="Type" />
-                   <asp:BoundField DataField="RoomNumber" HeaderText="RoomNumber" ReadOnly="True" SortExpression="RoomNumber" />
-                   <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" ReadOnly="True" />
-                   <asp:BoundField DataField="Student_FName" HeaderText="Student_FName" ReadOnly="True" SortExpression="Student_FName" />
-                   <asp:BoundField DataField="MiddleName" HeaderText="MiddleName" ReadOnly="True" SortExpression="MiddleName" />
-                   <asp:BoundField DataField="Stuent_LName" HeaderText="Stuent_LName" ReadOnly="True" SortExpression="Stuent_LName" />
-                   <asp:BoundField DataField="Client_FName" HeaderText="Client_FName" ReadOnly="True" SortExpression="Client_FName" />
-                   <asp:BoundField DataField="Expr1" HeaderText="Expr1" ReadOnly="True" SortExpression="Expr1" />
-                   <asp:BoundField DataField="Client_LName" HeaderText="Client_LName" ReadOnly="True" SortExpression="Client_LName" />
-                   <asp:BoundField DataField="StartTime" HeaderText="StartTime" ReadOnly="True" SortExpression="StartTime" />
-                   <asp:BoundField DataField="EndTime" HeaderText="EndTime" ReadOnly="True" SortExpression="EndTime" />
-                   <asp:BoundField DataField="Repeat" HeaderText="Repeat" ReadOnly="True" SortExpression="Repeat" />
-                   <asp:BoundField DataField="Note" HeaderText="Note" SortExpression="Note" />
-                   <asp:BoundField DataField="UserID" HeaderText="UserID" ReadOnly="True" SortExpression="UserID" />
-                   <asp:BoundField DataField="ClientID" HeaderText="ClientID" ReadOnly="True" SortExpression="ClientID" />
-               </Fields>
+           <asp:DetailsView ID="AppointmentDetailsView" runat="server" Height="50px" Width="125px" AutoGenerateRows="False">
            </asp:DetailsView>
            <asp:EntityDataSource ID="AppointmentEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Appointment_View"></asp:EntityDataSource>
        </div>

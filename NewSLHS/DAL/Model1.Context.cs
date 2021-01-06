@@ -26,7 +26,6 @@ namespace NewSLHS.DAL
         }
     
         public DbSet<Address> Addresses { get; set; }
-        public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Assessment_Objective> Assessment_Objective { get; set; }
         public DbSet<Assessment_Proposal> Assessment_Proposal { get; set; }
         public DbSet<Authentication> Authentications { get; set; }
@@ -38,7 +37,6 @@ namespace NewSLHS.DAL
         public DbSet<Clinical_Goals> Clinical_Goals { get; set; }
         public DbSet<Communication> Communications { get; set; }
         public DbSet<Diagnosi> Diagnosis { get; set; }
-        public DbSet<Fluency> Fluencies { get; set; }
         public DbSet<Fluharty> Fluharties { get; set; }
         public DbSet<Food_Allergy> Food_Allergy { get; set; }
         public DbSet<Health> Healths { get; set; }
@@ -55,7 +53,6 @@ namespace NewSLHS.DAL
         public DbSet<Repeated_Grade> Repeated_Grade { get; set; }
         public DbSet<Resource> Resources { get; set; }
         public DbSet<Resource_Request> Resource_Request { get; set; }
-        public DbSet<Room> Rooms { get; set; }
         public DbSet<School> Schools { get; set; }
         public DbSet<Screening_SOAP_Note> Screening_SOAP_Note { get; set; }
         public DbSet<Section> Sections { get; set; }
@@ -80,5 +77,8 @@ namespace NewSLHS.DAL
         public DbSet<Marital_Status> Marital_Status { get; set; }
         public DbSet<Yes_No> Yes_No { get; set; }
         public DbSet<Client_View> Client_View { get; set; }
+        public DbSet<Fluency> Fluencies { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
     }
 }

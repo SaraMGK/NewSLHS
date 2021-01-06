@@ -16,9 +16,9 @@ namespace NewSLHS.DAL
     {
         public Client()
         {
-            this.Appointments = new HashSet<Appointment>();
             this.Client_Information = new HashSet<Client_Information>();
             this.Parents = new HashSet<Parent>();
+            this.Appointments = new HashSet<Appointment>();
         }
     
         public int ClientID { get; set; }
@@ -30,8 +30,8 @@ namespace NewSLHS.DAL
         public Nullable<int> AddressID { get; set; }
     
         public virtual Address Address { get; set; }
-        public virtual ICollection<Appointment> Appointments { get; set; }
         public virtual ICollection<Client_Information> Client_Information { get; set; }
         public virtual ICollection<Parent> Parents { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
     }
 }

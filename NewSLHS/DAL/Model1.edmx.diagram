@@ -4,9 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ca3544ee14114fc983db7e4f9792d93e" Name="Diagram1" ZoomLevel="72">
+      <Diagram DiagramId="ca3544ee14114fc983db7e4f9792d93e" Name="Diagram1" ZoomLevel="54">
         <EntityTypeShape EntityType="SLHSClinicModel.Address" Width="1.5" PointX="1.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Appointment" Width="1.5" PointX="12.25" PointY="18" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Assessment_Objective" Width="1.5" PointX="19.75" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Assessment_Proposal" Width="1.5" PointX="17.5" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Authentication" Width="1.5" PointX="7.75" PointY="22" IsExpanded="true" />
@@ -18,7 +17,6 @@
         <EntityTypeShape EntityType="SLHSClinicModel.Clinical_Goals" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Communication" Width="1.5" PointX="3" PointY="32.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Diagnosi" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Fluency" Width="1.5" PointX="20.25" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Fluharty" Width="1.5" PointX="27" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Food_Allergy" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Health" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
@@ -35,7 +33,6 @@
         <EntityTypeShape EntityType="SLHSClinicModel.Repeated_Grade" Width="1.5" PointX="3" PointY="37.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Resource" Width="1.5" PointX="12.25" PointY="33.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Resource_Request" Width="1.5" PointX="14.5" PointY="28.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Room" Width="1.5" PointX="14.5" PointY="18.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.School" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Screening_SOAP_Note" Width="1.5" PointX="22.5" PointY="22.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Section" Width="1.5" PointX="12.25" PointY="28.625" IsExpanded="true" />
@@ -58,10 +55,6 @@
         <EntityTypeShape EntityType="SLHSClinicModel.Student_View" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="SLHSClinicModel.FK_Client_Address" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Parent_Address" ManuallyRouted="false" />
-        <AssociationConnector Association="SLHSClinicModel.FK_Appointment_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="SLHSClinicModel.FK_Appointment_Teacher_Assistant" ManuallyRouted="false" />
-        <AssociationConnector Association="SLHSClinicModel.FK_Room_Appointment" ManuallyRouted="false" />
-        <AssociationConnector Association="SLHSClinicModel.FK_Session_Appointment" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Assessment_Objective_Assessment_Proposal" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Assessment_Proposal_Session" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Student_Authentication" ManuallyRouted="false" />
@@ -79,7 +72,6 @@
         <AssociationConnector Association="SLHSClinicModel.FK_Immunization_Client_Information" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Motor_Development_Client_Information" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Communication_Speech_Language" ManuallyRouted="false" />
-        <AssociationConnector Association="SLHSClinicModel.FK_Screening_SOAP_Note_Fluency" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Fluharty_Language_Notes" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Screening_SOAP_Note_Jaws" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Language_Notes_Screening_SOAP_Note" ManuallyRouted="false" />
@@ -107,13 +99,21 @@
         <AssociationConnector Association="SLHSClinicModel.Client_Parent" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.Social_Behavior" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.Social_Personality" ManuallyRouted="false" />
-        <AssociationConnector Association="SLHSClinicModel.Student_Appointment" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SLHSClinicModel.Request_View" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="SLHSClinicModel.Marital_Status" Width="1.5" PointX="12.375" PointY="10.75" />
         <EntityTypeShape EntityType="SLHSClinicModel.Yes_No" Width="1.5" PointX="7.375" PointY="11.875" />
         <AssociationConnector Association="SLHSClinicModel.FK_Social_Yes_No" />
         <AssociationConnector Association="SLHSClinicModel.Adult" />
         <EntityTypeShape EntityType="SLHSClinicModel.Client_View" Width="1.5" PointX="9.375" PointY="11.75" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Fluency" Width="1.5" PointX="11.375" PointY="14" />
+        <AssociationConnector Association="SLHSClinicModel.FK_Screening_SOAP_Note_Fluency" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Room" Width="1.5" PointX="14.875" PointY="14" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Appointment" Width="1.5" PointX="13.125" PointY="16.5" />
+        <AssociationConnector Association="SLHSClinicModel.FK_Appointment_Client" />
+        <AssociationConnector Association="SLHSClinicModel.FK_Appointment_Teacher_Assistant" />
+        <AssociationConnector Association="SLHSClinicModel.FK_Room_Appointment" />
+        <AssociationConnector Association="SLHSClinicModel.FK_Session_Appointment" />
+        <AssociationConnector Association="SLHSClinicModel.Student_Appointment" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

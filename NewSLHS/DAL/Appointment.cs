@@ -22,11 +22,10 @@ namespace NewSLHS.DAL
         }
     
         public int AppointmentID { get; set; }
-        public System.DateTime AppointmentDate { get; set; }
         public string Status { get; set; }
         public string Type { get; set; }
-        public System.TimeSpan StartTime { get; set; }
-        public System.TimeSpan EndTime { get; set; }
+        public System.DateTime StartDateTime { get; set; }
+        public System.DateTime EndDateTime { get; set; }
         public string Repeat { get; set; }
         public string Note { get; set; }
         public int ClientID { get; set; }

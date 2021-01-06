@@ -16,9 +16,9 @@ namespace NewSLHS.DAL
     {
         public Teacher_Assistant()
         {
-            this.Appointments = new HashSet<Appointment>();
             this.Resource_Request = new HashSet<Resource_Request>();
             this.Sections = new HashSet<Section>();
+            this.Appointments = new HashSet<Appointment>();
         }
     
         public int UserID { get; set; }
@@ -32,9 +32,9 @@ namespace NewSLHS.DAL
         public int Status { get; set; }
         public int AuthenticationID { get; set; }
     
-        public virtual ICollection<Appointment> Appointments { get; set; }
         public virtual Authentication Authentication { get; set; }
         public virtual ICollection<Resource_Request> Resource_Request { get; set; }
         public virtual ICollection<Section> Sections { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
     }
 }
