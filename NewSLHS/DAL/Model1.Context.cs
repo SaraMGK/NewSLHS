@@ -73,12 +73,12 @@ namespace NewSLHS.DAL
         public DbSet<Appointment_View> Appointment_View { get; set; }
         public DbSet<Session_View> Session_View { get; set; }
         public DbSet<Student_View> Student_View { get; set; }
-        public DbSet<Request_View> Request_View { get; set; }
         public DbSet<Marital_Status> Marital_Status { get; set; }
         public DbSet<Yes_No> Yes_No { get; set; }
         public DbSet<Client_View> Client_View { get; set; }
         public DbSet<Fluency> Fluencies { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Request_View> Request_View { get; set; }
     }
 }

@@ -774,7 +774,6 @@ warning 6002: The table/view 'SLHSClinic.dbo.Client_View' does not have a primar
 warning 6002: The table/view 'SLHSClinic.dbo.Request_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Request_View">
           <Key>
-            <PropertyRef Name="AppointmentDate" />
             <PropertyRef Name="Resource_Name" />
             <PropertyRef Name="Image" />
             <PropertyRef Name="Status" />
@@ -787,8 +786,10 @@ warning 6002: The table/view 'SLHSClinic.dbo.Request_View' does not have a prima
             <PropertyRef Name="ResourceRequestID" />
             <PropertyRef Name="ReturnDateTime" />
             <PropertyRef Name="UserID" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="AppointmentID" />
+            <PropertyRef Name="Expr2" />
           </Key>
-          <Property Name="AppointmentDate" Type="date" Nullable="false" />
           <Property Name="Resource_Name" Type="nvarchar" MaxLength="300" Nullable="false" />
           <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
@@ -801,6 +802,9 @@ warning 6002: The table/view 'SLHSClinic.dbo.Request_View' does not have a prima
           <Property Name="ResourceRequestID" Type="int" Nullable="false" />
           <Property Name="ReturnDateTime" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="AppointmentID" Type="int" Nullable="false" />
+          <Property Name="Expr2" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SLHSClinic.dbo.Session_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1661,7 +1665,6 @@ FROM [dbo].[Client_View] AS [Client_View]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Request_View" EntityType="Self.Request_View" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[Request_View].[AppointmentDate] AS [AppointmentDate], 
 [Request_View].[Resource_Name] AS [Resource_Name], 
 [Request_View].[Image] AS [Image], 
 [Request_View].[Status] AS [Status], 
@@ -1673,7 +1676,10 @@ FROM [dbo].[Client_View] AS [Client_View]</DefiningQuery>
 [Request_View].[LastName] AS [LastName], 
 [Request_View].[ResourceRequestID] AS [ResourceRequestID], 
 [Request_View].[ReturnDateTime] AS [ReturnDateTime], 
-[Request_View].[UserID] AS [UserID]
+[Request_View].[UserID] AS [UserID], 
+[Request_View].[Expr1] AS [Expr1], 
+[Request_View].[AppointmentID] AS [AppointmentID], 
+[Request_View].[Expr2] AS [Expr2]
 FROM [dbo].[Request_View] AS [Request_View]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Session_View" EntityType="Self.Session_View" store:Type="Views" store:Schema="dbo">
@@ -3520,7 +3526,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Personality" EntitySet="Personalities" />
             <End Role="Social" EntitySet="Socials" />
           </AssociationSet>
-          <EntitySet Name="Request_View" EntityType="SLHSClinicModel.Request_View" />
           <EntitySet Name="Marital_Status" EntityType="SLHSClinicModel.Marital_Status" />
           <EntitySet Name="Yes_No" EntityType="SLHSClinicModel.Yes_No" />
           <AssociationSet Name="FK_Social_Yes_No" Association="SLHSClinicModel.FK_Social_Yes_No">
@@ -3559,37 +3564,8 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Appointment" EntitySet="Appointments" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
+          <EntitySet Name="Request_View" EntityType="SLHSClinicModel.Request_View" />
         </EntityContainer>
-        <EntityType Name="Request_View">
-          <Key>
-            <PropertyRef Name="AppointmentDate" />
-            <PropertyRef Name="Resource_Name" />
-            <PropertyRef Name="Image" />
-            <PropertyRef Name="Status" />
-            <PropertyRef Name="RequestDateTime" />
-            <PropertyRef Name="Quantity_Requested" />
-            <PropertyRef Name="Available_Quantity" />
-            <PropertyRef Name="StudentID" />
-            <PropertyRef Name="FirstName" />
-            <PropertyRef Name="LastName" />
-            <PropertyRef Name="ResourceRequestID" />
-            <PropertyRef Name="ReturnDateTime" />
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="AppointmentDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Resource_Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Int32" Nullable="false" />
-          <Property Name="RequestDateTime" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Quantity_Requested" Type="Int32" Nullable="false" />
-          <Property Name="Available_Quantity" Type="Int32" Nullable="false" />
-          <Property Name="StudentID" Type="Int32" Nullable="false" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ResourceRequestID" Type="Int32" Nullable="false" />
-          <Property Name="ReturnDateTime" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="Marital_Status">
           <Key>
             <PropertyRef Name="MaritalStatusID" />
@@ -3750,6 +3726,40 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <End Type="SLHSClinicModel.Appointment" Role="Appointment" Multiplicity="*" />
           <End Type="SLHSClinicModel.Student" Role="Student" Multiplicity="*" />
         </Association>
+        <EntityType Name="Request_View">
+          <Key>
+            <PropertyRef Name="Resource_Name" />
+            <PropertyRef Name="Image" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="RequestDateTime" />
+            <PropertyRef Name="Quantity_Requested" />
+            <PropertyRef Name="Available_Quantity" />
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="ResourceRequestID" />
+            <PropertyRef Name="ReturnDateTime" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="AppointmentID" />
+            <PropertyRef Name="Expr2" />
+          </Key>
+          <Property Name="Resource_Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="RequestDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Quantity_Requested" Type="Int32" Nullable="false" />
+          <Property Name="Available_Quantity" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResourceRequestID" Type="Int32" Nullable="false" />
+          <Property Name="ReturnDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="AppointmentID" Type="Int32" Nullable="false" />
+          <Property Name="Expr2" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4502,25 +4512,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
               <ScalarProperty Name="SocialID" ColumnName="SocialID" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Request_View">
-            <EntityTypeMapping TypeName="SLHSClinicModel.Request_View">
-              <MappingFragment StoreEntitySet="Request_View">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="ReturnDateTime" ColumnName="ReturnDateTime" />
-                <ScalarProperty Name="ResourceRequestID" ColumnName="ResourceRequestID" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-                <ScalarProperty Name="Available_Quantity" ColumnName="Available_Quantity" />
-                <ScalarProperty Name="Quantity_Requested" ColumnName="Quantity_Requested" />
-                <ScalarProperty Name="RequestDateTime" ColumnName="RequestDateTime" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
-                <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Marital_Status">
             <EntityTypeMapping TypeName="SLHSClinicModel.Marital_Status">
               <MappingFragment StoreEntitySet="Marital_Status">
@@ -4609,6 +4600,27 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
               <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Request_View">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Request_View">
+              <MappingFragment StoreEntitySet="Request_View">
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ReturnDateTime" ColumnName="ReturnDateTime" />
+                <ScalarProperty Name="ResourceRequestID" ColumnName="ResourceRequestID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="Available_Quantity" ColumnName="Available_Quantity" />
+                <ScalarProperty Name="Quantity_Requested" ColumnName="Quantity_Requested" />
+                <ScalarProperty Name="RequestDateTime" ColumnName="RequestDateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

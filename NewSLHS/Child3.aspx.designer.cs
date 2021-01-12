@@ -11,80 +11,134 @@ namespace NewSLHS
 {
 
 
-    public partial class Adult
+    public partial class Child3
     {
 
         /// <summary>
-        /// DropDownList1 control.
+        /// FoodLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.Label FoodLabel;
 
         /// <summary>
-        /// RadioButtonList1 control.
+        /// FoodTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        protected global::System.Web.UI.WebControls.TextBox FoodTextBox;
 
         /// <summary>
-        /// TextBox1 control.
+        /// ResponsesLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Label ResponsesLabel;
 
         /// <summary>
-        /// AdultDetailsView control.
+        /// ResponsesTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView AdultDetailsView;
+        protected global::System.Web.UI.WebControls.TextBox ResponsesTextBox;
 
         /// <summary>
-        /// AdultEntityDataSource control.
+        /// HandlingLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource AdultEntityDataSource;
+        protected global::System.Web.UI.WebControls.Label HandlingLabel;
 
         /// <summary>
-        /// YesNoEntityDataSource control.
+        /// HandlingTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource YesNoEntityDataSource;
+        protected global::System.Web.UI.WebControls.TextBox HandlingTextBox;
 
         /// <summary>
-        /// MaritalStatusEntityDataSource control.
+        /// ActivitiesLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource MaritalStatusEntityDataSource;
+        protected global::System.Web.UI.WebControls.Label ActivitiesLabel;
 
         /// <summary>
-        /// FrustrationEntityDataSource control.
+        /// ActivitiesTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource FrustrationEntityDataSource;
+        protected global::System.Web.UI.WebControls.TextBox ActivitiesTextBox;
+
+        /// <summary>
+        /// HobbiesLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label HobbiesLabel;
+
+        /// <summary>
+        /// HobbiesTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox HobbiesTextBox;
+
+        /// <summary>
+        /// AlongLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AlongLabel;
+
+        /// <summary>
+        /// AlongTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AlongTextBox;
+
+        /// <summary>
+        /// ChildrenLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ChildrenLabel;
+
+        /// <summary>
+        /// ChildrenTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ChildrenTextBox;
 
         /// <summary>
         /// ButtonsDiv control.

@@ -368,7 +368,7 @@
                   <input ID="Datetimelocal1" type="datetime-local" class="option1" runat="server" style="padding: 0px;">
                 </div>
 
-                <!--Repeat-->
+                <%--Repeat--%>
                 <div class="type">
                   <label class="label1">Repeat</label>
                     <asp:DropDownList ID="DropDownList7" runat="server" CssClass="option1" style="width: 125px;">
@@ -378,7 +378,7 @@
                     </asp:DropDownList>
                 </div>
 
-                <!--Note-->
+                <%--Note--%>
                  <div class="type">
                   <label class="label1">Note</label>
 <%--                  <input type="text" style="width: 250px; height: 40px; margin-bottom: 3%;" class="option1">--%>
@@ -395,7 +395,7 @@
     </div>
   </div>
     
-        <!---------------------------------UNDER CALENDER--------------------------> 
+        <%---------------------------------UNDER CALENDER--------------------------%> 
        <div>
 
            <%--Hidden Appointment Details View--%>

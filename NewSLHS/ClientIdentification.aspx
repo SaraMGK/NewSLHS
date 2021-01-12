@@ -11,13 +11,13 @@
                      <li><a href="/Birth">
                         <span class="tab">Birth History</span></a>
                      </li>
-                     <li><a href="/">
+                     <li><a href="/Adult">
                         <span class="tab">Adult</span></a>
                      </li>
-                     <li><a href="/">
+                     <li><a href="/Child">
                         <span class="tab">Child</span></a>
                      </li>
-                     <li><a href="/">
+                     <li><a href="/ParentalHistory">
                         <span class="tab">Parental History</span></a>
                      </li>
                      <li><a href="/">
@@ -83,7 +83,7 @@
             <asp:BoundField DataField="HearingID" HeaderText="HearingID" SortExpression="HearingID" Visible="False" />
             <asp:BoundField DataField="SchoolID" HeaderText="SchoolID" SortExpression="SchoolID" Visible="False" />
             <asp:BoundField DataField="SocialID" HeaderText="SocialID" SortExpression="SocialID" Visible="False" />
-            <asp:BoundField DataField="BirthID" HeaderText="BirthID" SortExpression="BirthID" Visible="False" />
+            <asp:BoundField DataField="BirthID" HeaderText="BirthID" SortExpression="BirthID" Visible="true" />
             <asp:BoundField DataField="SpeechLanguageID" HeaderText="SpeechLanguageID" SortExpression="SpeechLanguageID" Visible="False" />
             <asp:BoundField DataField="PrimaryPhysician" HeaderText="PrimaryPhysician" SortExpression="PrimaryPhysician" Visible="False" />
             <asp:BoundField DataField="PhysicianAddress" HeaderText="PhysicianAddress" SortExpression="PhysicianAddress" Visible="False" />
@@ -229,7 +229,7 @@
 
     <%--Button--%>
     <div id="ButtonsDiv" class="next-button-div" runat="server">
-        <button class="save-button">Save & Continue Later</button>
+<%--        <button class="save-button">Save & Continue Later</button>--%>
 <%--        <button class="next-button">Next</button>--%>
         <asp:Button ID="NextButton" runat="server" Text="Next" CssClass="next-button" OnClick="NextButton_Click" />
     </div>

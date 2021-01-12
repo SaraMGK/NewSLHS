@@ -69,11 +69,17 @@ namespace NewSLHS
                                     select x.UserID).FirstOrDefault();
                 }
 
-                //Session["UserID"] = query - user - id;
-
+                //Other Pages
                 Session["SessionUserID"] = query_userID;
 
+                //User Name Session (User Name at the top nav bar)
+                Session["username"] = query_studentName;
+
+
+
                 Response.Redirect("Homepage.aspx?username=" + query_studentName);
+
+
             }
             else
             {

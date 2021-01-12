@@ -14,7 +14,7 @@
                      <li><a href="/Adult">
                         <span class="tab">Adult</span></a>
                      </li>
-                     <li><a href="/">
+                     <li><a href="/child">
                         <span class="tab">Child</span></a>
                      </li>
                      <li><a href="/">
@@ -75,7 +75,8 @@
         </tr>
         <tr style="height: 30px;">
             <td colspan="2" style="height: 18px; padding-top: 15px; padding-bottom: 2px;">
-                If the client is easily frustrated, how does he/she deal with their frustration?</td>
+                If the client is easily frustrated, how does he/she deal with their frustration?
+            </td>
         </tr>
         <tr>
             <td colspan="2">
@@ -96,10 +97,12 @@
     <asp:EntityDataSource ID="MaritalStatusEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Marital_Status"></asp:EntityDataSource>
     <asp:EntityDataSource ID="FrustrationEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Socials"></asp:EntityDataSource>
 
-    <%--Button--%>
+    <%--Buttons--%>
     <div id="ButtonsDiv" class="next-button-div" runat="server">
-        <button class="save-button">Save & Continue Later</button>
-        <button class="next-button">Next</button>
+<%--        <button class="save-button"></button>--%>
+        <asp:Button ID="SaveButton" CssClass="save-button" runat="server" Text="Save & Continue Later" OnClick="SaveButton_Click" />
+        <asp:Button ID="NextButton" CssClass="next-button" runat="server" Text="Next" OnClick="NextButton_Click" />
+<%--        <button class="next-button" onclick="location.href = '/Child'">Next</button>--%>
     </div>
 
 

@@ -7,23 +7,21 @@ using System.Web.UI.WebControls;
 
 namespace NewSLHS
 {
-    public partial class Birth : System.Web.UI.Page
+    public partial class Child3 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void Hide_Buttons(object sender, EventArgs e)
+        protected void SaveButton_Click(object sender, EventArgs e)
         {
-            ButtonsDiv.Visible = !ButtonsDiv.Visible;
-
+            Response.Redirect("IncompleteClients.aspx");
         }
 
         protected void NextButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Adult.aspx");
-
+            Response.Redirect("ParentalHistory.aspx");
         }
     }
 }

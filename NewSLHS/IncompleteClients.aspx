@@ -7,7 +7,7 @@
 
         <% foreach (GridViewRow row in GridView1.Rows){ %> 
     <div id="t2" style="height: 180px;margin-bottom: 20px;">        
-        <div  class="client-div" onclick="location.href = '/IncompleteClients.aspx?ClientID='+ <%= row.Cells[5].Text %>" >
+        <div  class="client-div" onclick="location.href = '/IncompleteGeneralInformation.aspx?ClientID='+ <%= row.Cells[5].Text %>" >
 
             <Label ID="ClientIDLabel" style="font-weight: bold; margin-left: 25px;" Class="client-name-labelb"><%= row.Cells[5].Text%></Label>
             <div class="Image-info-div">

@@ -33,5 +33,17 @@ namespace NewSLHS
             //    }
             //}
         }
+
+        protected void SaveButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Incomplete.aspx");
+
+        }
+
+        protected void NextButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Child.aspx");
+
+        }
     }
 }

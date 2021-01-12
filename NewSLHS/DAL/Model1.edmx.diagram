@@ -99,7 +99,6 @@
         <AssociationConnector Association="SLHSClinicModel.Client_Parent" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.Social_Behavior" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.Social_Personality" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Request_View" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="SLHSClinicModel.Marital_Status" Width="1.5" PointX="12.375" PointY="10.75" />
         <EntityTypeShape EntityType="SLHSClinicModel.Yes_No" Width="1.5" PointX="7.375" PointY="11.875" />
         <AssociationConnector Association="SLHSClinicModel.FK_Social_Yes_No" />
@@ -114,6 +113,7 @@
         <AssociationConnector Association="SLHSClinicModel.FK_Room_Appointment" />
         <AssociationConnector Association="SLHSClinicModel.FK_Session_Appointment" />
         <AssociationConnector Association="SLHSClinicModel.Student_Appointment" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Request_View" Width="1.5" PointX="14.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

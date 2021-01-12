@@ -11,8 +11,12 @@ namespace NewSLHS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string studentName = Request.QueryString["username"];
-            usernameLb.Text = studentName;
+            //string studentName = Request.QueryString["username"];
+            //string studentName = Session["username"].ToString();
+            //usernameLb.Text = studentName;
+
+            //User Name on the top nav bar
+            usernameLb.Text = Session["username"].ToString();
         }
     }
 }

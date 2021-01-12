@@ -119,6 +119,9 @@
     <Content Include="Birth.aspx" />
     <Content Include="CalendarTest.aspx" />
     <Content Include="Child.aspx" />
+    <Content Include="Child2.aspx" />
+    <Content Include="Child3.aspx" />
+    <Content Include="ClientHistory.aspx" />
     <Content Include="ClientIdentification.aspx" />
     <Content Include="IncompleteGeneralInformation.aspx" />
     <Content Include="Images\User.png" />
@@ -224,6 +227,7 @@
     <Content Include="login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="login\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="ParentalHistory.aspx" />
+    <Content Include="reqdettest.aspx" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_contrast_black.css" />
@@ -578,6 +582,27 @@
     <Compile Include="Child.aspx.designer.cs">
       <DependentUpon>Child.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Child2.aspx.cs">
+      <DependentUpon>Child2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Child2.aspx.designer.cs">
+      <DependentUpon>Child2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Child3.aspx.cs">
+      <DependentUpon>Child3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Child3.aspx.designer.cs">
+      <DependentUpon>Child3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientHistory.aspx.cs">
+      <DependentUpon>ClientHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientHistory.aspx.designer.cs">
+      <DependentUpon>ClientHistory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClientIdentification.aspx.cs">
       <DependentUpon>ClientIdentification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -627,6 +652,7 @@
     <Compile Include="InsertIdentification.aspx.designer.cs">
       <DependentUpon>InsertIdentification.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ListItems\RequestListItem.cs" />
     <Compile Include="OldClientGeneralInformation.aspx.cs">
       <DependentUpon>OldClientGeneralInformation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -863,6 +889,13 @@
     </Compile>
     <Compile Include="Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reqdettest.aspx.cs">
+      <DependentUpon>reqdettest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reqdettest.aspx.designer.cs">
+      <DependentUpon>reqdettest.aspx</DependentUpon>
     </Compile>
     <Compile Include="RequestDetails.aspx.cs">
       <DependentUpon>RequestDetails.aspx</DependentUpon>

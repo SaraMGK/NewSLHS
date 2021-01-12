@@ -50,18 +50,21 @@
                  <%-----Issue Date--------%>
                  <div>
                     <label class="info-label">Issue Date</label>
-                    <input type="datetime-local" class="request-input">
+<%--                    <input type="datetime-local" class="request-input">--%>
+                     <asp:TextBox ID="IssueDateTextBox" type="datetime-local" CssClass="request-input" runat="server"></asp:TextBox>
                  </div>
                 <%----Return Date--------%>
                  <div>
                     <label class="info-label">Return Date</label>
-                    <input type="datetime-local" class="request-input">
+<%--                    <input type="datetime-local" class="request-input">--%>
+                    <asp:TextBox ID="ReturnDateTextBox" CssClass="request-input" type="date" runat="server"></asp:TextBox>
                  </div>
 
                  <%------Quantity--------%>
                  <div>
                     <label class="info-label">Quantity</label>
-                    <input type="number" id="quantity" name="quantity" min="1" class="request-input" style="width:15%" runat="server">
+<%--                    <input type="number" id="quantity" name="quantity" min="1" class="request-input" style="width:15%" runat="server">--%>
+                     <asp:TextBox ID="QuantityTextBox" type="number" runat="server" min="1" CssClass="request-input" Width="15%"></asp:TextBox>
                  </div>
              </div>
             </div>

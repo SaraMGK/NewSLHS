@@ -14,7 +14,6 @@ namespace NewSLHS.DAL
     
     public partial class Request_View
     {
-        public System.DateTime AppointmentDate { get; set; }
         public string Resource_Name { get; set; }
         public string Image { get; set; }
         public int Status { get; set; }
@@ -27,5 +26,8 @@ namespace NewSLHS.DAL
         public int ResourceRequestID { get; set; }
         public System.DateTime ReturnDateTime { get; set; }
         public int UserID { get; set; }
+        public int Expr1 { get; set; }
+        public int AppointmentID { get; set; }
+        public int Expr2 { get; set; }
     }
 }
