@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OldClientGeneralInformation.aspx.cs" Inherits="NewSLHS.ClientGeneralInformation" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <%--Page Header--%>
     <h1>Client Details</h1>
     <h6 class="sub-head">General Information</h6>
 
@@ -37,6 +38,7 @@
                 <td style="width: 347px"><asp:TextBox ID="MobileTextBox" runat="server" CssClass="option2"></asp:TextBox></td>
                 <td style="width: 347px"></td>
             </tr>
+            <%------Address Section------%>
             <tr>
                 <td><asp:Label style="padding-bottom: 25px" ID="AddressLabel" runat="server" Text="Address" CssClass="label2"></asp:Label></td>
                 

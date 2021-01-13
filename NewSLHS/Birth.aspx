@@ -63,53 +63,53 @@
     <br />
     <br />
 
-    <%-- Question 1: Pregnancy Length--%>
-<%--    <div>
-        <asp:Label ID="PregnancyLabel" runat="server" Text="Pregnancy Length" CssClass="label4"></asp:Label>
-        <asp:TextBox ID="PregnancyTextBox" runat="server" CssClass="child-input"></asp:TextBox>
-    </div>--%>
-    
-    <%-- Question 2: Birth Weight--%>
-<%--    <div>
-        <asp:Label ID="WeightLabel" runat="server" Text="Birth Weight (k.g.)" CssClass="label4"></asp:Label>
-        <asp:TextBox ID="WeightTextBox" runat="server" CssClass="child-input"></asp:TextBox>
+    <%-- question 1: pregnancy length--%>
+    <div>
+        <asp:label id="pregnancylabel" runat="server" text="pregnancy length" cssclass="label4"></asp:label>
+        <asp:textbox id="pregnancytextbox" runat="server" cssclass="child-input"></asp:textbox>
     </div>
-    <br />--%>
-
-    <%--Question3: Prenatal Condition--%>
-<%--    <asp:Label ID="PrenatalLabel" runat="server" Text="During Pregnancy, did the mother experience any condition, accident, or <br/> extraordinary prenatal symptoms? If yes, please explain. " CssClass="label6"></asp:Label>
-    <asp:TextBox ID="PrenatalTextBox" runat="server" CssClass="text-box2" Width="491px" TextMode="MultiLine"></asp:TextBox>
-    <br />--%>
     
-    <%--Question4: Medication--%>
-<%--    <asp:Label ID="MedicationLabel" runat="server" Text="Was any medication taken during pregnancy? If yes, what kind? " CssClass="label6"></asp:Label>
-    <asp:TextBox ID="MedicationTextBox" runat="server" CssClass="text-box2" Width="491px" TextMode="MultiLine"></asp:TextBox>
-    <br />--%>
+    <%-- question 2: birth weight--%>
+    <div>
+        <asp:label id="weightlabel" runat="server" text="birth weight (k.g.)" cssclass="label4"></asp:label>
+        <asp:textbox id="weighttextbox" runat="server" cssclass="child-input"></asp:textbox>
+    </div>
+    <br />
 
-    <%--Question5: Anesthetics--%>
-<%--    <asp:Label ID="AnestheticsLabel" runat="server" Text="Were any drugs or anesthetics used during labor? If yes, which kind?" CssClass="label6"></asp:Label>
-    <asp:TextBox ID="AnestheticsTextBox" runat="server" CssClass="text-box2" Width="491px" TextMode="MultiLine"></asp:TextBox>
-    <br />--%>
+    <%--question3: prenatal condition--%>
+    <asp:label id="prenatallabel" runat="server" text="during pregnancy, did the mother experience any condition, accident, or <br/> extraordinary prenatal symptoms? if yes, please explain. " cssclass="label6"></asp:label>
+    <asp:textbox id="prenataltextbox" runat="server" cssclass="text-box2" width="491px" textmode="multiline"></asp:textbox>
+    <br />
+    
+    <%--question4: medication--%>
+    <asp:label id="medicationlabel" runat="server" text="was any medication taken during pregnancy? if yes, what kind? " cssclass="label6"></asp:label>
+    <asp:textbox id="medicationtextbox" runat="server" cssclass="text-box2" width="491px" textmode="multiline"></asp:textbox>
+    <br />
 
-    <%--Question6: Delivery Problems--%>
-<%--    <asp:Label ID="ProblemLabel" runat="server" Text="Were any problems with the delivery, such as breech birth, caesarean section,<br> induced labor, forceps delivery, etc.? If so, please describe." CssClass="label6"></asp:Label>
-    <asp:TextBox ID="ProblemTextBox" runat="server" CssClass="text-box2" Width="491px" TextMode="MultiLine"></asp:TextBox>
-    <br />--%>
+    <%--question5: anesthetics--%>
+    <asp:label id="anestheticslabel" runat="server" text="were any drugs or anesthetics used during labor? if yes, which kind?" cssclass="label6"></asp:label>
+    <asp:textbox id="anestheticstextbox" runat="server" cssclass="text-box2" width="491px" textmode="multiline"></asp:textbox>
+    <br />
 
-        <%--Button--%>
-<%--    <div id="Div1" class="next-button-div" runat="server">
-        <asp:Button ID="NextButton" runat="server" Text="Next" CssClass="next-button" OnClick="NextButton_Click" />
+    <%--question6: delivery problems--%>
+    <asp:label id="problemlabel" runat="server" text="were any problems with the delivery, such as breech birth, caesarean section,<br> induced labor, forceps delivery, etc.? if so, please describe." cssclass="label6"></asp:label>
+    <asp:textbox id="problemtextbox" runat="server" cssclass="text-box2" width="491px" textmode="multiline"></asp:textbox>
+    <br />
+
+        <%--button--%>
+<%--    <div id="div1" class="next-button-div" runat="server">
+        <asp:button id="nextbutton" runat="server" text="next" cssclass="next-button" onclick="nextbutton_click" />
     </div>--%>
 
     <%--Button--%>
-    <div id="ButtonsDiv" class="next-button-div" runat="server">
+   <%-- <div id="ButtonsDiv" class="next-button-div" runat="server">
         <button class="save-button">Save & Continue Later</button>
         <button class="next-button">Next</button>
-    </div>
+    </div>--%>
 
 
 
-    <asp:DetailsView CssClass="dfdf" ID="BirthDetailsView" runat="server" Height="113px" Width="1050px" DataSourceID="BirthEntityDataSource" style="margin-right: 0px" OnModeChanged="Hide_Buttons" AutoGenerateRows="False" DataKeyNames="BirthID">
+    <%--<asp:DetailsView CssClass="dfdf" ID="BirthDetailsView" runat="server" Height="113px" Width="1050px" DataSourceID="BirthEntityDataSource" style="margin-right: 0px" OnModeChanged="Hide_Buttons" AutoGenerateRows="False" DataKeyNames="BirthID">
         <EditRowStyle BackColor="White" Font-Bold="True" ForeColor="#663399" CssClass="detailsView-update" />
         <Fields>
             <asp:CommandField ShowEditButton="True" ButtonType="Button" ControlStyle-CssClass="edit-btn" />
@@ -122,12 +122,12 @@
             <asp:BoundField DataField="DeliveryProblems" HeaderText="Were any problems with the delivery, such as breech birth, caesarean section, induced labor, forceps delivery, etc.? If so, please describe." SortExpression="DeliveryProblems" />
             <asp:CommandField ShowInsertButton="True" Visible="False" FooterStyle-CssClass="edit-btn" />
         </Fields>
-    </asp:DetailsView>
-    <asp:EntityDataSource ID="BirthEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Births" EnableUpdate="True" EnableInsert="True" EntityTypeFilter="" Select="" Where="it.BirthID = @BirthIDparam">
+    </asp:DetailsView>--%>
+    <%--<asp:EntityDataSource ID="BirthEntityDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Births" EnableUpdate="True" EnableInsert="True" EntityTypeFilter="" Select="" Where="it.BirthID = @BirthIDparam">
         <WhereParameters>
             <asp:QueryStringParameter Name="BirthIDparam" DbType="Int32" QueryStringField="BirthID" />
         </WhereParameters>
-    </asp:EntityDataSource>
+    </asp:EntityDataSource>--%>
 
      <script>
         var second = document.querySelector(".dfdf tr:nth-child(n+2)")

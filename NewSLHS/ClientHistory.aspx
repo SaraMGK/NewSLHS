@@ -33,6 +33,7 @@
             <tr>
                 <td>
                     <asp:MultiView ID="MainView" runat="server">
+                    <%--General Information Tab--%>
                     <asp:View ID="View1" runat="server">
 
                         <%--Page Header--%>
@@ -47,7 +48,7 @@
 
                         <%-----------form----------%>
                         <form>
-
+                            <%--Tabs--%>
                             <table class="form-table" style="width: 70%;">
                                 <tr>
                                     <td>    
@@ -109,10 +110,188 @@
 
                     <%--Identification Tab--%>
                     <asp:View ID="View2" runat="server">
+                        <%--Page Header--%>
+                        <h1>Client Details</h1>
+                        <div class="client-head-div">
+                            <h6 class="client-head">Identification</h6>
+                        </div>
+                        <table class="form-table" style="width: 90%;">
+            <tr>
+                <td style="padding-bottom:10px; width: 251px;" class="td-class"><asp:Label ID="FNumLb" runat="server" Text="File Number" CssClass="label2"></asp:Label></td>
+                <td style="width: 190px"><asp:TextBox ID="FNumTxt" runat="server" CssClass="option2"></asp:TextBox></td>
+            </tr>
+            
+            <tr> 
+                <td style="width: 251px"><asp:Label ID="EthinciiyLb" runat="server" Text="Ethincity" CssClass="label2"></asp:Label></td>
+                <td style="width: 190px"><asp:TextBox ID="EthincityTxt" runat="server" CssClass="option2"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td style="width: 251px"><asp:Label ID="DoBLb" runat="server" Text="Date of Birth" CssClass="label2"></asp:Label></td>
+                <td style="width: 190px"><asp:TextBox ID="DoBTxt" runat="server" CssClass="option2" TextMode="Date"></asp:TextBox></td>
 
+                <td style="width: 173px"><asp:Label ID="GenderLb" runat="server" Text="Gender" CssClass="label2"></asp:Label></td>
+                <td><asp:DropDownList ID="GenderDropDownList" runat="server"  CssClass="option2">
+                    <asp:ListItem>Female</asp:ListItem>
+                    <asp:ListItem>Male</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 251px"><asp:Label ID="WeightLb" runat="server" Text="Weight (k.g.)" CssClass="label2"></asp:Label></td>
+                <td style="width: 190px"><asp:TextBox ID="WeightTxt" runat="server" CssClass="option2" TextMode="Number"></asp:TextBox></td>
+
+                <td style="width: 173px"><asp:Label ID="HeightLb" runat="server" Text="Height (cm)" CssClass="label2"></asp:Label></td>
+                <td style="width: 347px"><asp:TextBox ID="HeightTxt" runat="server" CssClass="option2" TextMode="Number"></asp:TextBox></td>
+            </tr>
+            <%------Language Section------%>
+            <tr>
+                <td style="width: 251px"><asp:Label style="padding-bottom: 25px" ID="LanguageLabel" runat="server" Text="Language" CssClass="label2"></asp:Label></td>
+                
+                <td style="width: 190px"><asp:TextBox ID="ClLanTxt" runat="server" CssClass="option2"></asp:TextBox> 
+                    <asp:Label Text="Client's Language" runat="server" CssClass="address-title" />
+                </td>
+                <td style="width: 173px"></td>
+                <td style="width: 347px"><asp:TextBox ID="HomeLanTxt" runat="server" CssClass="option2" style="margin-bottom: 8px;"></asp:TextBox>
+                    <asp:Label Text="Language Spoken at Home" runat="server" CssClass="address-title" />
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:Label Text="List all siblings" runat="server" CssClass="label6" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:TextBox ID="SiblingTxt" runat="server" CssClass="text-box2" TextMode="MultiLine"></asp:TextBox>
+                </td>
+            </tr>
+            <%--Space Between Questions--%>
+            <tr>
+                <td style="width: 251px">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:Label ID="ProblemLb" runat="server" CssClass="label6" Text="List any speech and language problems of other children"></asp:Label>
+                    <asp:TextBox ID="ProblemTxt" CssClass="text-box2" runat="server" TextMode="MultiLine"></asp:TextBox>
+                </td>
+            </tr>
+            <%--Space Between Questions--%>
+            <tr>
+                <td style="width: 251px">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:Label ID="AcaLb" runat="server" CssClass="label6" Text="List any academic difficulties of the other children"></asp:Label>
+                    <asp:TextBox ID="AcaTxt" CssClass="text-box2" runat="server" TextMode="MultiLine"></asp:TextBox>
+                </td>
+            </tr>
+            <%--Space Between Questions--%>
+            <tr>
+                <td style="width: 251px">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:Label ID="PregLb" runat="server" CssClass="label6" Text="Please explain if there have been other pregnancies"></asp:Label>
+                    <asp:TextBox ID="PregTxt" CssClass="text-box2" runat="server" TextMode="MultiLine"></asp:TextBox>
+                </td>
+            </tr>
+            <%--Space Between Questions--%>
+            <tr>
+                <td style="width: 251px">&nbsp;</td>
+            </tr>
+                <%--Diagnosis--%>
+            <tr>
+                <td colspan="4">
+                    <asp:Label ID="DiagnosisLb" runat="server"  CssClass="label6" Text="Has the client been diagnosed as having any of the following, please choose those that pertain:"></asp:Label>
+                </td>
+            </tr>
+            <%--Space Between Questions--%>
+            <tr>
+                <td style="width: 251px">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:CheckBox ID="CleftCheckBox" runat="server" Text="Cleft Palate" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:CheckBox ID="CerebralCheckBox" runat="server" Text="Cerebral Palsy" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:CheckBox ID="MentalCheckBox" runat="server" Text="Mental Retardation" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="BrainCheckBox" runat="server" Text="Minimal Brain Dysfunction" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:CheckBox ID="DownCheckBox" runat="server" Text="Down Syndrome" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="ThroatCheckBox" runat="server" Text="Defects of the nose, throat, or ears" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="OtherCheckBox" runat="server" Text="Other, please specifiy" CssClass="radio-button3" /><asp:TextBox ID="OtherTxt" CssClass="option2" runat="server" style=" margin: 0 10px;"></asp:TextBox>
+                </td>
+            </tr>
+        </table>
                     </asp:View>
                     <%--Birth History Tab--%>
-                    <asp:View ID="View3" runat="server"></asp:View>
+                    <asp:View ID="View3" runat="server">
+                        <%--Page Header--%>
+   <h1>Client Details</h1>
+   <div class="client-head-div">
+       <h6 class="client-head">Birth History</h6>
+   </div>
+
+
+    <br />
+    <br />
+
+    <%-- question 1: pregnancy length--%>
+    <div>
+        <asp:label id="pregnancylabel" runat="server" text="pregnancy length" cssclass="label4"></asp:label>
+        <asp:textbox id="pregnancytextbox" runat="server" cssclass="child-input"></asp:textbox>
+    </div>
+    
+    <%-- question 2: birth weight--%>
+    <div>
+        <asp:label id="weightlabel" runat="server" text="birth weight (k.g.)" cssclass="label4"></asp:label>
+        <asp:textbox id="weighttextbox" runat="server" cssclass="child-input"></asp:textbox>
+    </div>
+    <br />
+
+    <%--question3: prenatal condition--%>
+    <asp:label id="prenatallabel" runat="server" text="during pregnancy, did the mother experience any condition, accident, or <br/> extraordinary prenatal symptoms? if yes, please explain. " cssclass="label6"></asp:label>
+    <asp:textbox id="prenataltextbox" runat="server" cssclass="text-box2" width="491px" textmode="multiline"></asp:textbox>
+    <br />
+    
+    <%--question4: medication--%>
+    <asp:label id="medicationlabel" runat="server" text="was any medication taken during pregnancy? if yes, what kind? " cssclass="label6"></asp:label>
+    <asp:textbox id="medicationtextbox" runat="server" cssclass="text-box2" width="491px" textmode="multiline"></asp:textbox>
+    <br />
+
+    <%--question5: anesthetics--%>
+    <asp:label id="anestheticslabel" runat="server" text="were any drugs or anesthetics used during labor? if yes, which kind?" cssclass="label6"></asp:label>
+    <asp:textbox id="anestheticstextbox" runat="server" cssclass="text-box2" width="491px" textmode="multiline"></asp:textbox>
+    <br />
+
+    <%--question6: delivery problems--%>
+    <asp:label id="problemlabel" runat="server" text="were any problems with the delivery, such as breech birth, caesarean section,<br> induced labor, forceps delivery, etc.? if so, please describe." cssclass="label6"></asp:label>
+    <asp:textbox id="problemtextbox" runat="server" cssclass="text-box2" width="491px" textmode="multiline"></asp:textbox>
+    <br />
+                    </asp:View>
                     <%--Adult Tab--%>
                     <asp:View ID="View4" runat="server">
                         <h1>Client Details</h1>
@@ -155,16 +334,17 @@
                     </asp:View>
                     <%--Child Tab--%>
                     <asp:View ID="View5" runat="server">
-                    <%--Page Header--%>
-                    <h1>Client Details</h1>
-                    <div class="client-head-div">
-                        <h6 class="client-head">Child: Part One</h6>
-                    </div>
+                    
+
+                        <div id="Child" class="" visible="true">
+                            <%--Page Header--%>
+                            <h1>Client Details</h1>
+                            <div class="client-head-div">
+                                <h6 class="client-head">Child: Part One</h6>
+                            </div>
 
                     <br />
                     <br />
-
-    <div id="Child" class="" <%--visible="false"--%>>
     <%-- Question 1: Labor Duration--%>
     <div>
         <asp:Label ID="LaborLabel" runat="server" Text="Duration of Labor" CssClass="label4"></asp:Label>
@@ -442,9 +622,285 @@
                         </div>
                     </asp:View>
                     <%--Parental History Tab--%>
-                    <asp:View ID="View6" runat="server"></asp:View>
+                    <asp:View ID="View6" runat="server">
+                        <%--Page Header--%>
+    <h1>Client Details</h1>
+    <h6 class="sub-head">Parental History</h6>
+    <br />
+    <br />
+
+    <%-----------form----------%>
+    <form>
+
+        <table class="form-table" style="width: 70%;">
+            <%--Relation--%>
+            <tr>
+                <td style="padding-bottom:10px;" class="td-class"><asp:Label ID="RelationLb" runat="server" Text="Relation" CssClass="label2"></asp:Label></td>
+                <td>
+                    <asp:DropDownList ID="DropDownList2" runat="server" style="width: 100px;" CssClass="option2">
+                     <asp:ListItem disabled selected hidden Value="Select">---Select---</asp:ListItem>
+                        <asp:ListItem Value="Father">Father</asp:ListItem>
+                        <asp:ListItem Value="Mother">Mother</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <%--First Name--%>
+            <tr>
+                <td style="padding-bottom:10px;" class="td-class"><asp:Label ID="Label17" runat="server" Text="First Name" CssClass="label2"></asp:Label></td>
+                <td style="width: 347px"><asp:TextBox ID="TextBox10" runat="server" CssClass="option2"></asp:TextBox></td>
+            </tr>
+            <%--Middle Name--%>
+            <tr> 
+                <td><asp:Label ID="Label18" runat="server" Text="Middle Name" CssClass="label2"></asp:Label></td>
+                <td style="width: 347px"><asp:TextBox ID="TextBox11" runat="server" CssClass="option2"></asp:TextBox></td>
+            </tr>
+            <%--Last Name--%>
+            <tr>
+                <td><asp:Label ID="Label19" runat="server" Text="Last Name" CssClass="label2"></asp:Label></td>
+                <td style="width: 347px"><asp:TextBox ID="TextBox12" runat="server" CssClass="option2"></asp:TextBox></td>
+            </tr>
+            <%--Email--%>
+            <tr>
+                <td><asp:Label ID="Label20" runat="server" Text="Email" CssClass="label2"></asp:Label></td>
+                <td style="width: 347px"><asp:TextBox ID="TextBox13" runat="server" CssClass="option2"></asp:TextBox></td>
+            </tr>
+            <%--Phone--%>
+            <tr>
+                <td><asp:Label style="padding-bottom: 25px" ID="PhoneLabel" runat="server" Text="Phone" CssClass="label2"></asp:Label></td>
+                <td style="width: 347px"><asp:TextBox ID="HomeTextBox" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label Text="Home Number" runat="server" CssClass="address-title" />
+                </td>
+                <td style="width: 347px"><asp:TextBox ID="ParentMobileTxt" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label Text="Mobile Number" runat="server" CssClass="address-title" />
+                </td>
+            </tr>
+            <%------Address------%>
+            <tr>
+                <td><asp:Label style="padding-bottom: 25px" ID="Label21" runat="server" Text="Address" CssClass="label2"></asp:Label></td>
+                
+                <td style="width: 347px"><asp:TextBox ID="TextBox14" runat="server" CssClass="option2"></asp:TextBox> 
+                    <asp:Label Text="Building Number" runat="server" CssClass="address-title" />
+                </td>
+
+                <td style="width: 347px"><asp:TextBox ID="TextBox15" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label Text="Street Name" runat="server" CssClass="address-title" />
+                </td>
+
+                <td style="width: 347px"><asp:TextBox ID="TextBox16" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label Text="District" runat="server" CssClass="address-title" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <%--City--%>
+                <td style="width: 347px"><asp:TextBox ID="CityTextBox" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label Text="City" runat="server" CssClass="address-title" />
+                </td>
+                <%--Zip Code--%>
+                <td style="width: 347px"><asp:TextBox ID="TextBox17" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label Text="Zip Code" runat="server" CssClass="address-title" />
+                </td>
+                <%--Additional Number--%>
+                <td style="width: 347px"><asp:TextBox ID="TextBox18" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label Text="Additonal Numbers" runat="server" CssClass="address-title" />
+                </td>
+            </tr>
+            <%--Space Row--%>
+            <tr>
+                <td></td>
+            </tr>
+            <%--Date of Birth--%>
+            <tr>
+                <td><asp:Label ID="BirthDLb" runat="server" Text="Date of Birth" CssClass="label2"></asp:Label></td>
+                <td><asp:TextBox ID="BirthDTxt" runat="server" CssClass="option2" TextMode="Date"></asp:TextBox></td>
+            </tr>
+            <%--Education--%>
+            <tr>
+                <td><asp:Label ID="EducationLb" runat="server" Text="Education" CssClass="label2"></asp:Label></td>
+                <td><asp:TextBox ID="EducationTxt" runat="server" CssClass="option2"></asp:TextBox></td>
+            </tr>
+            <%--Occupation--%>
+            <tr>
+                <td><asp:Label style="padding-bottom: 25px" ID="OccupationLb" runat="server" Text="Occupation" CssClass="label2"></asp:Label></td>
+                <td><asp:TextBox ID="OccupationTxt" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label ID="OccupationLb2" runat="server" Text="Occupation" CssClass="address-title"></asp:Label>
+                </td>
+                <td><asp:TextBox ID="PlaceTxt" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label ID="PlaceLb" runat="server" Text="Place of Employment" CssClass="address-title"></asp:Label>
+                </td>
+                <td><asp:TextBox ID="WorkPhoneTxt" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label ID="WorkPhoneLb" runat="server" Text="Work Phone" CssClass="address-title"></asp:Label>
+                </td>
+            </tr>
+            <%--Marital Status--%>
+            <tr>
+            <td><asp:Label ID="MaritalLabel" runat="server" Text="Marital Status" CssClass="label2"></asp:Label></td>
+            <td><asp:DropDownList ID="MaritalDropDownList" style="width: 100px;" runat="server" AppendDataBoundItems="true" DataSourceID="MaritalStatusEntityDataSource" DataTextField="MartialStatus" DataValueField="MaritalStatusID" CssClass="option2">
+                <Items>
+                    <asp:ListItem disabled selected hidden Value="Select">Select</asp:ListItem>
+                </Items>
+                </asp:DropDownList>
+                <asp:EntityDataSource ID="EntityDataSource2" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Marital_Status"></asp:EntityDataSource>
+            </td>
+        </tr>
+        </table>
+
+    </form>
+                    </asp:View>
                     <%--Health History Tab--%>
-                    <asp:View ID="View7" runat="server"></asp:View>
+                    <asp:View ID="View7" runat="server">
+                        <%--Page Header--%>
+   <h1>Client Details</h1>
+   <div class="client-head-div">
+       <h6 class="client-head">Health: Part One</h6>
+   </div>
+
+    <br />
+    <br />
+
+    <form>
+    <%--Question 1: Healt Condition--%>
+            <asp:Label ID="Label22" runat="server" Text="What is the client's present health condition?" CssClass="label7"></asp:Label>
+    <br />
+
+        <table class="w-100">
+            <tr>
+                <%--First Cell--%>
+                <td style="width: 100px; text-align:right; height: 29px;">
+                    <asp:Label ID="Label23" runat="server" Text="(Excellent)" style="font-weight:bold; color: #696969"></asp:Label>
+                </td>
+                <%--Second Cell--%>
+                <td style="width: 100px; text-align:center; height: 29px;">
+                    <asp:Label ID="Label24" runat="server" Text="1" CssClass="label3"></asp:Label>
+                </td>
+                <%--Third Cell--%>
+                <td style="width: 100px; text-align:center; height: 29px;">
+                    <asp:Label ID="Label25" runat="server" Text="2" CssClass="label3"></asp:Label>
+                </td>
+                <%--Fourth Cell--%>
+                <td style="width: 100px; text-align:center; height: 29px;">
+                    <asp:Label ID="Label26" runat="server" Text="3" CssClass="label3"></asp:Label>
+                </td>
+                <%--Fifth Cell--%>
+                <td style="width: 100px; text-align:center; height: 29px;">
+                    <asp:Label ID="Label27" runat="server" Text="4" CssClass="label3"></asp:Label>
+                </td>
+                <%--Sixth Cell--%>
+                <td style="width: 100px; text-align:center; height: 29px;">
+                    <asp:Label ID="Label28" runat="server" Text="5" CssClass="label3"></asp:Label>
+                </td>
+                <%--Last Cell--%>
+                <td style="width: 100px; text-align:left; height: 29px;">
+                    <asp:Label ID="Label29" runat="server" Text="(Poor)" style="font-weight:bold; color: #696969";"></asp:Label>
+                </td>
+            </tr>
+            <%--radio buttons row--%>
+            <tr>
+                <td style="width: 100px; text-align:center"></td>
+                <td style="width: 100px; text-align:center">
+                    <asp:RadioButton ID="RadioButton6" runat="server" GroupName="test" ValidationGroup="Scale" />
+                </td>
+                <td style="width: 100px; text-align:center">
+                    <asp:RadioButton ID="RadioButton7" runat="server" ValidationGroup="Scale" GroupName="test" />
+                </td>
+                <td style="width: 100px; text-align:center">
+                    <asp:RadioButton ID="RadioButton8" runat="server" GroupName="test" />
+                </td>
+                <td style="width: 100px; text-align:center">
+                    <asp:RadioButton ID="RadioButton9" runat="server" GroupName="test" />
+                </td>
+                <td style="width: 100px; text-align:center">
+                    <asp:RadioButton ID="RadioButton10" runat="server" GroupName="test" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    <br />
+
+    <%--Question 2: Medical Examination--%>
+    <asp:Label ID="ExaminaitonLb" runat="server" Text="Please fill the following about the recent medical examination" CssClass="label7"></asp:Label>
+        <br />
+    <table class="form-table" style="width: 80%; margin-left: 26px;">
+        <tr>
+                <td style="width: 250px"><asp:Label style="padding-bottom: 25px; width:217px;" ID="MedicalLb" runat="server" Text="Recent Medical Examination" CssClass="label2"></asp:Label></td>
+                <td><asp:TextBox ID="DateTxt" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label ID="DateLb" runat="server" Text="Date" CssClass="address-title"></asp:Label>
+                </td>
+                <td><asp:TextBox ID="TextBox19" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label ID="Label30" runat="server" Text="Place" CssClass="address-title"></asp:Label>
+                </td>
+                <td><asp:TextBox ID="DoctorTxt" runat="server" CssClass="option2"></asp:TextBox>
+                    <asp:Label ID="DoctorLb" runat="server" Text="Doctor" CssClass="address-title"></asp:Label>
+                </td>
+            </tr>
+    </table>
+
+    <%--Question 2: Part Two--%>
+    <asp:Label ID="ResultLabel" runat="server" Text="Results and Recommendations" CssClass="label6"></asp:Label>
+    <asp:TextBox ID="ResultsTxt" runat="server" CssClass="text-box2" Width="491px" TextMode="MultiLine"></asp:TextBox>
+    <br />
+
+    <%--Question 3: Immunization--%>
+    <table>
+        <tr>
+                <td style="width: 251px"><asp:Label ID="Label31" runat="server" Text="Please check all immunizations that have been received" CssClass="label6"></asp:Label></td>
+            </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+            <tr>
+                <td>
+                    <asp:CheckBox ID="SmallCheckBox" runat="server" Text="Small Pox" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:CheckBox ID="DiphCheckBox" runat="server" Text="Diphtheria" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:CheckBox ID="MumpsCheckBox" runat="server" Text="Mumps" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="MeaslesCheckBox" runat="server" Text="Measles" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:CheckBox ID="RubellaCheckBox" runat="server" Text="Rubella" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="ChickenCheckBox" runat="server" Text="Chicken Pox" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="TetanusCheckBox" runat="server" Text="Tetanus" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="CoughCheckBox" runat="server" Text="Whooping Cough" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="PolioCheckBox" runat="server" Text="Polio" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="CheckBox1" runat="server" Text="Other, please specifiy" CssClass="radio-button3" /><asp:TextBox ID="TextBox20" CssClass="option2" runat="server" style=" margin: 0 10px;"></asp:TextBox>
+                </td>
+            </tr>
+    </table>
+    </form>
+                    </asp:View>
                     <%--Physician Information--%>
                     <asp:View ID="View8" runat="server"></asp:View>
                     <%--Motor Development--%>

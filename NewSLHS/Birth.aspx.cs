@@ -16,7 +16,7 @@ namespace NewSLHS
 
         protected void Hide_Buttons(object sender, EventArgs e)
         {
-            ButtonsDiv.Visible = !ButtonsDiv.Visible;
+            //ButtonsDiv.Visible = !ButtonsDiv.Visible;
 
         }
 

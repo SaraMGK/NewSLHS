@@ -1017,7 +1017,7 @@ tr {
     margin: 5% 0;
     border-color: #707070;
     padding: 4px;
-    width: 165px;
+    width: 160px;
     height: 30px;
     font-size: 12px;
 }
@@ -1027,7 +1027,9 @@ tr {
     color: #8C8B8B;
     position: relative;
     bottom: 10px;
-    left: 5px
+    left: 5px;
+    display: block;
+    padding: 4px 0px 4px 0;
 }
 
 .next-button-div {
@@ -1204,10 +1206,11 @@ label {
     display: inline-block;
     *display: inline; /* for IE7*/
     zoom: 1; /* for IE7*/
-/*    float: left;
+    /*    float: left;
     padding-top: 5px;*/
     text-align: right;
     width: 140px;
+    color: #696969;
 }
 
 .child-input {
@@ -1228,6 +1231,7 @@ label {
 .label3 {
 /*    margin-left: 150px;
 */    font-weight: bold;
+      color: #696969;
 }
 
 .radio-button2 {
@@ -1251,12 +1255,13 @@ label {
     border: 1.5px solid #707070;
     border-color: #707070;
     padding: 0.2%;
-    margin-left: 16px;
+    margin-left: 40px;
     min-height: 50px;
 }
 
 .label6 {
-    margin: 0 0 2px 16px;
+    margin: 0 0 2px 40px;
+    color: #696969;
 }
 
 
@@ -1306,4 +1311,20 @@ label {
     border-bottom: 3px solid #3BA69E;
     width: max-content;
     margin: 0px 0px 12px 0;
+}
+
+.other-option-div {
+    position: absolute;
+    left: 31%;
+    top: 174%;
+}
+
+.radio-button3 {
+    margin-left: 50px !important;
+    color: #696969;
+}
+
+.label7 {
+    margin-left: 42px;
+    color: #696969;
 }

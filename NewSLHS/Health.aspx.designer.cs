@@ -11,269 +11,296 @@ namespace NewSLHS
 {
 
 
-    public partial class ClientIdentification
+    public partial class Health
     {
 
         /// <summary>
-        /// FNumLb control.
+        /// Question2Label control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FNumLb;
+        protected global::System.Web.UI.WebControls.Label Question2Label;
 
         /// <summary>
-        /// FNumTxt control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FNumTxt;
+        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// EthinciiyLb control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EthinciiyLb;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// EthincityTxt control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EthincityTxt;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// DoBLb control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DoBLb;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// DoBTxt control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DoBTxt;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// GenderLb control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label GenderLb;
+        protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// GenderDropDownList control.
+        /// RadioButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GenderDropDownList;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
 
         /// <summary>
-        /// WeightLb control.
+        /// RadioButton2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label WeightLb;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
 
         /// <summary>
-        /// WeightTxt control.
+        /// RadioButton4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox WeightTxt;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton4;
 
         /// <summary>
-        /// HeightLb control.
+        /// RadioButton3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label HeightLb;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton3;
 
         /// <summary>
-        /// HeightTxt control.
+        /// RadioButton5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox HeightTxt;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton5;
 
         /// <summary>
-        /// LanguageLabel control.
+        /// ExaminaitonLb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LanguageLabel;
+        protected global::System.Web.UI.WebControls.Label ExaminaitonLb;
 
         /// <summary>
-        /// ClLanTxt control.
+        /// MedicalLb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ClLanTxt;
+        protected global::System.Web.UI.WebControls.Label MedicalLb;
 
         /// <summary>
-        /// HomeLanTxt control.
+        /// DateTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox HomeLanTxt;
+        protected global::System.Web.UI.WebControls.TextBox DateTxt;
 
         /// <summary>
-        /// SiblingTxt control.
+        /// DateLb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SiblingTxt;
+        protected global::System.Web.UI.WebControls.Label DateLb;
 
         /// <summary>
-        /// ProblemLb control.
+        /// PlaceTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ProblemLb;
+        protected global::System.Web.UI.WebControls.TextBox PlaceTxt;
 
         /// <summary>
-        /// ProblemTxt control.
+        /// PlaceLb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProblemTxt;
+        protected global::System.Web.UI.WebControls.Label PlaceLb;
 
         /// <summary>
-        /// AcaLb control.
+        /// DoctorTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AcaLb;
+        protected global::System.Web.UI.WebControls.TextBox DoctorTxt;
 
         /// <summary>
-        /// AcaTxt control.
+        /// DoctorLb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AcaTxt;
+        protected global::System.Web.UI.WebControls.Label DoctorLb;
 
         /// <summary>
-        /// PregLb control.
+        /// ResultLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PregLb;
+        protected global::System.Web.UI.WebControls.Label ResultLabel;
 
         /// <summary>
-        /// PregTxt control.
+        /// ResultsTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PregTxt;
+        protected global::System.Web.UI.WebControls.TextBox ResultsTxt;
 
         /// <summary>
-        /// DiagnosisLb control.
+        /// Label8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DiagnosisLb;
+        protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// CleftCheckBox control.
+        /// SmallCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CleftCheckBox;
+        protected global::System.Web.UI.WebControls.CheckBox SmallCheckBox;
 
         /// <summary>
-        /// CerebralCheckBox control.
+        /// DiphCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CerebralCheckBox;
+        protected global::System.Web.UI.WebControls.CheckBox DiphCheckBox;
 
         /// <summary>
-        /// MentalCheckBox control.
+        /// MumpsCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox MentalCheckBox;
+        protected global::System.Web.UI.WebControls.CheckBox MumpsCheckBox;
 
         /// <summary>
-        /// BrainCheckBox control.
+        /// MeaslesCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox BrainCheckBox;
+        protected global::System.Web.UI.WebControls.CheckBox MeaslesCheckBox;
 
         /// <summary>
-        /// DownCheckBox control.
+        /// RubellaCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox DownCheckBox;
+        protected global::System.Web.UI.WebControls.CheckBox RubellaCheckBox;
 
         /// <summary>
-        /// ThroatCheckBox control.
+        /// ChickenCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ThroatCheckBox;
+        protected global::System.Web.UI.WebControls.CheckBox ChickenCheckBox;
+
+        /// <summary>
+        /// TetanusCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox TetanusCheckBox;
+
+        /// <summary>
+        /// CoughCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CoughCheckBox;
+
+        /// <summary>
+        /// PolioCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox PolioCheckBox;
 
         /// <summary>
         /// OtherCheckBox control.

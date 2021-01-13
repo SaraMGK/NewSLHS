@@ -14,8 +14,8 @@ namespace NewSLHS
             
             
             
-            AddressIDLabel.Visible = false;
-            AddressIDLabel.Text = DetailsView.Rows[7].Cells[1].Text;
+            //AddressIDLabel.Visible = false;
+            //AddressIDLabel.Text = DetailsView.Rows[7].Cells[1].Text;
 
             
 

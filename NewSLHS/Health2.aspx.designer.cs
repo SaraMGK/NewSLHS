@@ -11,115 +11,88 @@ namespace NewSLHS
 {
 
 
-    public partial class Birth
+    public partial class Health2
     {
 
         /// <summary>
-        /// pregnancylabel control.
+        /// EatingLb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label pregnancylabel;
+        protected global::System.Web.UI.WebControls.Label EatingLb;
 
         /// <summary>
-        /// pregnancytextbox control.
+        /// EatingTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pregnancytextbox;
+        protected global::System.Web.UI.WebControls.TextBox EatingTxt;
 
         /// <summary>
-        /// weightlabel control.
+        /// AllergyLb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label weightlabel;
+        protected global::System.Web.UI.WebControls.Label AllergyLb;
 
         /// <summary>
-        /// weighttextbox control.
+        /// AllergyTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox weighttextbox;
+        protected global::System.Web.UI.WebControls.TextBox AllergyTxt;
 
         /// <summary>
-        /// prenatallabel control.
+        /// ExaminationLb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label prenatallabel;
+        protected global::System.Web.UI.WebControls.Label ExaminationLb;
 
         /// <summary>
-        /// prenataltextbox control.
+        /// YesRadioButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox prenataltextbox;
+        protected global::System.Web.UI.WebControls.RadioButton YesRadioButton;
 
         /// <summary>
-        /// medicationlabel control.
+        /// NoRadioButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label medicationlabel;
+        protected global::System.Web.UI.WebControls.RadioButton NoRadioButton;
 
         /// <summary>
-        /// medicationtextbox control.
+        /// ExaminationPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox medicationtextbox;
+        protected global::System.Web.UI.WebControls.Panel ExaminationPanel;
 
         /// <summary>
-        /// anestheticslabel control.
+        /// tsssxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label anestheticslabel;
-
-        /// <summary>
-        /// anestheticstextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox anestheticstextbox;
-
-        /// <summary>
-        /// problemlabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label problemlabel;
-
-        /// <summary>
-        /// problemtextbox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox problemtextbox;
+        protected global::System.Web.UI.WebControls.TextBox tsssxt;
     }
 }

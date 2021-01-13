@@ -16,13 +16,13 @@ namespace NewSLHS
 
         protected void Hide_Buttons(object sender, EventArgs e)
         {
-            ButtonsDiv.Visible = !ButtonsDiv.Visible;
+            //ButtonsDiv.Visible = !ButtonsDiv.Visible;
 
         }
 
         protected void NextButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Birth.aspx?BirthID=" + DetailsView1.Rows[21].Cells[1].Text);
+            //Response.Redirect("Birth.aspx?BirthID=" + DetailsView1.Rows[21].Cells[1].Text);
 
         }
     }

@@ -123,6 +123,9 @@
     <Content Include="Child3.aspx" />
     <Content Include="ClientHistory.aspx" />
     <Content Include="ClientIdentification.aspx" />
+    <Content Include="Health.aspx" />
+    <Content Include="Health2.aspx" />
+    <Content Include="Identification.aspx" />
     <Content Include="IncompleteGeneralInformation.aspx" />
     <Content Include="Images\User.png" />
     <Content Include="InsertGeneralInformation.aspx" />
@@ -630,6 +633,27 @@
     </Compile>
     <Compile Include="Data.ashx.cs">
       <DependentUpon>Data.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Health.aspx.cs">
+      <DependentUpon>Health.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Health.aspx.designer.cs">
+      <DependentUpon>Health.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Health2.aspx.cs">
+      <DependentUpon>Health2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Health2.aspx.designer.cs">
+      <DependentUpon>Health2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Identification.aspx.cs">
+      <DependentUpon>Identification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Identification.aspx.designer.cs">
+      <DependentUpon>Identification.aspx</DependentUpon>
     </Compile>
     <Compile Include="IncompleteGeneralInformation.aspx.cs">
       <DependentUpon>IncompleteGeneralInformation.aspx</DependentUpon>
