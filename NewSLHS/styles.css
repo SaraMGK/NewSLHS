@@ -1002,11 +1002,11 @@ tr {
 .label2 {
     color: #696969;
     margin-right: 20px;
-    width: 150px;
+    width: 240px;
     display: inline-block;
     *display: inline; /* for IE7*/
     zoom: 1; /* for IE7*/
-    float: left;
+    float: right;
     padding-top: 3px;
     text-align: right;
 }
@@ -1247,6 +1247,7 @@ label {
     text-align: right;
     /*    width: 140px;
 */
+    color: #696969;
 }
 
 .text-box2 {
@@ -1326,5 +1327,15 @@ label {
 
 .label7 {
     margin-left: 42px;
+    color: #696969;
+}
+
+.label8 {
+    display: inline-block;
+    *display: inline; /* for IE7*/
+    zoom: 1; /* for IE7*/
+    /*    float: left;
+    padding-top: 5px;*/
+    text-align: left;
     color: #696969;
 }

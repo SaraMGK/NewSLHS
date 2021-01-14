@@ -20,7 +20,11 @@ namespace NewSLHS.DAL
         public int ColoringDifficulty { get; set; }
         public int HoldingUtensilsDifficulty { get; set; }
         public int ClientInformationID { get; set; }
+        public string Other { get; set; }
+        public string OtherInformation { get; set; }
+        public Nullable<int> OptionID { get; set; }
     
         public virtual Client_Information Client_Information { get; set; }
+        public virtual Yes_No Yes_No { get; set; }
     }
 }

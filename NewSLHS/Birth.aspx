@@ -53,7 +53,7 @@
 
 <%--Page Content--%>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <%--Page Header--%>
+   <%--Page Header--%>
    <h1>Client Details</h1>
    <div class="client-head-div">
        <h6 class="client-head">Birth History</h6>
@@ -65,13 +65,13 @@
 
     <%-- question 1: pregnancy length--%>
     <div>
-        <asp:label id="pregnancylabel" runat="server" text="pregnancy length" cssclass="label4"></asp:label>
+        <asp:label id="pregnancylabel" runat="server" text="Pregnancy Length" cssclass="label4"></asp:label>
         <asp:textbox id="pregnancytextbox" runat="server" cssclass="child-input"></asp:textbox>
     </div>
     
     <%-- question 2: birth weight--%>
     <div>
-        <asp:label id="weightlabel" runat="server" text="birth weight (k.g.)" cssclass="label4"></asp:label>
+        <asp:label id="weightlabel" runat="server" text="Birth Weight (k.g.)" cssclass="label4"></asp:label>
         <asp:textbox id="weighttextbox" runat="server" cssclass="child-input"></asp:textbox>
     </div>
     <br />

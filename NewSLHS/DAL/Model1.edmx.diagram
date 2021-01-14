@@ -21,7 +21,6 @@
         <EntityTypeShape EntityType="SLHSClinicModel.Food_Allergy" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Health" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Hearing" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Immunization" Width="1.5" PointX="5.25" PointY="22.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Jaw" Width="1.5" PointX="20.25" PointY="20.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Language_Notes" Width="1.5" PointX="24.75" PointY="24.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Lip" Width="1.5" PointX="20.25" PointY="22.875" IsExpanded="true" />
@@ -69,7 +68,6 @@
         <AssociationConnector Association="SLHSClinicModel.FK_Client_Information_Speech_Language" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Examination_Client_Information" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Food_Allergy_Client_Information" ManuallyRouted="false" />
-        <AssociationConnector Association="SLHSClinicModel.FK_Immunization_Client_Information" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Motor_Development_Client_Information" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Communication_Speech_Language" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Fluharty_Language_Notes" ManuallyRouted="false" />
@@ -114,6 +112,9 @@
         <AssociationConnector Association="SLHSClinicModel.FK_Session_Appointment" />
         <AssociationConnector Association="SLHSClinicModel.Student_Appointment" />
         <EntityTypeShape EntityType="SLHSClinicModel.Request_View" Width="1.5" PointX="14.375" PointY="0.75" />
+        <AssociationConnector Association="SLHSClinicModel.FK_Motor_Development_Yes_No" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Immunization" Width="1.5" PointX="5.25" PointY="29.75" />
+        <AssociationConnector Association="SLHSClinicModel.FK_Immunization_Client_Information" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

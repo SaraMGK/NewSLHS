@@ -15,9 +15,17 @@ namespace NewSLHS.DAL
     public partial class Immunization
     {
         public int ImmunizationID { get; set; }
-        public int ImmunizationName { get; set; }
+        public int SmallPox { get; set; }
         public string Other { get; set; }
         public int ClientInformationID { get; set; }
+        public Nullable<int> Diphtheria { get; set; }
+        public Nullable<int> Mumps { get; set; }
+        public Nullable<int> Measles { get; set; }
+        public Nullable<int> Rubella { get; set; }
+        public Nullable<int> ChickenPox { get; set; }
+        public Nullable<int> WhoopingCough { get; set; }
+        public Nullable<int> Polio { get; set; }
+        public Nullable<int> Tenanus { get; set; }
     
         public virtual Client_Information Client_Information { get; set; }
     }

@@ -41,7 +41,6 @@ namespace NewSLHS.DAL
         public DbSet<Food_Allergy> Food_Allergy { get; set; }
         public DbSet<Health> Healths { get; set; }
         public DbSet<Hearing> Hearings { get; set; }
-        public DbSet<Immunization> Immunizations { get; set; }
         public DbSet<Jaw> Jaws { get; set; }
         public DbSet<Language_Notes> Language_Notes { get; set; }
         public DbSet<Lip> Lips { get; set; }
@@ -80,5 +79,6 @@ namespace NewSLHS.DAL
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Request_View> Request_View { get; set; }
+        public DbSet<Immunization> Immunizations { get; set; }
     }
 }

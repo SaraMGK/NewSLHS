@@ -18,8 +18,8 @@ namespace NewSLHS.DAL
         {
             this.Healths = new HashSet<Health>();
             this.Food_Allergy = new HashSet<Food_Allergy>();
-            this.Immunizations = new HashSet<Immunization>();
             this.Motor_Development = new HashSet<Motor_Development>();
+            this.Immunizations = new HashSet<Immunization>();
         }
     
         public int ClientInformationID { get; set; }
@@ -64,8 +64,8 @@ namespace NewSLHS.DAL
         public virtual Speech_Language Speech_Language { get; set; }
         public virtual ICollection<Health> Healths { get; set; }
         public virtual ICollection<Food_Allergy> Food_Allergy { get; set; }
-        public virtual ICollection<Immunization> Immunizations { get; set; }
         public virtual ICollection<Motor_Development> Motor_Development { get; set; }
         public virtual Marital_Status Marital_Status { get; set; }
+        public virtual ICollection<Immunization> Immunizations { get; set; }
     }
 }

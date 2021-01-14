@@ -17,11 +17,13 @@ namespace NewSLHS.DAL
         public Yes_No()
         {
             this.Socials = new HashSet<Social>();
+            this.Motor_Development = new HashSet<Motor_Development>();
         }
     
         public int OptionID { get; set; }
         public string Option { get; set; }
     
         public virtual ICollection<Social> Socials { get; set; }
+        public virtual ICollection<Motor_Development> Motor_Development { get; set; }
     }
 }

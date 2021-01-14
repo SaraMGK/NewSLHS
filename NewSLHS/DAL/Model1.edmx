@@ -285,9 +285,17 @@
             <PropertyRef Name="ImmunizationID" />
           </Key>
           <Property Name="ImmunizationID" Type="int" Nullable="false" />
-          <Property Name="ImmunizationName" Type="int" Nullable="false" />
-          <Property Name="Other" Type="nvarchar(max)" />
+          <Property Name="SmallPox" Type="int" Nullable="false" />
+          <Property Name="Other" Type="nvarchar" MaxLength="100" />
           <Property Name="ClientInformationID" Type="int" Nullable="false" />
+          <Property Name="Diphtheria" Type="int" />
+          <Property Name="Mumps" Type="int" />
+          <Property Name="Measles" Type="int" />
+          <Property Name="Rubella" Type="int" />
+          <Property Name="ChickenPox" Type="int" />
+          <Property Name="WhoopingCough" Type="int" />
+          <Property Name="Polio" Type="int" />
+          <Property Name="Tenanus" Type="int" />
         </EntityType>
         <EntityType Name="Jaws">
           <Key>
@@ -339,6 +347,9 @@
           <Property Name="ColoringDifficulty" Type="int" Nullable="false" />
           <Property Name="HoldingUtensilsDifficulty" Type="int" Nullable="false" />
           <Property Name="ClientInformationID" Type="int" Nullable="false" />
+          <Property Name="Other" Type="nvarchar" MaxLength="50" />
+          <Property Name="OtherInformation" Type="nvarchar" MaxLength="250" />
+          <Property Name="OptionID" Type="int" />
         </EntityType>
         <EntityType Name="Parent">
           <Key>
@@ -1144,6 +1155,18 @@ warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Motor_Development_Yes_No">
+          <End Role="Yes_No" Type="Self.Yes_No" Multiplicity="0..1" />
+          <End Role="Motor_Development" Type="Self.Motor_Development" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yes_No">
+              <PropertyRef Name="OptionID" />
+            </Principal>
+            <Dependent Role="Motor_Development">
+              <PropertyRef Name="OptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Parent_Address">
           <End Role="Address" Type="Self.Address" Multiplicity="1" />
           <End Role="Parent" Type="Self.Parent" Multiplicity="*" />
@@ -1808,6 +1831,10 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Client_Information" EntitySet="Client_Information" />
             <End Role="Motor_Development" EntitySet="Motor_Development" />
           </AssociationSet>
+          <AssociationSet Name="FK_Motor_Development_Yes_No" Association="Self.FK_Motor_Development_Yes_No">
+            <End Role="Yes_No" EntitySet="Yes_No" />
+            <End Role="Motor_Development" EntitySet="Motor_Development" />
+          </AssociationSet>
           <AssociationSet Name="FK_Parent_Address" Association="Self.FK_Parent_Address">
             <End Role="Address" EntitySet="Address" />
             <End Role="Parent" EntitySet="Parent" />
@@ -2130,9 +2157,9 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <NavigationProperty Name="Speech_Language" Relationship="Self.FK_Client_Information_Speech_Language" FromRole="Client_Information" ToRole="Speech_Language" />
           <NavigationProperty Name="Healths" Relationship="Self.FK_Examination_Client_Information" FromRole="Client_Information" ToRole="Health" />
           <NavigationProperty Name="Food_Allergy" Relationship="Self.FK_Food_Allergy_Client_Information" FromRole="Client_Information" ToRole="Food_Allergy" />
-          <NavigationProperty Name="Immunizations" Relationship="Self.FK_Immunization_Client_Information" FromRole="Client_Information" ToRole="Immunization" />
           <NavigationProperty Name="Motor_Development" Relationship="Self.FK_Motor_Development_Client_Information" FromRole="Client_Information" ToRole="Motor_Development" />
           <NavigationProperty Name="Marital_Status" Relationship="SLHSClinicModel.Adult" FromRole="Client_Information" ToRole="Marital_Status" />
+          <NavigationProperty Name="Immunizations" Relationship="SLHSClinicModel.FK_Immunization_Client_Information" FromRole="Client_Information" ToRole="Immunization" />
         </EntityType>
         <EntityType Name="Clinical_Goals">
           <Key>
@@ -2223,16 +2250,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="OtherInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Client_Information" Relationship="Self.FK_Client_Information_Hearing" FromRole="Hearing" ToRole="Client_Information" />
         </EntityType>
-        <EntityType Name="Immunization">
-          <Key>
-            <PropertyRef Name="ImmunizationID" />
-          </Key>
-          <Property Name="ImmunizationID" Type="Int32" Nullable="false" />
-          <Property Name="ImmunizationName" Type="Int32" Nullable="false" />
-          <Property Name="Other" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ClientInformationID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client_Information" Relationship="Self.FK_Immunization_Client_Information" FromRole="Immunization" ToRole="Client_Information" />
-        </EntityType>
         <EntityType Name="Jaw">
           <Key>
             <PropertyRef Name="JawsID" />
@@ -2281,6 +2298,10 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="HoldingUtensilsDifficulty" Type="Int32" Nullable="false" />
           <Property Name="ClientInformationID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Client_Information" Relationship="Self.FK_Motor_Development_Client_Information" FromRole="Motor_Development" ToRole="Client_Information" />
+          <Property Name="Other" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OtherInformation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OptionID" Type="Int32" />
+          <NavigationProperty Name="Yes_No" Relationship="SLHSClinicModel.FK_Motor_Development_Yes_No" FromRole="Motor_Development" ToRole="Yes_No" />
         </EntityType>
         <EntityType Name="Parent">
           <Key>
@@ -2957,18 +2978,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Immunization_Client_Information">
-          <End Role="Client_Information" Type="Self.Client_Information" Multiplicity="1" />
-          <End Role="Immunization" Type="Self.Immunization" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client_Information">
-              <PropertyRef Name="ClientInformationID" />
-            </Principal>
-            <Dependent Role="Immunization">
-              <PropertyRef Name="ClientInformationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Motor_Development_Client_Information">
           <End Role="Client_Information" Type="Self.Client_Information" Multiplicity="1" />
           <End Role="Motor_Development" Type="Self.Motor_Development" Multiplicity="*" />
@@ -3310,7 +3319,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySet Name="Food_Allergy" EntityType="Self.Food_Allergy" />
           <EntitySet Name="Healths" EntityType="Self.Health" />
           <EntitySet Name="Hearings" EntityType="Self.Hearing" />
-          <EntitySet Name="Immunizations" EntityType="Self.Immunization" />
           <EntitySet Name="Jaws" EntityType="Self.Jaw" />
           <EntitySet Name="Language_Notes" EntityType="Self.Language_Notes" />
           <EntitySet Name="Lips" EntityType="Self.Lip" />
@@ -3405,10 +3413,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <AssociationSet Name="FK_Food_Allergy_Client_Information" Association="Self.FK_Food_Allergy_Client_Information">
             <End Role="Client_Information" EntitySet="Client_Information" />
             <End Role="Food_Allergy" EntitySet="Food_Allergy" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Immunization_Client_Information" Association="Self.FK_Immunization_Client_Information">
-            <End Role="Client_Information" EntitySet="Client_Information" />
-            <End Role="Immunization" EntitySet="Immunizations" />
           </AssociationSet>
           <AssociationSet Name="FK_Motor_Development_Client_Information" Association="Self.FK_Motor_Development_Client_Information">
             <End Role="Client_Information" EntitySet="Client_Information" />
@@ -3565,6 +3569,15 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
           <EntitySet Name="Request_View" EntityType="SLHSClinicModel.Request_View" />
+          <AssociationSet Name="FK_Motor_Development_Yes_No" Association="SLHSClinicModel.FK_Motor_Development_Yes_No">
+            <End Role="Yes_No" EntitySet="Yes_No" />
+            <End Role="Motor_Development" EntitySet="Motor_Development" />
+          </AssociationSet>
+          <EntitySet Name="Immunizations" EntityType="SLHSClinicModel.Immunization" />
+          <AssociationSet Name="FK_Immunization_Client_Information" Association="SLHSClinicModel.FK_Immunization_Client_Information">
+            <End Role="Client_Information" EntitySet="Client_Information" />
+            <End Role="Immunization" EntitySet="Immunizations" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Marital_Status">
           <Key>
@@ -3581,6 +3594,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="OptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Option" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Socials" Relationship="SLHSClinicModel.FK_Social_Yes_No" FromRole="Yes_No" ToRole="Social" />
+          <NavigationProperty Name="Motor_Development" Relationship="SLHSClinicModel.FK_Motor_Development_Yes_No" FromRole="Yes_No" ToRole="Motor_Development" />
         </EntityType>
         <Association Name="FK_Social_Yes_No">
           <End Type="SLHSClinicModel.Yes_No" Role="Yes_No" Multiplicity="1" />
@@ -3760,6 +3774,48 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="AppointmentID" Type="Int32" Nullable="false" />
           <Property Name="Expr2" Type="Int32" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Motor_Development_Yes_No">
+          <End Type="SLHSClinicModel.Yes_No" Role="Yes_No" Multiplicity="0..1" />
+          <End Type="SLHSClinicModel.Motor_Development" Role="Motor_Development" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yes_No">
+              <PropertyRef Name="OptionID" />
+            </Principal>
+            <Dependent Role="Motor_Development">
+              <PropertyRef Name="OptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Immunization">
+          <Key>
+            <PropertyRef Name="ImmunizationID" />
+          </Key>
+          <Property Name="ImmunizationID" Type="Int32" Nullable="false" />
+          <Property Name="SmallPox" Type="Int32" Nullable="false" />
+          <Property Name="Other" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ClientInformationID" Type="Int32" Nullable="false" />
+          <Property Name="Diphtheria" Type="Int32" />
+          <Property Name="Mumps" Type="Int32" />
+          <Property Name="Measles" Type="Int32" />
+          <Property Name="Rubella" Type="Int32" />
+          <Property Name="ChickenPox" Type="Int32" />
+          <Property Name="WhoopingCough" Type="Int32" />
+          <Property Name="Polio" Type="Int32" />
+          <Property Name="Tenanus" Type="Int32" />
+          <NavigationProperty Name="Client_Information" Relationship="SLHSClinicModel.FK_Immunization_Client_Information" FromRole="Immunization" ToRole="Client_Information" />
+        </EntityType>
+        <Association Name="FK_Immunization_Client_Information">
+          <End Type="SLHSClinicModel.Client_Information" Role="Client_Information" Multiplicity="1" />
+          <End Type="SLHSClinicModel.Immunization" Role="Immunization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client_Information">
+              <PropertyRef Name="ClientInformationID" />
+            </Principal>
+            <Dependent Role="Immunization">
+              <PropertyRef Name="ClientInformationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4016,16 +4072,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Immunizations">
-            <EntityTypeMapping TypeName="SLHSClinicModel.Immunization">
-              <MappingFragment StoreEntitySet="Immunization">
-                <ScalarProperty Name="ImmunizationID" ColumnName="ImmunizationID" />
-                <ScalarProperty Name="ImmunizationName" ColumnName="ImmunizationName" />
-                <ScalarProperty Name="Other" ColumnName="Other" />
-                <ScalarProperty Name="ClientInformationID" ColumnName="ClientInformationID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Jaws">
             <EntityTypeMapping TypeName="SLHSClinicModel.Jaw">
               <MappingFragment StoreEntitySet="Jaws">
@@ -4065,6 +4111,9 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySetMapping Name="Motor_Development">
             <EntityTypeMapping TypeName="SLHSClinicModel.Motor_Development">
               <MappingFragment StoreEntitySet="Motor_Development">
+                <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+                <ScalarProperty Name="OtherInformation" ColumnName="OtherInformation" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
                 <ScalarProperty Name="MotorDevelopmentID" ColumnName="MotorDevelopmentID" />
                 <ScalarProperty Name="BalanceLoss" ColumnName="BalanceLoss" />
                 <ScalarProperty Name="CuttingDifficulty" ColumnName="CuttingDifficulty" />
@@ -4618,6 +4667,24 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Immunizations">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Immunization">
+              <MappingFragment StoreEntitySet="Immunization">
+                <ScalarProperty Name="Tenanus" ColumnName="Tenanus" />
+                <ScalarProperty Name="Polio" ColumnName="Polio" />
+                <ScalarProperty Name="WhoopingCough" ColumnName="WhoopingCough" />
+                <ScalarProperty Name="ChickenPox" ColumnName="ChickenPox" />
+                <ScalarProperty Name="Rubella" ColumnName="Rubella" />
+                <ScalarProperty Name="Measles" ColumnName="Measles" />
+                <ScalarProperty Name="Mumps" ColumnName="Mumps" />
+                <ScalarProperty Name="Diphtheria" ColumnName="Diphtheria" />
+                <ScalarProperty Name="ClientInformationID" ColumnName="ClientInformationID" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="SmallPox" ColumnName="SmallPox" />
+                <ScalarProperty Name="ImmunizationID" ColumnName="ImmunizationID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

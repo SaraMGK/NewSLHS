@@ -130,6 +130,7 @@
     <Content Include="Images\User.png" />
     <Content Include="InsertGeneralInformation.aspx" />
     <Content Include="InsertIdentification.aspx" />
+    <Content Include="Motor.aspx" />
     <Content Include="OldClientGeneralInformation.aspx" />
     <Content Include="clientlisttest.aspx" />
     <Content Include="Clients.aspx" />
@@ -230,6 +231,7 @@
     <Content Include="login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="login\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="ParentalHistory.aspx" />
+    <Content Include="Physician.aspx" />
     <Content Include="reqdettest.aspx" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
@@ -677,6 +679,13 @@
       <DependentUpon>InsertIdentification.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListItems\RequestListItem.cs" />
+    <Compile Include="Motor.aspx.cs">
+      <DependentUpon>Motor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Motor.aspx.designer.cs">
+      <DependentUpon>Motor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OldClientGeneralInformation.aspx.cs">
       <DependentUpon>OldClientGeneralInformation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -905,6 +914,13 @@
     </Compile>
     <Compile Include="ParentalHistory.aspx.designer.cs">
       <DependentUpon>ParentalHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Physician.aspx.cs">
+      <DependentUpon>Physician.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Physician.aspx.designer.cs">
+      <DependentUpon>Physician.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports.aspx.cs">

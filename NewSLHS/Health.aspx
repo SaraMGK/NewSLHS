@@ -47,7 +47,7 @@
                 </td>
                 <%--Last Cell--%>
                 <td style="width: 100px; text-align:left; height: 29px;">
-                    <asp:Label ID="Label7" runat="server" Text="(Poor)" style="font-weight:bold; color: #696969";"></asp:Label>
+                    <asp:Label ID="Label7" runat="server" Text="(Poor)" style="font-weight:bold; color: #696969;"></asp:Label>
                 </td>
             </tr>
             <%--radio buttons row--%>
