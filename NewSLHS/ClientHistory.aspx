@@ -420,7 +420,7 @@
     <%--Question 4: Age & Activity--%>
     <asp:Label ID="Q4Label" runat="server" Text="At what age did the child begin to" style="margin-left: 16px"></asp:Label>
 
-        <table align="right" class="w-100" style="margin-top:5px;">
+        <table class="w-100" style="margin-top:5px;">
             <tr>
                 <td style="width: 150px">
                     <asp:Label ID="ImitateLabel" runat="server" Text="Imitate Words" CssClass="label5"></asp:Label>
@@ -923,33 +923,33 @@
     <br />
     <asp:Label ID="SpeechLb" runat="server" Text="Speech and Language Testing" CssClass="label6"></asp:Label>
 
-    <asp:RadioButton ID="YesRadioButton" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes" OnCheckedChanged="YesRadioButton_CheckedChanged" />
-    <asp:RadioButton ID="NoRadioButton" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes" OnCheckedChanged="NoRadioButton_CheckedChanged" />
+    <asp:RadioButton ID="YesRadioButton" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes" />
+    <asp:RadioButton ID="NoRadioButton" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes"/>
     <br /> 
 
     <asp:Label ID="LanguageLb" runat="server" Text="Speech and Language Therapy" CssClass="label6"></asp:Label>
-    <asp:RadioButton ID="RadioButton11" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes" OnCheckedChanged="YesRadioButton_CheckedChanged" />
-    <asp:RadioButton ID="RadioButton12" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes" OnCheckedChanged="NoRadioButton_CheckedChanged" />
+    <asp:RadioButton ID="RadioButton11" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes"/>
+    <asp:RadioButton ID="RadioButton12" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes"/>
     <br />
 
     <asp:Label ID="HearingLb" runat="server" Text="Hearing Test" CssClass="label6"></asp:Label>
-    <asp:RadioButton ID="RadioButton13" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes" OnCheckedChanged="YesRadioButton_CheckedChanged" />
-    <asp:RadioButton ID="RadioButton14" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes" OnCheckedChanged="NoRadioButton_CheckedChanged" />
+    <asp:RadioButton ID="RadioButton13" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes" />
+    <asp:RadioButton ID="RadioButton14" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes" />
     <br />
 
     <asp:Label ID="NeurologicalLb" runat="server" Text="Neurological Examination" CssClass="label6"></asp:Label>
-    <asp:RadioButton ID="RadioButton15" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes" OnCheckedChanged="YesRadioButton_CheckedChanged" />
-    <asp:RadioButton ID="RadioButton16" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes" OnCheckedChanged="NoRadioButton_CheckedChanged" />
+    <asp:RadioButton ID="RadioButton15" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes" />
+    <asp:RadioButton ID="RadioButton16" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes" />
     <br />
 
     <asp:Label ID="PsychologicalLb" runat="server" Text="Psychological Examination" CssClass="label6"></asp:Label>
-    <asp:RadioButton ID="RadioButton17" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes" OnCheckedChanged="YesRadioButton_CheckedChanged" />
-    <asp:RadioButton ID="RadioButton18" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes" OnCheckedChanged="NoRadioButton_CheckedChanged" />
+    <asp:RadioButton ID="RadioButton17" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes" />
+    <asp:RadioButton ID="RadioButton18" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes" />
     <br />
 
     <asp:Label ID="CounselingLb" runat="server" Text="Counseling Services" CssClass="label6"></asp:Label>
-    <asp:RadioButton ID="RadioButton19" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes" OnCheckedChanged="YesRadioButton_CheckedChanged" />
-    <asp:RadioButton ID="RadioButton20" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes" OnCheckedChanged="NoRadioButton_CheckedChanged" />
+    <asp:RadioButton ID="RadioButton19" CssClass="radio-button3" runat="server" ValidationGroup="yes" Text="yes" GroupName="yes"/>
+    <asp:RadioButton ID="RadioButton20" CssClass="radio-button3" runat="server" Text="No" ValidationGroup="yes" GroupName="yes"/>
     <br />
 
     <asp:Panel ID="ExaminationPanel" runat="server" Visible="true">
@@ -1167,13 +1167,503 @@
     </table>
                     </asp:View>
                     <%--Speech & Language History--%>
-                    <asp:View ID="View10" runat="server"></asp:View>
+                    <asp:View ID="View10" runat="server">
+                        <%--Page Header--%>
+   <h1>Client Details</h1>
+   <div class="client-head-div">
+       <h6 class="client-head">Speech & Language History</h6>
+   </div>
+    <br />
+    <br />
+    <table style="width: 100%;">
+        <%--Question 1:Current Communication--%>
+        <tr>
+            <td colspan="8" style="height: 30px"><asp:Label ID="Label58" runat="server" Text="How does the client currently communicate?" CssClass="label6"></asp:Label></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <%--Question 1: Options--%>
+        <tr>
+            <td colspan="8"><asp:CheckBox ID="GestureCheck" runat="server" Text="Gesture" CssClass="radio-button3" /></td>
+        </tr>
+        <tr>
+            <td colspan="8"><asp:CheckBox ID="NoisesCheck" runat="server" Text="Non-Speech Noises" CssClass="radio-button3" /></td>
+        </tr>
+        <tr>
+            <td colspan="8"><asp:CheckBox ID="WordsCheck" runat="server" Text="Single Words" CssClass="radio-button3" /></td>
+        </tr>
+        <tr>
+            <td colspan="8"><asp:CheckBox ID="SentencesCheck" runat="server" Text="Sentences" CssClass="radio-button3" /></td>
+        </tr>
+        <%--Space Row--%>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 2: Language Compared to Siblings--%>
+        <tr>
+            <td colspan="8"><asp:Label ID="Label59" runat="server" CssClass="label6" Text="As a child, how is the client's speech and language development compared"></asp:Label></td>
+        </tr>
+        <tr>
+            <td  style="height: 30px"><asp:Label ID="Label60" runat="server" CssClass="label6" Text="to siblings'/peers'"></asp:Label></td>
+        </tr>
+        <%--Question 2: Options--%>
+        <tr>
+            <td colspan="8"><asp:TextBox ID="TextBox34" runat="server" TextMode="MultiLine" CssClass="text-box2"></asp:TextBox></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <%--Space Row--%>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 3: Difficutlies--%>
+        <tr>
+            <td colspan="8" style="height: 30px"><asp:Label ID="Label61" runat="server" Text="Does the client have a difficulty when (choose all that apply):" CssClass="label6"></asp:Label></td>
+        </tr>
+        <%--Question 3: Options--%>
+        <tr>
+            <td colspan="8"><asp:CheckBox ID="CheckBox2" runat="server" Text="Thinking of Words to Say" CssClass="radio-button3" /></td>
+        </tr>
+        <tr>
+            <td colspan="8"><asp:CheckBox ID="CheckBox3" runat="server" Text="Understanding Speech" CssClass="radio-button3" /></td>
+        </tr>
+        <tr>
+            <td colspan="8"><asp:CheckBox ID="CheckBox4" runat="server" Text="Following Directions" CssClass="radio-button3" /></td>
+        </tr>
+         <%--Space Row--%>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 4: Attention--%>
+        <tr>
+            <td colspan="8" style="height: 30px"><asp:Label ID="Label62" runat="server" Text="How easily does the client maintain attention during activities such as:" CssClass="label6"></asp:Label></td>
+        </tr>
+        <%--Question 4: Scale--%>
+        <tr>
+            <%--Excellent Cell--%>
+            <td style="width: 100px; text-align:right; height: 29px;"><asp:Label ID="ExcelLb" runat="server" Text="Excellent" CssClass="label3"></asp:Label></td>
+            <%--One Cell--%>
+            <td style="width: 100px; text-align:center; height: 29px;"><asp:Label ID="OneLb" runat="server" Text="1" CssClass="label3"></asp:Label></td>
+            <%--Two Cell--%>
+            <td style="width: 100px; text-align:center; height: 29px;"><asp:Label ID="TwoLb" runat="server" Text="2" CssClass="label3"></asp:Label></td>
+            <%--Three Cell--%>
+            <td style="width: 100px; text-align:center; height: 29px;"><asp:Label ID="ThreeLb" runat="server" Text="3" CssClass="label3"></asp:Label></td>
+            <%--Four Cell--%>
+            <td style="width: 100px; text-align:center; height: 29px;"><asp:Label ID="FourLb" runat="server" Text="4" CssClass="label3"></asp:Label></td>
+            <%--Five Cell--%>
+            <td style="width: 100px; text-align:center; height: 29px;"><asp:Label ID="FiveLb" runat="server" Text="5" CssClass="label3"></asp:Label></td>
+            <%--Poor Cell--%>
+            <td style="width: 100px; text-align:right; height: 29px;"><asp:Label ID="PoorLb" runat="server" Text="Poor" CssClass="label3"></asp:Label></td>
+            <td style="width: 100px; text-align:right; height: 29px;">&nbsp;</td>
+        </tr>
+        <%--Question 4: Watching TV--%>
+        <tr>
+            <td style="width: 10%; text-align: right"><asp:Label ID="Label63" runat="server" Text="Watching TV" CssClass="label6"></asp:Label></td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton21" runat="server" GroupName="test" />
+            </td>
+            <td style="width: 100px; text-align: center">
+                <asp:RadioButton ID="RadioButton22" runat="server" GroupName="test" />
+            </td>
+            <td style="width: 100px; text-align: center">
+                <asp:RadioButton ID="RadioButton23" runat="server" GroupName="test" />
+            </td>
+            <td style="width: 100px; text-align: center">
+                <asp:RadioButton ID="RadioButton24" runat="server" GroupName="test" />
+            </td>
+            <td style="width: 100px; text-align: center">
+                <asp:RadioButton ID="RadioButton25" runat="server" GroupName="test" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 4: Reading--%>
+        <tr>
+            <td style="width: 10%; text-align: right"><asp:Label ID="Label64" runat="server" Text="Reading" CssClass="label6"></asp:Label></td>
+            <td style="width: 100px; text-align: center">
+                <asp:RadioButton ID="RadioButton26" runat="server" GroupName="Reading" />
+            </td>
+            <td style="width: 100px; text-align: center">
+                <asp:RadioButton ID="RadioButton27" runat="server" GroupName="Reading" />
+            </td>
+            <td style="width: 100px; text-align: center">
+                <asp:RadioButton ID="RadioButton28" runat="server" GroupName="Reading" />
+            </td>
+            <td style="width: 100px; text-align: center">
+                <asp:RadioButton ID="RadioButton29" runat="server" GroupName="Reading" />
+            </td>
+            <td style="width: 100px; text-align: center">
+                <asp:RadioButton ID="RadioButton30" runat="server" GroupName="Reading" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 4: Looking at Pictures--%>
+        <tr>
+            <td style="width: 20%; text-align: right"><asp:Label ID="Label65" runat="server" Text="Looking at Pictures" CssClass="label6"></asp:Label></td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton31" runat="server" GroupName="Pictures" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton32" runat="server" GroupName="Pictures" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton33" runat="server" GroupName="Pictures" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton34" runat="server" GroupName="Pictures" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton35" runat="server" GroupName="Pictures" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 4: Listening to Stories--%>
+        <tr>
+            <td style="width: 20%; text-align: right"><asp:Label ID="Label66" runat="server" Text="Listening to Stories" CssClass="label6"></asp:Label></td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton36" runat="server" GroupName="Stories" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton37" runat="server" GroupName="Stories" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton38" runat="server" GroupName="Stories" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton39" runat="server" GroupName="Stories" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton40" runat="server" GroupName="Stories" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 4: Playing with Toys--%>
+        <tr>
+            <td style="width: 10%; text-align: right"><asp:Label ID="Label67" runat="server" Text="Playing with Toys" CssClass="label6"></asp:Label></td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton41" runat="server" GroupName="Toys" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton42" runat="server" GroupName="Toys" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton43" runat="server" GroupName="Toys" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton44" runat="server" GroupName="Toys" />
+            </td>
+            <td style="width: 50px; text-align: center">
+                <asp:RadioButton ID="RadioButton45" runat="server" GroupName="test" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+         <%--Space Row--%>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 5: Efforts--%>
+        <tr>
+            <td colspan="8" style="height: 30px"><asp:Label ID="Label68" runat="server" Text="Describe any efforts you made to help communicate better" CssClass="label6"></asp:Label></td>
+        </tr>
+        <%--Question 5: Text Box--%>
+        <tr>
+            <td colspan="8"><asp:TextBox ID="TextBox35" runat="server" TextMode="MultiLine" CssClass="text-box2"></asp:TextBox></td>
+        </tr>
+
+    </table>
+                    </asp:View>
                     <%--Hearing History--%>
-                    <asp:View ID="View11" runat="server"></asp:View>
+                    <asp:View ID="View11" runat="server">
+                        <%--Page Header--%>
+   <h1>Client Details</h1>
+   <div class="client-head-div">
+       <h6 class="client-head">Speech & Language History</h6>
+   </div>
+    <br />
+    <br />
+    <table style="width: 100%;">
+        <%--Question 1: Hearing Loss History--%>
+        <tr>
+            <td colspan="2" style="height:30px"><asp:Label ID="Label69" runat="server" Text="Is there a history of hearing loss in the family? If yes, explain." CssClass="label6"></asp:Label></td>
+        </tr>
+        <%--Question 1: Text Box--%>
+        <tr>
+            <td colspan="2"><asp:TextBox ID="TextBox36" runat="server" CssClass="text-box2"></asp:TextBox></td>
+        </tr>
+        <%--Space Row--%>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <%--Question 2: Early Age Hearing Loss --%>
+        <tr>
+            <td colspan="2" style="height:30px"><asp:Label ID="Label70" CssClass="label6" runat="server" Text="Has any member of the family suffered a hearing loss at an early age?"></asp:Label></td>
+        </tr>
+        <%--Question 2: Text Box--%>
+        <tr>
+            <td colspan="2"><asp:TextBox ID="TextBox37" runat="server" CssClass="text-box2"></asp:TextBox></td>
+        </tr>
+        <%--Space Row--%>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <%--Question 3: Ear Infections--%>
+        <tr>            
+            <td colspan="2" style="height:30px"><asp:Label ID="Label71" runat="server" CssClass="label6" Text="Does the client have frequent earaches or infectoins?"></asp:Label></td>
+        </tr>
+        <%--Question 3: Radio Buttons--%>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton46" runat="server" CssClass="radio-button3" Text="Yes" GroupName="Infection" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton47" runat="server" CssClass="radio-button3" Text="No" GroupName="Infection" /></td>
+        </tr>
+        <%--Question 4: Cold--%>
+        <tr>
+            <td style="height:30px" colspan="2"><asp:Label ID="Label72" runat="server" CssClass="label6" Text="Does the client have frequent colds?"></asp:Label></td>
+        </tr>
+        <%--Question 4: Radio Buttons--%>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton48" runat="server" CssClass="radio-button3" Text="Yes" GroupName="Cold" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton49" runat="server" CssClass="radio-button3" Text="No" GroupName="Cold" /></td>
+        </tr>
+        <%--Question 5: Hearing Change--%>
+        <tr>
+            <td style="height:30px" colspan="2"><asp:Label ID="Label73" runat="server" CssClass="label6" Text="Has there been a change in the patient's hearing? If yes, explain."></asp:Label></td>
+        </tr>
+        <%--Question 5: Text Box--%>
+        <tr>
+            <td colspan="2"><asp:TextBox ID="TextBox38" runat="server" CssClass="text-box2"></asp:TextBox></td>
+        </tr>
+        <%--Space Row--%>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <%--Question 6: Normal Hearing--%>
+        <tr>
+            <td colspan="2" style="height:30px"><asp:Label ID="Label74" runat="server" CssClass="label6" Text="Does the patient hearing seem normal to you?"></asp:Label></td>
+        </tr>
+        <%--Question 6: Radio Buttons--%>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton50" CssClass="radio-button3" runat="server" Text="Yes" GroupName="Hearing" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton51" CssClass="radio-button3" runat="server" Text="No" GroupName="Hearing" /></td>
+        </tr>
+        <%--Question 7: Turning Head--%>
+        <tr>
+            <td colspan="2" style="height:30px"><asp:Label ID="Label75" runat="server" CssClass="label6" Text="Does the patient turn his/her head when being spoken to?"></asp:Label></td>
+        </tr>
+        <%--Question 7: Radion Buttons--%>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton52" CssClass="radio-button3" runat="server" Text="Yes" GroupName="Head" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton53" CssClass="radio-button3" runat="server" Text="No" GroupName="Head" /></td>
+        </tr>
+        <%--Question 8: Radio & TV--%>
+        <tr>
+            <td colspan="2" style="height:30px"><asp:Label ID="Label76" runat="server" CssClass="label6" Text="Does the patient turn the radio or Tv louder?"></asp:Label></td>
+        </tr>
+        <%--Question 8: Radio Buttons--%>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton54" CssClass="radio-button3" runat="server" Text="Yes" GroupName="Radio" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton55" CssClass="radio-button3" runat="server" Text="No" GroupName="Radio" /></td>
+        </tr>
+        <%--Question 9: First Hearing Problem--%>
+        <tr>
+            <td style="height:30px"><asp:Label ID="Label77" runat="server" CssClass="label6" Text="When did you first notice a hearing problem?"></asp:Label></td>
+            <td><asp:TextBox ID="TextBox39" CssClass="option1" runat="server"></asp:TextBox></td>
+        </tr>
+        <%--Space Row--%>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <%--Question 10: Hearing Aid--%>
+        <tr>
+            <td colspan="2"><asp:Label ID="Label78" CssClass="label6" runat="server" Text="Is the patient presently wearing a hearing aid or cochlear implant?"></asp:Label></td>
+        </tr>
+        <%--Question 10: Radio Buttons--%>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton56" runat="server" Text="Yes" CssClass="radio-button3" GroupName="EarAid" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton57" runat="server" Text="No" CssClass="radio-button3" GroupName="EarAid" /></td>
+        </tr>
+        <%--Question 10: Part Two-Hearing aid duration--%>
+        <tr>
+            <td style="width: 500px;"><asp:Label ID="Label79" runat="server" Text="If yes, for how long?" CssClass="label6"></asp:Label></td>
+            <td><asp:TextBox ID="TextBox40" CssClass="option1" runat="server"></asp:TextBox></td>
+        </tr>
+        <%--Question 10: Part Three-Provider--%>
+        <tr>
+            <td><asp:Label ID="Label80" runat="server" Text="Who provided it, and what type is it?" CssClass="label6"></asp:Label></td>
+            <td><asp:TextBox ID="TextBox41" runat="server" CssClass="option1"></asp:TextBox></td>
+        </tr>
+        <%--Space Row--%>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <%--Question 12: Other Information--%>
+        <tr>
+            <td colspan="2"><asp:Label ID="Label81" runat="server" Text="Please Include any other information pertainting to hearing you feel may be" CssClass="label6"></asp:Label></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="height:30px"><asp:Label ID="Label82" runat="server" Text="of importance to us." CssClass="label6"></asp:Label></td>
+        </tr>
+        <%--Question 12: Text Box--%>
+        <tr>
+            <td colspan="2"><asp:TextBox ID="HearingInfoTxt" runat="server" CssClass="text-box2"></asp:TextBox></td>
+        </tr>
+    </table>
+                    </asp:View>
                     <%--School History--%>
-                    <asp:View ID="View12" runat="server"></asp:View>
+                    <asp:View ID="View12" runat="server">
+                        <%--Page Header--%>
+   <h1>Client Details</h1>
+   <div class="client-head-div">
+       <h6 class="client-head">School History</h6>
+   </div>
+    <br />
+    <br />
+    <table style="width: 100%;">
+        <%--Question 1: Present School--%>
+        <tr>
+            <td style="width:450px; height:30px"><asp:Label ID="Label83" runat="server" CssClass="label6" Text="What school/college does the patient presently attend?"></asp:Label></td>
+            <td><asp:TextBox ID="TextBox42" CssClass="option1" runat="server"></asp:TextBox></td>
+        </tr>
+        <%--Question 2: Repeated Grade--%>
+        <tr>
+            <td style="height:30px" colspan="2"><asp:Label ID="Label84" runat="server" CssClass="label6" Text="In school/college has any grade been repeated?"></asp:Label></td>
+        </tr>
+        <%--Question 2: Radio Buttons--%>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton58" runat="server" CssClass="radio-button3" Text="Yes" GroupName="Cold" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton59" runat="server" CssClass="radio-button3" Text="No" GroupName="Cold" /></td>
+        </tr>
+        <%--Space Row--%>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 2: Part Two-Reasons--%>
+        <tr>
+            <td colspan="2" style="height: 30px"><asp:Label ID="Label85" runat="server" Text="If yes, what were the reasons?" CssClass="label6"></asp:Label></td>
+        </tr>
+        <%--Question 2: Text Box--%>
+        <tr>
+            <td colspan="2"><asp:TextBox ID="TextBox43" runat="server" CssClass="text-box2"></asp:TextBox></td>
+        </tr>
+        <%--Space Row--%>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 3: Special Classroom--%>
+        <tr>
+            <td style="height:30px" colspan="2"><asp:Label ID="Label86" runat="server" CssClass="label6" Text="Was the patient placed in any special classroom or received remedial help during schoolv years?"></asp:Label></td>
+        </tr>
+        <%--Question 3: Radio Buttons--%>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton60" runat="server" CssClass="radio-button3" Text="Yes" GroupName="Classroom" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><asp:RadioButton ID="RadioButton61" runat="server" CssClass="radio-button3" Text="No" GroupName="Classroom" /></td>
+        </tr>
+        <%--Space Row--%>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <%--Question 3: Part Two--%>
+        <tr>
+            <td colspan="2" style="height: 30px"><asp:Label ID="Label87" runat="server" Text="If yes, please describe and include progress notes." CssClass="label6"></asp:Label></td>
+        </tr>
+        <%--Question 3: Text Box--%>
+        <tr>
+            <td colspan="2"><asp:TextBox ID="TextBox44" runat="server" CssClass="text-box2"></asp:TextBox></td>
+        </tr>
+    </table>
+                    </asp:View>
                     <%--Social History--%>
-                    <asp:View ID="View13" runat="server"></asp:View>
+                    <asp:View ID="View13" runat="server">
+                        <h1>Client Details</h1>
+   <div class="client-head-div">
+       <h6 class="client-head">social History</h6>
+   </div>
+    <br />
+    <br />
+
+    <table style="width: 100%;">
+           <tr>
+                <td colspan="4" style="height: 30px"><asp:Label ID="Label88" runat="server" Text="Check the appropriate characteristics which best decribe the patient's personality" CssClass="label6"></asp:Label></td>
+            </tr>
+            <tr>
+                <td><asp:CheckBox ID="OutgoingCheck" runat="server" Text="Outgoing" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td><asp:CheckBox ID="ShyCheck" runat="server" Text="Shy" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td><asp:CheckBox ID="AnxiousCheck" runat="server" Text="Anxious" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td colspan="4"><asp:CheckBox ID="StubbornCheck" runat="server" Text="Stubborn" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td><asp:CheckBox ID="EasyCheck" runat="server" Text="Easy Going" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td colspan="4"><asp:CheckBox ID="AggressiveCheck" runat="server" Text="Aggressive" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td colspan="4"><asp:CheckBox ID="IndependentCheck" runat="server" Text="Independent" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="DependentCheck" runat="server" Text="Dependent" CssClass="radio-button3" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="CheckBox5" runat="server" Text="Other, please specifiy" CssClass="radio-button3" /><asp:TextBox ID="TextBox45" CssClass="option2" runat="server" style=" margin: 0 10px;"></asp:TextBox>
+                </td>
+            </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+            <tr>
+                <td colspan="4" style="height:30px"><asp:Label ID="Label89" runat="server" Text="Check which characteristics which best decribe the patient's behavior" CssClass="label6"></asp:Label></td>
+            </tr>
+            <tr>
+                <td><asp:CheckBox ID="ManageCheck" runat="server" Text="Easy to Manage" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td><asp:CheckBox ID="ActiveCheck" runat="server" Text="Very Active" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td><asp:CheckBox ID="NoisyCheck" runat="server" Text="Noisy" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td colspan="4"><asp:CheckBox ID="DestructiveCheck" runat="server" Text="Destructive" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td><asp:CheckBox ID="TalkativeCheck" runat="server" Text="Talkative" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td colspan="4"><asp:CheckBox ID="ImaginativeCheck" runat="server" Text="Imaginative" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td colspan="4"><asp:CheckBox ID="CooperativeCheck" runat="server" Text="Cooperative" CssClass="radio-button3" /></td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:CheckBox ID="OthrBehCheck" runat="server" Text="Other, please specifiy" CssClass="radio-button3" /><asp:TextBox ID="TextBox46" CssClass="option2" runat="server" style=" margin: 0 10px;"></asp:TextBox>
+                </td>
+            </tr>
+    </table>
+                    </asp:View>
 
 
                 </asp:MultiView>

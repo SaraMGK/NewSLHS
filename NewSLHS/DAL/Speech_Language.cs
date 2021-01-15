@@ -31,6 +31,10 @@ namespace NewSLHS.DAL
         public int ListeningToStoryAttention { get; set; }
         public int AttentionDuringPlaying { get; set; }
         public string BetterCommunicationEfforts { get; set; }
+        public Nullable<int> Gestures { get; set; }
+        public Nullable<int> NonSpeechNoises { get; set; }
+        public Nullable<int> SingleWords { get; set; }
+        public Nullable<int> Sentences { get; set; }
     
         public virtual ICollection<Client_Information> Client_Information { get; set; }
         public virtual ICollection<Communication> Communications { get; set; }

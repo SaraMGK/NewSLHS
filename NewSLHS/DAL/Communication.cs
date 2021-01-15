@@ -15,8 +15,11 @@ namespace NewSLHS.DAL
     public partial class Communication
     {
         public int CommunicationID { get; set; }
-        public string Method { get; set; }
         public int SpeechLanguageID { get; set; }
+        public int NonSpeechNoises { get; set; }
+        public Nullable<int> Gestures { get; set; }
+        public Nullable<int> SingleWords { get; set; }
+        public Nullable<int> Sentences { get; set; }
     
         public virtual Speech_Language Speech_Language { get; set; }
     }

@@ -197,8 +197,11 @@
             <PropertyRef Name="CommunicationID" />
           </Key>
           <Property Name="CommunicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Method" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NonSpeechNoises" Type="int" Nullable="false" />
           <Property Name="SpeechLanguageID" Type="int" Nullable="false" />
+          <Property Name="Gestures" Type="int" />
+          <Property Name="SingleWords" Type="int" />
+          <Property Name="Sentences" Type="int" />
         </EntityType>
         <EntityType Name="Diagnosis">
           <Key>
@@ -613,6 +616,10 @@
           <Property Name="ListeningToStoryAttention" Type="int" Nullable="false" />
           <Property Name="AttentionDuringPlaying" Type="int" Nullable="false" />
           <Property Name="BetterCommunicationEfforts" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Gestures" Type="int" />
+          <Property Name="NonSpeechNoises" Type="int" />
+          <Property Name="SingleWords" Type="int" />
+          <Property Name="Sentences" Type="int" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -2174,9 +2181,12 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <PropertyRef Name="CommunicationID" />
           </Key>
           <Property Name="CommunicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Method" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SpeechLanguageID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Speech_Language" Relationship="Self.FK_Communication_Speech_Language" FromRole="Communication" ToRole="Speech_Language" />
+          <Property Name="NonSpeechNoises" Type="Int32" Nullable="false" />
+          <Property Name="Gestures" Type="Int32" />
+          <Property Name="SingleWords" Type="Int32" />
+          <Property Name="Sentences" Type="Int32" />
         </EntityType>
         <EntityType Name="Diagnosi">
           <Key>
@@ -2581,6 +2591,10 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="BetterCommunicationEfforts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Client_Information" Relationship="Self.FK_Client_Information_Speech_Language" FromRole="Speech_Language" ToRole="Client_Information" />
           <NavigationProperty Name="Communications" Relationship="Self.FK_Communication_Speech_Language" FromRole="Speech_Language" ToRole="Communication" />
+          <Property Name="Gestures" Type="Int32" />
+          <Property Name="NonSpeechNoises" Type="Int32" />
+          <Property Name="SingleWords" Type="Int32" />
+          <Property Name="Sentences" Type="Int32" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -3993,8 +4007,11 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySetMapping Name="Communications">
             <EntityTypeMapping TypeName="SLHSClinicModel.Communication">
               <MappingFragment StoreEntitySet="Communication">
+                <ScalarProperty Name="Sentences" ColumnName="Sentences" />
+                <ScalarProperty Name="SingleWords" ColumnName="SingleWords" />
+                <ScalarProperty Name="Gestures" ColumnName="Gestures" />
+                <ScalarProperty Name="NonSpeechNoises" ColumnName="NonSpeechNoises" />
                 <ScalarProperty Name="CommunicationID" ColumnName="CommunicationID" />
-                <ScalarProperty Name="Method" ColumnName="Method" />
                 <ScalarProperty Name="SpeechLanguageID" ColumnName="SpeechLanguageID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -4361,6 +4378,10 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySetMapping Name="Speech_Language">
             <EntityTypeMapping TypeName="SLHSClinicModel.Speech_Language">
               <MappingFragment StoreEntitySet="Speech_Language">
+                <ScalarProperty Name="Sentences" ColumnName="Sentences" />
+                <ScalarProperty Name="SingleWords" ColumnName="SingleWords" />
+                <ScalarProperty Name="NonSpeechNoises" ColumnName="NonSpeechNoises" />
+                <ScalarProperty Name="Gestures" ColumnName="Gestures" />
                 <ScalarProperty Name="SpeechLanguageID" ColumnName="SpeechLanguageID" />
                 <ScalarProperty Name="SpeechComparedToSiblings" ColumnName="SpeechComparedToSiblings" />
                 <ScalarProperty Name="ThinkingOfWordsDifficulty" ColumnName="ThinkingOfWordsDifficulty" />

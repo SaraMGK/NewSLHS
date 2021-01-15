@@ -125,6 +125,7 @@
     <Content Include="ClientIdentification.aspx" />
     <Content Include="Health.aspx" />
     <Content Include="Health2.aspx" />
+    <Content Include="Hearing.aspx" />
     <Content Include="Identification.aspx" />
     <Content Include="IncompleteGeneralInformation.aspx" />
     <Content Include="Images\User.png" />
@@ -233,6 +234,7 @@
     <Content Include="ParentalHistory.aspx" />
     <Content Include="Physician.aspx" />
     <Content Include="reqdettest.aspx" />
+    <Content Include="School.aspx" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_contrast_black.css" />
@@ -445,6 +447,9 @@
     <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_ro.html" />
     <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_ru.html" />
     <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_sk.html" />
+    <Content Include="SessionList.aspx" />
+    <Content Include="Social.aspx" />
+    <Content Include="Speech.aspx" />
     <Content Include="test.aspx" />
     <Content Include="ClientGeneralInformation.aspx" />
     <Content Include="ClientsList.aspx" />
@@ -649,6 +654,13 @@
     </Compile>
     <Compile Include="Health2.aspx.designer.cs">
       <DependentUpon>Health2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hearing.aspx.cs">
+      <DependentUpon>Hearing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hearing.aspx.designer.cs">
+      <DependentUpon>Hearing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Identification.aspx.cs">
       <DependentUpon>Identification.aspx</DependentUpon>
@@ -965,12 +977,26 @@
     <Compile Include="ResourcesList.aspx.designer.cs">
       <DependentUpon>ResourcesList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="School.aspx.cs">
+      <DependentUpon>School.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="School.aspx.designer.cs">
+      <DependentUpon>School.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SearchResources.aspx.cs">
       <DependentUpon>SearchResources.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SearchResources.aspx.designer.cs">
       <DependentUpon>SearchResources.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SessionList.aspx.cs">
+      <DependentUpon>SessionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionList.aspx.designer.cs">
+      <DependentUpon>SessionList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sessions.aspx.cs">
       <DependentUpon>Sessions.aspx</DependentUpon>
@@ -999,6 +1025,20 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Social.aspx.cs">
+      <DependentUpon>Social.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Social.aspx.designer.cs">
+      <DependentUpon>Social.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Speech.aspx.cs">
+      <DependentUpon>Speech.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Speech.aspx.designer.cs">
+      <DependentUpon>Speech.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentDetails.aspx.cs">
       <DependentUpon>StudentDetails.aspx</DependentUpon>
