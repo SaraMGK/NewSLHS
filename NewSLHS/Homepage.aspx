@@ -169,7 +169,7 @@
                 <div class="type">
                   <label class="label1">Type</label>
                     <asp:DropDownList ID="TypeDropDownList" runat="server" AutoPostBack="True" CssClass="option1" style="width: 125px;">
-                        <asp:ListItem Enabled="true" Text="--- Select Type ---" Selected="True" Value="-1"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="--- Select  ---" Selected="True" Value="-1"></asp:ListItem>
                         <asp:ListItem Enabled="true" Text="Screening"></asp:ListItem>
                         <asp:ListItem Enabled="true" Text="Assessment"></asp:ListItem>
                         <asp:ListItem Enabled="true" Text="Treatment"></asp:ListItem>
@@ -180,7 +180,7 @@
                 <div class="type">
                   <label class="label1">Room</label>
                   <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="RoomDataSource" DataTextField="RoomNumber" DataValueField="RoomNumber" CssClass="option1" AppendDataBoundItems="True" style="width: 125px;">
-                      <asp:ListItem Enabled="true" Text="----- Select Room -----" Selected="True" Value="-1"></asp:ListItem>
+                      <asp:ListItem Enabled="true" Text="--- Select  ---" Selected="True" Value="-1"></asp:ListItem>
                   </asp:DropDownList>
                   <asp:EntityDataSource ID="RoomDataSource" runat="server" ConnectionString="name=SLHSClinicEntities" DefaultContainerName="SLHSClinicEntities" EnableFlattening="False" EntitySetName="Rooms" Select="it.[RoomID], it.[RoomNumber]"></asp:EntityDataSource>
                 </div>
@@ -234,7 +234,7 @@
                 <div class="type">
                   <label class="label1">Repeat</label>
                     <asp:DropDownList ID="RepeatDropDownList" runat="server" CssClass="option1" style="width: 125px;">
-                        <asp:ListItem Enabled="true" Text="---- Please Select -----" Selected="True"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="---- Select -----" Selected="True"></asp:ListItem>
                         <asp:ListItem Enabled="true" Text="Weekly"></asp:ListItem>
                         <asp:ListItem Enabled="true" Text="Never"></asp:ListItem>
                     </asp:DropDownList>
@@ -248,6 +248,10 @@
                  </div>                  
 
                 <div class="modal-footer" style="border: 0px;">
+                  <div style="width: 65%">
+                    <button type="button" class="btn5" data-dismiss="Modal">Delete</button>
+                  </div>
+
                   <button type="button" class="btn2" data-dismiss="modal">Save</button>
                   <button type="button" class="btn3" data-dismiss="modal">Cancel</button>
                 </div>
@@ -372,7 +376,7 @@
                 <div class="type">
                   <label class="label1">Repeat</label>
                     <asp:DropDownList ID="DropDownList7" runat="server" CssClass="option1" style="width: 125px;">
-                        <asp:ListItem Enabled="true" Text="---- Please Select -----" Selected="True"></asp:ListItem>
+                        <asp:ListItem Enabled="true" Text="---- Select -----" Selected="True"></asp:ListItem>
                         <asp:ListItem Enabled="true" Text="Weekly"></asp:ListItem>
                         <asp:ListItem Enabled="true" Text="Never"></asp:ListItem>
                     </asp:DropDownList>

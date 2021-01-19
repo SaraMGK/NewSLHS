@@ -14,7 +14,7 @@
                     <th style="background-color: #21948B;">   Sessions</th>
                 </thead>
                 <tbody  class="colored-rows">
-                  <tr onclick="location.href = '/pagename'">
+                  <tr onclick="location.href = '/StartSession'">
                     <td style="background-color: #F1FEFD; border-color: transparent;">Start Session</td>
                   </tr>
                   <tr onclick="location.href = '/SessionsList'">

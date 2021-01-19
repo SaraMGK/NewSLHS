@@ -7,9 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NewSLHS.DAL
+namespace NewSLHS
 {
     using System;
+    using NewSLHS.DAL;
     using System.Collections.Generic;
     
     public partial class Client_Information
@@ -54,8 +55,8 @@ namespace NewSLHS.DAL
         public string SiblingSLPProblems { get; set; }
         public string SiblingAcademicDifficulties { get; set; }
         public string OtherPregnancies { get; set; }
+        public Nullable<int> DiagnosisID { get; set; }
     
-        public virtual Birth Birth { get; set; }
         public virtual Child Child { get; set; }
         public virtual Client Client { get; set; }
         public virtual Hearing Hearing { get; set; }
@@ -67,5 +68,7 @@ namespace NewSLHS.DAL
         public virtual ICollection<Motor_Development> Motor_Development { get; set; }
         public virtual Marital_Status Marital_Status { get; set; }
         public virtual ICollection<Immunization> Immunizations { get; set; }
+        public virtual Diagnosis Diagnosi { get; set; }
+        public virtual Birth Birth { get; set; }
     }
 }

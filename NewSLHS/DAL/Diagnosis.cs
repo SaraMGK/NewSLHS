@@ -7,13 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NewSLHS.DAL
+namespace NewSLHS
 {
     using System;
+    using NewSLHS.DAL;
     using System.Collections.Generic;
     
-    public partial class Diagnosi
+    public partial class Diagnosis
     {
+        public Diagnosis()
+        {
+            this.Client_Information = new HashSet<Client_Information>();
+        }
+    
         public int DiagnosisID { get; set; }
         public Nullable<int> CleftPlatal { get; set; }
         public Nullable<int> CerebalPalsy { get; set; }
@@ -22,5 +28,7 @@ namespace NewSLHS.DAL
         public Nullable<int> DownSyndrome { get; set; }
         public Nullable<int> DefectsNoseThroatEars { get; set; }
         public string Other { get; set; }
+    
+        public virtual ICollection<Client_Information> Client_Information { get; set; }
     }
 }

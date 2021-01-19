@@ -7,9 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NewSLHS.DAL
+namespace NewSLHS
 {
     using System;
+    using NewSLHS.DAL;
     using System.Collections.Generic;
     
     public partial class Child
@@ -46,6 +47,7 @@ namespace NewSLHS.DAL
         public string SetAloneAge { get; set; }
         public string walkingAge { get; set; }
         public string StandUpAge { get; set; }
+        public string FoodPreference { get; set; }
     
         public virtual Client_Information Client_Information { get; set; }
     }

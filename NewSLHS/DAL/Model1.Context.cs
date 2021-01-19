@@ -30,13 +30,11 @@ namespace NewSLHS.DAL
         public DbSet<Assessment_Proposal> Assessment_Proposal { get; set; }
         public DbSet<Authentication> Authentications { get; set; }
         public DbSet<Behavior> Behaviors { get; set; }
-        public DbSet<Birth> Births { get; set; }
         public DbSet<Child> Children { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Client_Information> Client_Information { get; set; }
         public DbSet<Clinical_Goals> Clinical_Goals { get; set; }
         public DbSet<Communication> Communications { get; set; }
-        public DbSet<Diagnosi> Diagnosis { get; set; }
         public DbSet<Fluharty> Fluharties { get; set; }
         public DbSet<Food_Allergy> Food_Allergy { get; set; }
         public DbSet<Health> Healths { get; set; }
@@ -80,5 +78,7 @@ namespace NewSLHS.DAL
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Request_View> Request_View { get; set; }
         public DbSet<Immunization> Immunizations { get; set; }
+        public DbSet<Diagnosis> Diagnosis1 { get; set; }
+        public DbSet<Birth> Births { get; set; }
     }
 }

@@ -126,6 +126,7 @@
           <Property Name="SetAloneAge" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="walkingAge" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="StandUpAge" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FoodPreference" Type="nvarchar" MaxLength="350" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -175,6 +176,7 @@
           <Property Name="SiblingSLPProblems" Type="nvarchar(max)" />
           <Property Name="SiblingAcademicDifficulties" Type="nvarchar(max)" />
           <Property Name="OtherPregnancies" Type="nvarchar(max)" />
+          <Property Name="DiagnosisID" Type="int" />
         </EntityType>
         <EntityType Name="Client_Parent">
           <Key>
@@ -1006,6 +1008,18 @@ warning 6002: The table/view 'SLHSClinic.dbo.Student_View' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Client_Information_Diagnosis">
+          <End Role="Diagnosis" Type="Self.Diagnosis" Multiplicity="0..1" />
+          <End Role="Client_Information" Type="Self.Client_Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diagnosis">
+              <PropertyRef Name="DiagnosisID" />
+            </Principal>
+            <Dependent Role="Client_Information">
+              <PropertyRef Name="DiagnosisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Client_Information_Hearing">
           <End Role="Hearing" Type="Self.Hearing" Multiplicity="1" />
           <End Role="Client_Information" Type="Self.Client_Information" Multiplicity="*" />
@@ -1786,6 +1800,10 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             <End Role="Client" EntitySet="Client" />
             <End Role="Client_Information" EntitySet="Client_Information" />
           </AssociationSet>
+          <AssociationSet Name="FK_Client_Information_Diagnosis" Association="Self.FK_Client_Information_Diagnosis">
+            <End Role="Diagnosis" EntitySet="Diagnosis" />
+            <End Role="Client_Information" EntitySet="Client_Information" />
+          </AssociationSet>
           <AssociationSet Name="FK_Client_Information_Hearing" Association="Self.FK_Client_Information_Hearing">
             <End Role="Hearing" EntitySet="Hearing" />
             <End Role="Client_Information" EntitySet="Client_Information" />
@@ -2052,19 +2070,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="Other" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Socials" Relationship="Self.Social_Behavior" FromRole="Behavior" ToRole="Social" />
         </EntityType>
-        <EntityType Name="Birth">
-          <Key>
-            <PropertyRef Name="BirthID" />
-          </Key>
-          <Property Name="BirthID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PregnancyLength" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PregnancyAccident" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PregnancyMedication" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LaborAnesthetics" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DeliveryProblems" Type="String" MaxLength="750" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BirthWeight" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Client_Information" Relationship="Self.FK_Client_Information_Birth" FromRole="Birth" ToRole="Client_Information" />
-        </EntityType>
         <EntityType Name="Child">
           <Key>
             <PropertyRef Name="ClientInformationID" />
@@ -2102,6 +2107,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="walkingAge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StandUpAge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Client_Information" Relationship="Self.FK_Child_Client_Information" FromRole="Child" ToRole="Client_Information" />
+          <Property Name="FoodPreference" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -2155,7 +2161,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="SiblingSLPProblems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SiblingAcademicDifficulties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OtherPregnancies" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Birth" Relationship="Self.FK_Client_Information_Birth" FromRole="Client_Information" ToRole="Birth" />
           <NavigationProperty Name="Child" Relationship="Self.FK_Child_Client_Information" FromRole="Client_Information" ToRole="Child" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_Information_Client" FromRole="Client_Information" ToRole="Client" />
           <NavigationProperty Name="Hearing" Relationship="Self.FK_Client_Information_Hearing" FromRole="Client_Information" ToRole="Hearing" />
@@ -2167,6 +2172,9 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <NavigationProperty Name="Motor_Development" Relationship="Self.FK_Motor_Development_Client_Information" FromRole="Client_Information" ToRole="Motor_Development" />
           <NavigationProperty Name="Marital_Status" Relationship="SLHSClinicModel.Adult" FromRole="Client_Information" ToRole="Marital_Status" />
           <NavigationProperty Name="Immunizations" Relationship="SLHSClinicModel.FK_Immunization_Client_Information" FromRole="Client_Information" ToRole="Immunization" />
+          <Property Name="DiagnosisID" Type="Int32" />
+          <NavigationProperty Name="Diagnosi" Relationship="SLHSClinicModel.FK_Client_Information_Diagnosis" FromRole="Client_Information" ToRole="Diagnosi" />
+          <NavigationProperty Name="Birth" Relationship="SLHSClinicModel.FK_Client_Information_Birth" FromRole="Client_Information" ToRole="Birth" />
         </EntityType>
         <EntityType Name="Clinical_Goals">
           <Key>
@@ -2187,19 +2195,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <Property Name="Gestures" Type="Int32" />
           <Property Name="SingleWords" Type="Int32" />
           <Property Name="Sentences" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Diagnosi">
-          <Key>
-            <PropertyRef Name="DiagnosisID" />
-          </Key>
-          <Property Name="DiagnosisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CleftPlatal" Type="Int32" />
-          <Property Name="CerebalPalsy" Type="Int32" />
-          <Property Name="MentalRetardation" Type="Int32" />
-          <Property Name="BrainDysfunction" Type="Int32" />
-          <Property Name="DownSyndrome" Type="Int32" />
-          <Property Name="DefectsNoseThroatEars" Type="Int32" />
-          <Property Name="Other" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Fluharty">
           <Key>
@@ -2884,18 +2879,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Client_Information_Birth">
-          <End Role="Birth" Type="Self.Birth" Multiplicity="1" />
-          <End Role="Client_Information" Type="Self.Client_Information" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Birth">
-              <PropertyRef Name="BirthID" />
-            </Principal>
-            <Dependent Role="Client_Information">
-              <PropertyRef Name="BirthID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Child_Client_Information">
           <End Role="Client_Information" Type="Self.Client_Information" Multiplicity="1" />
           <End Role="Child" Type="Self.Child" Multiplicity="0..1" />
@@ -3322,13 +3305,11 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySet Name="Assessment_Proposal" EntityType="Self.Assessment_Proposal" />
           <EntitySet Name="Authentications" EntityType="Self.Authentication" />
           <EntitySet Name="Behaviors" EntityType="Self.Behavior" />
-          <EntitySet Name="Births" EntityType="Self.Birth" />
           <EntitySet Name="Children" EntityType="Self.Child" />
           <EntitySet Name="Clients" EntityType="Self.Client" />
           <EntitySet Name="Client_Information" EntityType="Self.Client_Information" />
           <EntitySet Name="Clinical_Goals" EntityType="Self.Clinical_Goals" />
           <EntitySet Name="Communications" EntityType="Self.Communication" />
-          <EntitySet Name="Diagnosis" EntityType="Self.Diagnosi" />
           <EntitySet Name="Fluharties" EntityType="Self.Fluharty" />
           <EntitySet Name="Food_Allergy" EntityType="Self.Food_Allergy" />
           <EntitySet Name="Healths" EntityType="Self.Health" />
@@ -3391,10 +3372,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <AssociationSet Name="FK_Teacher_Assistant_Authentication" Association="Self.FK_Teacher_Assistant_Authentication">
             <End Role="Authentication" EntitySet="Authentications" />
             <End Role="Teacher_Assistant" EntitySet="Teacher_Assistant" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_Information_Birth" Association="Self.FK_Client_Information_Birth">
-            <End Role="Birth" EntitySet="Births" />
-            <End Role="Client_Information" EntitySet="Client_Information" />
           </AssociationSet>
           <AssociationSet Name="FK_Child_Client_Information" Association="Self.FK_Child_Client_Information">
             <End Role="Client_Information" EntitySet="Client_Information" />
@@ -3591,6 +3568,16 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <AssociationSet Name="FK_Immunization_Client_Information" Association="SLHSClinicModel.FK_Immunization_Client_Information">
             <End Role="Client_Information" EntitySet="Client_Information" />
             <End Role="Immunization" EntitySet="Immunizations" />
+          </AssociationSet>
+          <EntitySet Name="Diagnosis1" EntityType="SLHSClinicModel.Diagnosis" />
+          <AssociationSet Name="FK_Client_Information_Diagnosis" Association="SLHSClinicModel.FK_Client_Information_Diagnosis">
+            <End Role="Diagnosi" EntitySet="Diagnosis1" />
+            <End Role="Client_Information" EntitySet="Client_Information" />
+          </AssociationSet>
+          <EntitySet Name="Births" EntityType="SLHSClinicModel.Birth" />
+          <AssociationSet Name="FK_Client_Information_Birth" Association="SLHSClinicModel.FK_Client_Information_Birth">
+            <End Role="Birth" EntitySet="Births" />
+            <End Role="Client_Information" EntitySet="Client_Information" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Marital_Status">
@@ -3830,6 +3817,57 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Diagnosis">
+          <Key>
+            <PropertyRef Name="DiagnosisID" />
+          </Key>
+          <Property Name="DiagnosisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CleftPlatal" Type="Int32" />
+          <Property Name="CerebalPalsy" Type="Int32" />
+          <Property Name="MentalRetardation" Type="Int32" />
+          <Property Name="BrainDysfunction" Type="Int32" />
+          <Property Name="DownSyndrome" Type="Int32" />
+          <Property Name="DefectsNoseThroatEars" Type="Int32" />
+          <Property Name="Other" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Client_Information" Relationship="SLHSClinicModel.FK_Client_Information_Diagnosis" FromRole="Diagnosi" ToRole="Client_Information" />
+        </EntityType>
+        <Association Name="FK_Client_Information_Diagnosis">
+          <End Type="SLHSClinicModel.Diagnosis" Role="Diagnosi" Multiplicity="0..1" />
+          <End Type="SLHSClinicModel.Client_Information" Role="Client_Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diagnosi">
+              <PropertyRef Name="DiagnosisID" />
+            </Principal>
+            <Dependent Role="Client_Information">
+              <PropertyRef Name="DiagnosisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Birth">
+          <Key>
+            <PropertyRef Name="BirthID" />
+          </Key>
+          <Property Name="BirthID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PregnancyLength" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PregnancyAccident" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="PregnancyMedication" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="LaborAnesthetics" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryProblems" Type="String" Nullable="false" MaxLength="750" FixedLength="false" Unicode="true" />
+          <Property Name="BirthWeight" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Client_Information" Relationship="SLHSClinicModel.FK_Client_Information_Birth" FromRole="Birth" ToRole="Client_Information" />
+        </EntityType>
+        <Association Name="FK_Client_Information_Birth">
+          <End Type="SLHSClinicModel.Birth" Role="Birth" Multiplicity="1" />
+          <End Type="SLHSClinicModel.Client_Information" Role="Client_Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Birth">
+              <PropertyRef Name="BirthID" />
+            </Principal>
+            <Dependent Role="Client_Information">
+              <PropertyRef Name="BirthID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3893,22 +3931,10 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Births">
-            <EntityTypeMapping TypeName="SLHSClinicModel.Birth">
-              <MappingFragment StoreEntitySet="Birth">
-                <ScalarProperty Name="BirthID" ColumnName="BirthID" />
-                <ScalarProperty Name="PregnancyLength" ColumnName="PregnancyLength" />
-                <ScalarProperty Name="PregnancyAccident" ColumnName="PregnancyAccident" />
-                <ScalarProperty Name="PregnancyMedication" ColumnName="PregnancyMedication" />
-                <ScalarProperty Name="LaborAnesthetics" ColumnName="LaborAnesthetics" />
-                <ScalarProperty Name="DeliveryProblems" ColumnName="DeliveryProblems" />
-                <ScalarProperty Name="BirthWeight" ColumnName="BirthWeight" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Children">
             <EntityTypeMapping TypeName="SLHSClinicModel.Child">
               <MappingFragment StoreEntitySet="Child">
+                <ScalarProperty Name="FoodPreference" ColumnName="FoodPreference" />
                 <ScalarProperty Name="ClientInformationID" ColumnName="ClientInformationID" />
                 <ScalarProperty Name="LaborDuration" ColumnName="LaborDuration" />
                 <ScalarProperty Name="FirstYearCommunicationLevel" ColumnName="FirstYearCommunicationLevel" />
@@ -3960,6 +3986,7 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
           <EntitySetMapping Name="Client_Information">
             <EntityTypeMapping TypeName="SLHSClinicModel.Client_Information">
               <MappingFragment StoreEntitySet="Client_Information">
+                <ScalarProperty Name="DiagnosisID" ColumnName="DiagnosisID" />
                 <ScalarProperty Name="ClientInformationID" ColumnName="ClientInformationID" />
                 <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
                 <ScalarProperty Name="DifficultyDescription" ColumnName="DifficultyDescription" />
@@ -4013,20 +4040,6 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
                 <ScalarProperty Name="NonSpeechNoises" ColumnName="NonSpeechNoises" />
                 <ScalarProperty Name="CommunicationID" ColumnName="CommunicationID" />
                 <ScalarProperty Name="SpeechLanguageID" ColumnName="SpeechLanguageID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Diagnosis">
-            <EntityTypeMapping TypeName="SLHSClinicModel.Diagnosi">
-              <MappingFragment StoreEntitySet="Diagnosis">
-                <ScalarProperty Name="DiagnosisID" ColumnName="DiagnosisID" />
-                <ScalarProperty Name="CleftPlatal" ColumnName="CleftPlatal" />
-                <ScalarProperty Name="CerebalPalsy" ColumnName="CerebalPalsy" />
-                <ScalarProperty Name="MentalRetardation" ColumnName="MentalRetardation" />
-                <ScalarProperty Name="BrainDysfunction" ColumnName="BrainDysfunction" />
-                <ScalarProperty Name="DownSyndrome" ColumnName="DownSyndrome" />
-                <ScalarProperty Name="DefectsNoseThroatEars" ColumnName="DefectsNoseThroatEars" />
-                <ScalarProperty Name="Other" ColumnName="Other" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4706,6 +4719,33 @@ FROM [dbo].[Student_View] AS [Student_View]</DefiningQuery>
                 <ScalarProperty Name="Other" ColumnName="Other" />
                 <ScalarProperty Name="SmallPox" ColumnName="SmallPox" />
                 <ScalarProperty Name="ImmunizationID" ColumnName="ImmunizationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diagnosis1">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Diagnosis">
+              <MappingFragment StoreEntitySet="Diagnosis">
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="DefectsNoseThroatEars" ColumnName="DefectsNoseThroatEars" />
+                <ScalarProperty Name="DownSyndrome" ColumnName="DownSyndrome" />
+                <ScalarProperty Name="BrainDysfunction" ColumnName="BrainDysfunction" />
+                <ScalarProperty Name="MentalRetardation" ColumnName="MentalRetardation" />
+                <ScalarProperty Name="CerebalPalsy" ColumnName="CerebalPalsy" />
+                <ScalarProperty Name="CleftPlatal" ColumnName="CleftPlatal" />
+                <ScalarProperty Name="DiagnosisID" ColumnName="DiagnosisID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Births">
+            <EntityTypeMapping TypeName="SLHSClinicModel.Birth">
+              <MappingFragment StoreEntitySet="Birth">
+                <ScalarProperty Name="BirthWeight" ColumnName="BirthWeight" />
+                <ScalarProperty Name="DeliveryProblems" ColumnName="DeliveryProblems" />
+                <ScalarProperty Name="LaborAnesthetics" ColumnName="LaborAnesthetics" />
+                <ScalarProperty Name="PregnancyMedication" ColumnName="PregnancyMedication" />
+                <ScalarProperty Name="PregnancyAccident" ColumnName="PregnancyAccident" />
+                <ScalarProperty Name="PregnancyLength" ColumnName="PregnancyLength" />
+                <ScalarProperty Name="BirthID" ColumnName="BirthID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -11,34 +11,25 @@ namespace NewSLHS
 {
 
 
-    public partial class WebForm2
+    public partial class StudentList
     {
 
         /// <summary>
-        /// AddClientBtn control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddClientBtn;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// ClientGridView control.
+        /// EntityDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ClientGridView;
-
-        /// <summary>
-        /// ClientEntityDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource ClientEntityDataSource;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
     }
 }

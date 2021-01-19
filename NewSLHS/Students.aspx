@@ -12,8 +12,8 @@
                     <th style="background-color: #21948B;">   Students</th>
                 </thead>
                 <tbody  class="colored-rows">
-                  <tr>
-                    <td class="lastRow" style="background-color: #F1FEFD; border-color: transparent;">View Students</td>
+                  <tr  onclick="location.href = '/StudentList'">
+                    <td class="lastRow" style="background-color: #F1FEFD; border-color: transparent;">View Student Information</td>
                   </tr>
                      </tbody>
 

@@ -15,7 +15,7 @@ namespace NewSLHS
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            ClientGridView.Visible = false;
+            ClientGridView.Visible = true;
 
 
         }
@@ -30,13 +30,18 @@ namespace NewSLHS
 
         protected void Client_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ClientGeneralInformation.aspx?ClientID=" + ClientGridView.SelectedRow.Cells[7].Text);
+            Response.Redirect("ClientHistory.aspx?ClientID=" + ClientGridView.SelectedRow.Cells[7].Text);
 
         }
 
         protected void ClientEntityDataSource_Selecting(object sender, EntityDataSourceSelectingEventArgs e)
         {
 
+        }
+
+        protected void AddClientBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ClientHistory.aspx?NewClient=");
         }
     }
 }

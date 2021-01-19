@@ -4,19 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ca3544ee14114fc983db7e4f9792d93e" Name="Diagram1" ZoomLevel="54">
+      <Diagram DiagramId="ca3544ee14114fc983db7e4f9792d93e" Name="Diagram1" ZoomLevel="49">
         <EntityTypeShape EntityType="SLHSClinicModel.Address" Width="1.5" PointX="1.5" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Assessment_Objective" Width="1.5" PointX="19.75" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Assessment_Proposal" Width="1.5" PointX="17.5" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Authentication" Width="1.5" PointX="7.75" PointY="22" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Behavior" Width="1.5" PointX="1.5" PointY="26.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Birth" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Child" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Client" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Client_Information" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Clinical_Goals" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Communication" Width="1.5" PointX="3" PointY="32.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SLHSClinicModel.Diagnosi" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Fluharty" Width="1.5" PointX="27" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Food_Allergy" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SLHSClinicModel.Health" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
@@ -59,7 +57,6 @@
         <AssociationConnector Association="SLHSClinicModel.FK_Student_Authentication" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Supervisor_Authentication" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Teacher_Assistant_Authentication" ManuallyRouted="false" />
-        <AssociationConnector Association="SLHSClinicModel.FK_Client_Information_Birth" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Child_Client_Information" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Client_Information_Client" ManuallyRouted="false" />
         <AssociationConnector Association="SLHSClinicModel.FK_Client_Information_Hearing" ManuallyRouted="false" />
@@ -115,6 +112,10 @@
         <AssociationConnector Association="SLHSClinicModel.FK_Motor_Development_Yes_No" />
         <EntityTypeShape EntityType="SLHSClinicModel.Immunization" Width="1.5" PointX="5.25" PointY="29.75" />
         <AssociationConnector Association="SLHSClinicModel.FK_Immunization_Client_Information" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Diagnosis" Width="1.75" PointX="6.375" PointY="1" />
+        <AssociationConnector Association="SLHSClinicModel.FK_Client_Information_Diagnosis" />
+        <EntityTypeShape EntityType="SLHSClinicModel.Birth" Width="1.5" PointX="14.375" PointY="6" />
+        <AssociationConnector Association="SLHSClinicModel.FK_Client_Information_Birth" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

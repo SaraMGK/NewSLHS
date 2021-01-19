@@ -73,7 +73,7 @@
               <div class="dropdown">
                 <button class="dropbtn" style="margin: 0px"><asp:Label ID="usernameLb" runat="server"></asp:Label></button>
               <div class="dropdown-content">
-                <a href="#">Profile</a>
+                <a href="Profile.aspx">Profile</a>
                 <a href="Default.aspx">Logout</a>
               </div>
               </div>  

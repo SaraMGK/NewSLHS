@@ -11,34 +11,34 @@ namespace NewSLHS
 {
 
 
-    public partial class WebForm2
+    public partial class homepageTest
     {
 
         /// <summary>
-        /// AddClientBtn control.
+        /// Calendar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddClientBtn;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
-        /// ClientGridView control.
+        /// AppointmentDetailsView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ClientGridView;
+        protected global::System.Web.UI.WebControls.DetailsView AppointmentDetailsView;
 
         /// <summary>
-        /// ClientEntityDataSource control.
+        /// AppointmentEntityDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource ClientEntityDataSource;
+        protected global::System.Web.UI.WebControls.EntityDataSource AppointmentEntityDataSource;
     }
 }

@@ -11,34 +11,25 @@ namespace NewSLHS
 {
 
 
-    public partial class WebForm2
+    public partial class AssessmentProposal
     {
 
         /// <summary>
-        /// AddClientBtn control.
+        /// DescriptionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddClientBtn;
+        protected global::System.Web.UI.WebControls.Label DescriptionLabel;
 
         /// <summary>
-        /// ClientGridView control.
+        /// DescriptionTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ClientGridView;
-
-        /// <summary>
-        /// ClientEntityDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource ClientEntityDataSource;
+        protected global::System.Web.UI.WebControls.TextBox DescriptionTextBox;
     }
 }

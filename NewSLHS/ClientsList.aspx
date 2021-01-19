@@ -6,7 +6,8 @@
 
    <%-- Add Client Button--%>
     <div class="next-button-div">
-        <button type="button" class="request-button" onclick="location.href = '/InsertGeneralInformation'">Add Client</button>
+<%--        <button type="button" class="request-button" onclick="location.href = '/ClientHistory'">Add Client</button>--%>
+        <asp:Button ID="AddClientBtn" CssClass="request-button" runat="server" Text="Add Client" OnClick="AddClientBtn_Click" />
     </div>
 
 
@@ -17,7 +18,7 @@
 
        <%-- onclick="location.href = '/ClientGeneralInformation'"--%>
         
-        <div  class="client-div" onclick="location.href = '/ClientGeneralInformation.aspx?ClientID='+ <%= row.Cells[7].Text %>" >
+        <div  class="client-div" onclick="location.href = '/ClientHistory.aspx?ClientID='+ <%= row.Cells[7].Text %>" >
             <Label ID="ClientNameLabel" style="font-weight: bold;" Class="client-name-labelb"><%= row.Cells[0].Text + " " + row.Cells[2].Text %></Label>
             <div class="Image-info-div">
                 <%------------------Icon Div-----------------%>

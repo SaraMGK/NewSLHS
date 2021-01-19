@@ -4,10 +4,12 @@
     <h1>&nbsp;Sessions List</h1>
     <br />
     <br />
+    <div class="next-button-div">
+        <button class="request-button">New Session</button>
+    </div>
 
-    <button class="request-button">New Session</button>
 
-    <asp:GridView ID="SessionsGridView" runat="server" AutoGenerateColumns="False"  CssClass="session-gridView" DataSourceID="SessionsEntityDataSource">
+    <asp:GridView ID="SessionsGridView" runat="server" AutoGenerateColumns="False"  CssClass="request-gridView" DataSourceID="SessionsEntityDataSource">
         <AlternatingRowStyle BackColor="#fbfbfb" />
         <Columns>
             <asp:BoundField DataField="SessionID" HeaderText="Session" ReadOnly="True" SortExpression="SessionID" />
@@ -15,7 +17,7 @@
             <asp:BoundField DataField="Client_LName" HeaderText="" ReadOnly="True" SortExpression="Client_LName" />
             <asp:BoundField DataField="EvaluationScore" HeaderText="Score" ReadOnly="True" SortExpression="EvaluationScore" />
             <asp:BoundField DataField="SessionDate" HeaderText="Session Date" ReadOnly="True" SortExpression="SessionDate" />
-            <asp:CommandField SelectText="View" ControlStyle-CssClass="" ShowSelectButton="True" />
+            <asp:CommandField SelectText="View"  ControlStyle-CssClass="request-view-button"  ButtonType="Button" ShowSelectButton="True" ControlStyle-BackColor="#0D7E75" ControlStyle-ForeColor="White" />
         </Columns>
         <RowStyle BackColor="#fbfbfb" />
         <HeaderStyle BackColor="#0D7E75" Font-Bold="True" ForeColor="White" />

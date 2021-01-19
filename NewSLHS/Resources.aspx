@@ -94,7 +94,7 @@
                 <tbody  class="colored-rows">
 
                  <tr onclick="location.href = '/Requests'"> 
-                   <td style="background-color: #F1FEFD; border-color: transparent;">View Request</td>
+                   <td style="background-color: #F1FEFD; border-color: transparent;">View Requests</td>
                  </tr>
 
                   <tr onclick="location.href = '/ResourcesList'">
@@ -102,7 +102,7 @@
                   </tr>
 
                   <tr onclick="location.href = '/SearchResources'">
-                    <td class="lastRow" style="background-color: #8EE1DB; border-color: transparent;">Search Resources</td>
+                    <td class="lastRow" style="background-color: #8EE1DB; border-color: transparent;">Search Resource</td>
                   </tr>
 
                  </tbody>

@@ -12,12 +12,15 @@ namespace NewSLHS
 {
     public partial class RequestDetails : System.Web.UI.Page
     {
+        //SLHSClinicEntities db;
         protected void Page_Load(object sender, EventArgs e)
         {
             //int id = int.Parse(Request.QueryString["ResourceRequestID"]);
             //RequestDetailsDiv.InnerText = DetailsView1.Rows[1].Cells[0].Text.ToString();
             //RequestDetailsDiv.InnerText = DetailsView1.Rows[1].Cells[1].Text.ToString();
 
+            //SLHSClinicEntities db = new SLHSClinicEntities();
+            //Resource_Request request = db.Resource_Request.Find();
 
             SaveCancelDiv.Visible = !SaveCancelDiv.Visible;
 
@@ -45,6 +48,11 @@ namespace NewSLHS
             //Quantity
             //quantity.ToString(RequestDetailsView.Rows[4].Cells[1].Text);
             //FillRequest();
+            QuantityTextBox.Text = RequestDetailsView.Rows[6].Cells[1].Text;
+
+            //Issue Date
+            IssueDateTextBox.Text = RequestDetailsView.Rows[5].Cells[1].Text;
+            //IssueDateTextBox.DataBind(request);
 
         }
 

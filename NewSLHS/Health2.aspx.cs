@@ -22,23 +22,87 @@ namespace NewSLHS
             //    Response.Write("bye");
             //}
 
-            
-            
+
+
         }
 
-        protected void YesRadioButton_CheckedChanged(object sender, EventArgs e)
+        protected void TestingRadioBtnList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (YesRadioButton.Checked)
+            //the Autopostback  property of the RadioButtonList1 should be True
+            if (TestingRadioBtnList.SelectedValue == "Yes")
             {
-                ExaminationPanel.Visible = true;
+                SpeechPanel.Visible = true;
+            }
+            else
+            {
+                SpeechPanel.Visible = false;
+
             }
         }
 
-        protected void NoRadioButton_CheckedChanged(object sender, EventArgs e)
+        protected void CounselingRadioBtnList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (NoRadioButton.Checked)
+            //the Autopostback  property of the RadioButtonList1 should be True
+            if (TestingRadioBtnList.SelectedValue == "Yes")
             {
-                ExaminationPanel.Visible = false;
+                CounselingPanel.Visible = true;
+            }
+            else
+            {
+                CounselingPanel.Visible = false;
+
+            }
+        }
+
+        protected void LanguageBtnList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TestingRadioBtnList.SelectedValue == "Yes")
+            {
+                LanguagePanel.Visible = true;
+            }
+            else
+            {
+                LanguagePanel.Visible = false;
+
+            }
+        }
+
+        protected void HearingRadioBtnList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TestingRadioBtnList.SelectedValue == "Yes")
+            {
+                HearingPanel.Visible = true;
+            }
+            else
+            {
+                HearingPanel.Visible = false;
+
+            }
+        }
+
+        protected void NeuroRadioBtn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TestingRadioBtnList.SelectedValue == "Yes")
+            {
+                NeuroPanel.Visible = true;
+            }
+            else
+            {
+                NeuroPanel.Visible = false;
+
+            }
+        }
+
+        protected void PsyRadioBtnList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TestingRadioBtnList.SelectedValue == "Yes")
+            {
+                PsyPanel.Visible = true;
+            }
+            else
+            {
+                PsyPanel.Visible = false;
+
             }
         }
     }

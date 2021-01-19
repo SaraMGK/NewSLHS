@@ -223,6 +223,31 @@
     color: white;
 }
 
+.modal-footer {
+    display: -ms-flexbox;
+    /* display: flex; */
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: .75rem;
+    border-top: 1px solid #dee2e6;
+    border-bottom-right-radius: calc(.3rem - 1px);
+    border-bottom-left-radius: calc(.3rem - 1px);
+}
+
+.btn5 {
+    float: left;
+    background-color: #F1726B;
+    border-radius: 5px;
+    border: 1px solid #F1726B;
+    color: white;
+    width: 70px;
+    height: 30px;
+}
+
 
 .container1 {
     display: flex;
@@ -872,7 +897,7 @@ tr {
     margin: auto;
     width: 90%;
     text-align: right;
-    height: 100%;
+    height: 10%;
 }
 
 .small-search-bar {
@@ -896,6 +921,113 @@ tr {
     margin: 0;
     position: relative;
     right: 1%;
+}
+
+.all-res-div {
+    width: 90%;
+    margin: 2% 5%;
+    display: flex;
+    height: 90%;
+    flex-direction: row;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.resource-div {
+    width: min-content;
+    height: min-content;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin: 0 15px;
+}
+
+.image2-div {
+    background-color: #F2F2F2;
+    width: 90px;
+    height: 90px;
+    align-items: center;
+    text-align: center;
+    border-color: transparent;
+    border-radius: 10px;
+}
+
+.resource-image2 {
+    width: 35px;
+    padding-top: 20px; 
+}
+
+.img-label {
+    font-size: 10px;
+    font-weight: bold;
+    float: left;
+    padding-top: 5px;
+}
+
+.discr-label {
+    font-size: 10px;
+    text-align: left !important;
+    float: left;
+    padding-bottom: 7px;
+    padding-top: 2px;
+}
+
+.quan-ava-btn-div {
+    width: 100px;
+    height: 90px;
+    margin: 0 !important;
+}
+
+.avail-icon-div {
+    height: 20px;
+    width: 15px;
+    float: left;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    padding-top: 4px;
+}
+
+.avail-icon {
+    width: 15px;
+    float: left;
+}
+
+.quan-div {
+    height: 20px;
+    width: 20px;
+    align-content: center;
+    float: left;
+    padding-top: 2px;
+}
+
+req-btn-div {
+    height: 25px;
+    width: 60px;
+    align-items: center;
+    align-content: center;
+    overflow: hidden;
+    float: right;
+}
+
+.req-btn {
+    background-color: #FFD17A;
+    border: 1px solid #FFD17A;
+    border-radius: 15px;
+    height: 22px;
+    width: 60px;
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.quan-lb {
+    height: 30px;
+    width: 20px;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
 }
 
 /*Client List Page*/
@@ -1213,6 +1345,7 @@ label {
     color: #696969;
 }
 
+/*Used in Birth History Tab*/
 .child-input {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -1225,8 +1358,8 @@ label {
     border-radius: 5px;
     color: #707070;
     padding: 2px;
-    width: 20%;
-}
+/*    width: 20%;
+*/}
 
 .label3 {
 /*    margin-left: 150px;
@@ -1338,4 +1471,141 @@ label {
     padding-top: 5px;*/
     text-align: left;
     color: #696969;
+}
+
+/*Client General Information Tab*/
+.short-textbox {
+    border-radius: 5px;
+    border: 1.5px solid #707070;
+    margin: 5% 10px 5% 0px;
+    border-color: #707070;
+    padding: 4px;
+    width: 160px;
+    height: 30px;
+    font-size: 12px;
+}
+
+.address-title2 {
+    font-size: 10px;
+    color: #8C8B8B;
+    position: relative;
+    bottom: 10px;
+    left: 3px;
+    display: block;
+    padding: 4px 0px 4px 0;
+}
+
+/*profile Page*/
+
+.acc-info-div {
+    width: 540px;
+/*    height: 550px;
+*/    background-color: #e4f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+    border-collapse: collapse;
+    margin: 1.5% 0px 0px 15%;
+    display: flex;
+    /* flex-direction: column; */
+    /* align-content: space-between; */
+    padding: 3% 4%;
+}
+
+.icon-info-div {
+    display: flex;
+    justify-content: space-between;
+    /* height: 100%; */
+    padding: 3% 0;
+}
+
+.user-icon2 {
+    /* background-color: white; */
+    height: 55%;
+    /* border-color: transparent; */
+    /* border-radius: 10%; */
+    /* align-items: center; */
+    text-align: center;
+}
+
+.account-info {
+    display: inline;
+    /* background-color: #b4e6e3; */
+    border-color: transparent;
+    border-radius: 10px;
+    padding: 3%;
+    /* margin-top: 9%; */
+    /* height: 105%; */
+    /* width: 70%; */
+    padding-left: 50px;
+}
+
+.info-label2 {
+    display: inline-block;
+    
+    zoom: 1;
+    float: left;
+    padding-top: 5px;
+    text-align: left;
+    width: 90px;
+    font-weight: bold !important;
+
+}
+
+.change-pass-btn {
+    background-color: #8EA7A5;
+    border-radius: 8px;
+    border: 1px solid #8EA7A5;
+    width: 140px;
+    height: 30px;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+
+.change-pass-div {
+    padding: inherit;
+    padding-top: 30px;
+}
+
+/*Start Session Page*/
+.sessions-div {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    align-content: space-between;
+    /* margin: 5%; */
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5% 0 5% 20%;
+    width: 60%;
+    height: 100%;
+    /* overflow: hidden; */
+    flex-wrap: wrap;
+}
+
+.session-type-div {
+    cursor: pointer;
+    background-color: #E3F1C2;
+    border-radius: 10px;
+    border-color: transparent;
+    height: 95px;
+    width: 95px;
+    align-items: center;
+    text-align: center;
+    margin: 40px;
+}
+
+.session-type-lb {
+    font-size: 10px;
+    color: #969B89;
+    font-weight: bold;
+}
+    
+}
+
+.session-type-icon {
+    color: #797575 !important;
+    font-size: 30px !important;
+    padding-top: 10px !important;
 }

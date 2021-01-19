@@ -57,6 +57,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
@@ -116,7 +117,9 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Adult.aspx" />
+    <Content Include="AssessmentProposal.aspx" />
     <Content Include="Birth.aspx" />
+    <Content Include="Calendar.aspx" />
     <Content Include="CalendarTest.aspx" />
     <Content Include="Child.aspx" />
     <Content Include="Child2.aspx" />
@@ -126,7 +129,10 @@
     <Content Include="Health.aspx" />
     <Content Include="Health2.aspx" />
     <Content Include="Hearing.aspx" />
+    <Content Include="homepageTest.aspx" />
     <Content Include="Identification.aspx" />
+    <Content Include="Images\availableIcon.png" />
+    <Content Include="Images\userIcon.png" />
     <Content Include="IncompleteGeneralInformation.aspx" />
     <Content Include="Images\User.png" />
     <Content Include="InsertGeneralInformation.aspx" />
@@ -233,6 +239,7 @@
     <Content Include="login\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="ParentalHistory.aspx" />
     <Content Include="Physician.aspx" />
+    <Content Include="Profile.aspx" />
     <Content Include="reqdettest.aspx" />
     <Content Include="School.aspx" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
@@ -450,6 +457,8 @@
     <Content Include="SessionList.aspx" />
     <Content Include="Social.aspx" />
     <Content Include="Speech.aspx" />
+    <Content Include="StartSession.aspx" />
+    <Content Include="StudentList.aspx" />
     <Content Include="test.aspx" />
     <Content Include="ClientGeneralInformation.aspx" />
     <Content Include="ClientsList.aspx" />
@@ -461,7 +470,16 @@
     <Content Include="DAL\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Scheduler.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Scheduler.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Scheduler.dbml.layout">
+      <DependentUpon>Scheduler.dbml</DependentUpon>
+    </None>
     <Content Include="Data.ashx" />
+    <Content Include="Save.ashx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Homepage.aspx" />
     <Content Include="Images\background.png" />
@@ -571,12 +589,26 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AssessmentProposal.aspx.cs">
+      <DependentUpon>AssessmentProposal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssessmentProposal.aspx.designer.cs">
+      <DependentUpon>AssessmentProposal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Birth.aspx.cs">
       <DependentUpon>Birth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Birth.aspx.designer.cs">
       <DependentUpon>Birth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="CalendarTest.aspx.cs">
       <DependentUpon>CalendarTest.aspx</DependentUpon>
@@ -626,6 +658,9 @@
     <Compile Include="DAL\Client_View.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Diagnosis.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Fluency.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -661,6 +696,13 @@
     </Compile>
     <Compile Include="Hearing.aspx.designer.cs">
       <DependentUpon>Hearing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="homepageTest.aspx.cs">
+      <DependentUpon>homepageTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homepageTest.aspx.designer.cs">
+      <DependentUpon>homepageTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Identification.aspx.cs">
       <DependentUpon>Identification.aspx</DependentUpon>
@@ -753,9 +795,11 @@
     </Compile>
     <Compile Include="DAL\Birth.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DAL\Child.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DAL\Client.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -769,9 +813,6 @@
     <Compile Include="DAL\Communication.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Diagnosi.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\Fluharty.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -783,6 +824,7 @@
     </Compile>
     <Compile Include="DAL\Hearing.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DAL\Immunization.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -864,6 +906,7 @@
     </Compile>
     <Compile Include="DAL\Social.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DAL\Special_Classroom.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -934,6 +977,13 @@
     <Compile Include="Physician.aspx.designer.cs">
       <DependentUpon>Physician.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports.aspx.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
@@ -976,6 +1026,14 @@
     </Compile>
     <Compile Include="ResourcesList.aspx.designer.cs">
       <DependentUpon>ResourcesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Save.ashx.cs">
+      <DependentUpon>Save.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Scheduler.dbml</DependentUpon>
     </Compile>
     <Compile Include="School.aspx.cs">
       <DependentUpon>School.aspx</DependentUpon>
@@ -1040,12 +1098,26 @@
     <Compile Include="Speech.aspx.designer.cs">
       <DependentUpon>Speech.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StartSession.aspx.cs">
+      <DependentUpon>StartSession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StartSession.aspx.designer.cs">
+      <DependentUpon>StartSession.aspx</DependentUpon>
+    </Compile>
     <Compile Include="StudentDetails.aspx.cs">
       <DependentUpon>StudentDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="StudentDetails.aspx.designer.cs">
       <DependentUpon>StudentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentList.aspx.cs">
+      <DependentUpon>StudentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentList.aspx.designer.cs">
+      <DependentUpon>StudentList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Students.aspx.cs">
       <DependentUpon>Students.aspx</DependentUpon>
@@ -1106,6 +1178,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>

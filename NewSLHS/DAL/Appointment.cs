@@ -10,6 +10,7 @@
 namespace NewSLHS.DAL
 {
     using System;
+    using NewSLHS;
     using System.Collections.Generic;
     
     public partial class Appointment

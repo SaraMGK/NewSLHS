@@ -152,7 +152,7 @@
                         </div>
     
                         
-                        <div class="text-center p-t-90">
+<%--                        <div class="text-center p-t-90">
                             <span style="color:white" class="txt1">Forgot</span>
                             <a class="txt1" href="">
                                  Password
@@ -162,7 +162,7 @@
                             <a class="txt1" href="">
                                 Username?
                            </a>
-                        </div>
+                        </div>--%>
                         <!-- <div class="text-center ">
                             <a class="txt1" href="">
                                 Create Account

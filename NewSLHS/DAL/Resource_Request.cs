@@ -7,9 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NewSLHS.DAL
+namespace NewSLHS
 {
     using System;
+    using NewSLHS;
+    using NewSLHS.DAL;
     using System.Collections.Generic;
     
     public partial class Resource_Request
