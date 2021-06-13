@@ -38,6 +38,8 @@
     text-align: left;
     position: sticky;
     top: 100%;
+    margin-top: auto;
+    height: 50px;
 }
 
 .month {
@@ -410,7 +412,8 @@
         transition: all 0.3 ease;
         display: flex;
         flex-direction: column;
-        height: 93vh;
+        height: min-content;
+        margin-bottom: -50px;
     }
 
         .wrapper1 .main-container1 .item {
@@ -923,15 +926,31 @@ tr {
     right: 1%;
 }
 
+.new-search-btn {
+    border-radius: 15px;
+    background-color: #e8e8e8;
+    color: black;
+    height: 40px;
+    width: 40px;
+    border: 4px solid white;
+    margin: 0;
+    position: relative;
+    right: 1%;
+    /* bottom: 6px; */
+    text-align: center;
+    display: inline-block;
+    line-height: 33px;
+}
+
 .all-res-div {
     width: 90%;
-    margin: 2% 5%;
+    margin: 5% 5%;
     display: flex;
     height: 90%;
     flex-direction: row;
     align-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+/*    align-items: center;
+*/    flex-wrap: wrap;
 }
 
 .resource-div {
@@ -940,30 +959,37 @@ tr {
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;
-    margin: 0 15px;
+    margin: 20px 30px;
 }
 
 .image2-div {
-    background-color: #F2F2F2;
-    width: 90px;
-    height: 90px;
+    background-color: #EAEEEE;
+    /*    background-color: #c3e8e5;
+*/ width: 125px;
+    height: 145px;
     align-items: center;
     text-align: center;
     border-color: transparent;
-    border-radius: 10px;
+    /*    border-radius: 6px;
+*/ line-height: 150px;
 }
 
 .resource-image2 {
-    width: 35px;
-    padding-top: 20px; 
+    width: 40%;
+}
+
+.image-title {
+    padding-top: 15px;
+    height: 40px;
 }
 
 .img-label {
     font-size: 10px;
     font-weight: bold;
     float: left;
-    padding-top: 5px;
+    color: #3D4040;
 }
+
 
 .discr-label {
     font-size: 10px;
@@ -974,9 +1000,10 @@ tr {
 }
 
 .quan-ava-btn-div {
-    width: 100px;
-    height: 90px;
-    margin: 0 !important;
+    width: 125px;
+    height: 7px;
+/*    margin: 10px 0 !important;
+*/    text-align: end;
 }
 
 .avail-icon-div {
@@ -996,42 +1023,46 @@ tr {
 
 .quan-div {
     height: 20px;
-    width: 20px;
-    align-content: center;
+/*    width: 20px;
+*/    /*align-content: center;*/
     float: left;
-    padding-top: 2px;
-}
+/*    padding-top: 2px;
+*/}
 
-req-btn-div {
+.req-btn-div {
     height: 25px;
-    width: 60px;
+    width: 125px;
     align-items: center;
     align-content: center;
     overflow: hidden;
     float: right;
+    text-align: end;
 }
 
 .req-btn {
-    background-color: #FFD17A;
-    border: 1px solid #FFD17A;
+    background-color: #3BA69E;
+    border: 1px solid #3BA69E;
     border-radius: 15px;
     height: 22px;
-    width: 60px;
-    font-size: 10px;
+    width: 56px;
+    font-size: 9.3px;
     font-weight: bold;
     color: white;
 }
 
 .quan-lb {
     height: 30px;
-    width: 20px;
-    display: inline-block;
+    /*    width: 20px;
+*/ display: inline-block;
     align-items: center;
     text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    color: #828989;
 }
 
 /*Client List Page*/
-.client-div {
+    .client-div {
     width: 50%;
     height: 100%;
     background-color: #e4f5f5;

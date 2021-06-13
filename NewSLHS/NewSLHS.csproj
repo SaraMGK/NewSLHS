@@ -131,7 +131,17 @@
     <Content Include="Hearing.aspx" />
     <Content Include="homepageTest.aspx" />
     <Content Include="Identification.aspx" />
+    <Content Include="Images\Audiometer2.png" />
+    <Content Include="Images\Audiometer3.png" />
     <Content Include="Images\availableIcon.png" />
+    <Content Include="Images\ch.png" />
+    <Content Include="Images\d.png" />
+    <Content Include="Images\f.png" />
+    <Content Include="Images\l.png" />
+    <Content Include="Images\letterb.png" />
+    <Content Include="Images\r.png" />
+    <Content Include="Images\s.png" />
+    <Content Include="Images\sh.png" />
     <Content Include="Images\userIcon.png" />
     <Content Include="IncompleteGeneralInformation.aspx" />
     <Content Include="Images\User.png" />
@@ -241,6 +251,7 @@
     <Content Include="Physician.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="reqdettest.aspx" />
+    <Content Include="ResourcesList.aspx" />
     <Content Include="School.aspx" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
@@ -531,7 +542,7 @@
     <Content Include="RequestDetails.aspx" />
     <Content Include="Requests.aspx" />
     <Content Include="Resources.aspx" />
-    <Content Include="ResourcesList.aspx" />
+    <Content Include="ResourcesListOutdated.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1019,6 +1030,13 @@
     </Compile>
     <Compile Include="Resources.aspx.designer.cs">
       <DependentUpon>Resources.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesListOutdated.aspx.cs">
+      <DependentUpon>ResourcesListOutdated.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResourcesListOutdated.aspx.designer.cs">
+      <DependentUpon>ResourcesListOutdated.aspx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesList.aspx.cs">
       <DependentUpon>ResourcesList.aspx</DependentUpon>

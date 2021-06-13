@@ -4,19 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using NewSLHS;
 using NewSLHS.DAL;
-using System.Data;
+using NewSLHS;
 
-
-namespace NewSLHS
+namespace SLHSClinic
 {
-    public partial class RT : System.Web.UI.Page
+    public partial class ResourcesList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+        protected void viewResource()
+        {
+            //SLHSClinicEntities db = new SLHSClinicEntities();
+            //List<CustomListItem> 
+        }
     }
 }
